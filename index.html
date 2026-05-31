@@ -1683,6 +1683,35 @@ table.tbl { width: 100%; border-collapse: collapse; }
   }
 }
 
+
+/* ───── Supabase connection status ───── */
+.supabase-status {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  z-index: 9998;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text2);
+  font-size: 12px;
+  box-shadow: var(--shadow-lg);
+}
+.supabase-status::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--text3);
+}
+.supabase-status.ok::before { background: var(--accent); }
+.supabase-status.warn::before { background: var(--warn); }
+.supabase-status.err::before { background: var(--danger); }
+
 </style>
 </head>
 <body>
@@ -1858,6 +1887,8 @@ table.tbl { width: 100%; border-collapse: collapse; }
   </div>
 </div>
 
+<div id="supabaseStatus" class="supabase-status warn">Supabase: conectando…</div>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
@@ -1881,6 +1912,19 @@ const sbClient = window.supabase
 let sbVersion = 0;
 let sbSaveTimer = null;
 let sbConflictShown = false;
+
+function setSupabaseStatus(type, text) {
+  const el = document.getElementById('supabaseStatus');
+  if (!el) return;
+  el.classList.remove('ok','warn','err');
+  el.classList.add(type);
+  el.textContent = text;
+}
+
+function supabaseErrorMessage(error) {
+  if (!error) return 'Error desconocido';
+  return error.message || error.details || JSON.stringify(error);
+}
 
 /* ── status / regions catalogs ── */
 const STATUSES = ['On going','Open','Stand by','Canceled','Closed','Delegated'];
@@ -2017,6 +2061,8 @@ async function load() {
 
       if (error) throw error;
 
+      setSupabaseStatus('ok', 'Supabase: conectado');
+
       if (data) {
         sbVersion = data.version || 1;
         const remoteProjects = data.data && Array.isArray(data.data.projects) ? data.data.projects : null;
@@ -2036,10 +2082,17 @@ async function load() {
       loadLocalOrSeed();
       saveLocal();
       await uploadToSupabase(true);
+      setSupabaseStatus('ok', 'Supabase: base inicial subida');
       return;
     } catch(e) {
       console.warn('Supabase no disponible, usando datos locales:', e);
+      setSupabaseStatus('err', 'Supabase: error de conexión');
+      setTimeout(() => {
+        alert('No se pudo conectar a Supabase. Revisá que la tabla gs_projects_state exista, que las policies estén creadas y que el HTML tenga la URL/key correctas. Error: ' + supabaseErrorMessage(e));
+      }, 600);
     }
+  } else {
+    setSupabaseStatus('err', 'Supabase: librería no cargada');
   }
 
   loadLocalOrSeed();
@@ -2080,6 +2133,7 @@ async function uploadToSupabase(forceUpsert=false) {
 
       if (error) throw error;
       sbVersion = data.version || 1;
+      setSupabaseStatus('ok', 'Supabase: guardado');
       return;
     }
 
@@ -2108,8 +2162,10 @@ async function uploadToSupabase(forceUpsert=false) {
 
     sbVersion = data.version || nextVersion;
     sbConflictShown = false;
+    setSupabaseStatus('ok', 'Supabase: guardado');
   } catch(e) {
     console.error('No se pudo guardar en Supabase:', e);
+    setSupabaseStatus('err', 'Supabase: no guardó');
   }
 }
 
@@ -5534,6 +5590,15 @@ window.addEventListener('DOMContentLoaded', async () => {
     }
   });
 });
+
+window.forceSupabaseUpload = async function() {
+  if (!window.gs || !window.gs.uploadToSupabase) {
+    alert('No está disponible la función de Supabase.');
+    return;
+  }
+  await window.gs.uploadToSupabase(true);
+  alert('Intento de subida terminado. Mirá el estado abajo a la derecha.');
+};
 
 window.App = App;
 
