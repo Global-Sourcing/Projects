@@ -1859,6 +1859,7 @@ table.tbl { width: 100%; border-collapse: collapse; }
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
 /* ─────────────────────────────────────────────
    Global Sourcing Tracker v2 — core
@@ -1867,6 +1868,19 @@ table.tbl { width: 100%; border-collapse: collapse; }
 
 const STORE_V2 = 'gs_tracker_v2';
 const STORE_V1 = 'gs_projects_v1';
+
+const SUPABASE_URL = 'https://rgbphnlrrgrupaklrcio.supabase.co';
+const SUPABASE_ANON_KEY = 'sb_publishable_Y15gwohp9nJi4bQF7yEnlg_E1nbJ3Um';
+const SUPABASE_TABLE = 'gs_projects_state';
+const SUPABASE_ROW_ID = 'main';
+
+const sbClient = window.supabase
+  ? window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
+  : null;
+
+let sbVersion = 0;
+let sbSaveTimer = null;
+let sbConflictShown = false;
 
 /* ── status / regions catalogs ── */
 const STATUSES = ['On going','Open','Stand by','Canceled','Closed','Delegated'];
@@ -1932,41 +1946,16 @@ const state = {
 };
 
 /* ── persistence ── */
-function load() {
-  const raw = localStorage.getItem(STORE_V2);
-  if (raw) {
-    try {
-      const data = JSON.parse(raw);
-      state.projects = data.projects || [];
-      state.projects.forEach(p => {
-        p.notes ||= [];
-        p.fechas ||= EMPTY_FECHAS();
-        if (!p.createdAt) p.createdAt = new Date().toISOString();
-      });
-      return;
-    } catch(e) { console.error('load v2 failed', e); }
-  }
-  // migrate from v1
-  const v1 = localStorage.getItem(STORE_V1);
-  if (v1) {
-    try {
-      const arr = JSON.parse(v1);
-      state.projects = arr.map(p => ({
-        ...p,
-        notes: [],
-        prioridad: 'media',
-        bloqueadoPor: null,
-        bloqueadoDesde: null,
-        createdAt: new Date().toISOString(),
-        updatedAt: new Date().toISOString(),
-        fechas: p.fechas || EMPTY_FECHAS(),
-      }));
-      save();
-      return;
-    } catch(e) { console.error('v1 migrate failed', e); }
-  }
-  // first run — seed
-  state.projects = DEFAULT_PROJECTS.map(p => ({
+function normalizeProject(p) {
+  p.notes ||= [];
+  p.fechas ||= EMPTY_FECHAS();
+  if (!p.createdAt) p.createdAt = new Date().toISOString();
+  if (!p.updatedAt) p.updatedAt = new Date().toISOString();
+  return p;
+}
+
+function seedProjects() {
+  state.projects = DEFAULT_PROJECTS.map(p => normalizeProject({
     ...p,
     notes: [],
     prioridad: 'media',
@@ -1976,14 +1965,152 @@ function load() {
     updatedAt: new Date().toISOString(),
     fechas: EMPTY_FECHAS(),
   }));
-  save();
 }
 
-function save() {
+function loadLocalOrSeed() {
+  const raw = localStorage.getItem(STORE_V2);
+  if (raw) {
+    try {
+      const data = JSON.parse(raw);
+      state.projects = (data.projects || []).map(normalizeProject);
+      return true;
+    } catch(e) { console.error('load v2 failed', e); }
+  }
+
+  const v1 = localStorage.getItem(STORE_V1);
+  if (v1) {
+    try {
+      const arr = JSON.parse(v1);
+      state.projects = arr.map(p => normalizeProject({
+        ...p,
+        notes: [],
+        prioridad: 'media',
+        bloqueadoPor: null,
+        bloqueadoDesde: null,
+        createdAt: new Date().toISOString(),
+        updatedAt: new Date().toISOString(),
+        fechas: p.fechas || EMPTY_FECHAS(),
+      }));
+      return true;
+    } catch(e) { console.error('v1 migrate failed', e); }
+  }
+
+  seedProjects();
+  return false;
+}
+
+function saveLocal() {
   localStorage.setItem(STORE_V2, JSON.stringify({
     projects: state.projects,
     savedAt: new Date().toISOString(),
   }));
+}
+
+async function load() {
+  if (sbClient) {
+    try {
+      const { data, error } = await sbClient
+        .from(SUPABASE_TABLE)
+        .select('id,data,version,updated_at')
+        .eq('id', SUPABASE_ROW_ID)
+        .maybeSingle();
+
+      if (error) throw error;
+
+      if (data) {
+        sbVersion = data.version || 1;
+        const remoteProjects = data.data && Array.isArray(data.data.projects) ? data.data.projects : null;
+
+        if (remoteProjects && remoteProjects.length) {
+          state.projects = remoteProjects.map(normalizeProject);
+          saveLocal();
+          return;
+        }
+
+        loadLocalOrSeed();
+        saveLocal();
+        await uploadToSupabase(true);
+        return;
+      }
+
+      loadLocalOrSeed();
+      saveLocal();
+      await uploadToSupabase(true);
+      return;
+    } catch(e) {
+      console.warn('Supabase no disponible, usando datos locales:', e);
+    }
+  }
+
+  loadLocalOrSeed();
+  saveLocal();
+}
+
+function save() {
+  saveLocal();
+  scheduleSupabaseSave();
+}
+
+function scheduleSupabaseSave() {
+  if (!sbClient) return;
+  clearTimeout(sbSaveTimer);
+  sbSaveTimer = setTimeout(() => uploadToSupabase(false), 600);
+}
+
+async function uploadToSupabase(forceUpsert=false) {
+  if (!sbClient) return;
+
+  const payload = {
+    projects: state.projects,
+    savedAt: new Date().toISOString(),
+  };
+
+  try {
+    if (forceUpsert || !sbVersion) {
+      const { data, error } = await sbClient
+        .from(SUPABASE_TABLE)
+        .upsert({
+          id: SUPABASE_ROW_ID,
+          data: payload,
+          version: Math.max(1, sbVersion || 1),
+          updated_at: new Date().toISOString(),
+        }, { onConflict: 'id' })
+        .select('version')
+        .single();
+
+      if (error) throw error;
+      sbVersion = data.version || 1;
+      return;
+    }
+
+    const nextVersion = sbVersion + 1;
+    const { data, error } = await sbClient
+      .from(SUPABASE_TABLE)
+      .update({
+        data: payload,
+        version: nextVersion,
+        updated_at: new Date().toISOString(),
+      })
+      .eq('id', SUPABASE_ROW_ID)
+      .eq('version', sbVersion)
+      .select('version')
+      .maybeSingle();
+
+    if (error) throw error;
+
+    if (!data) {
+      if (!sbConflictShown) {
+        sbConflictShown = true;
+        alert('Hay cambios más recientes en Supabase. Recargá la página antes de seguir editando para no pisar información.');
+      }
+      return;
+    }
+
+    sbVersion = data.version || nextVersion;
+    sbConflictShown = false;
+  } catch(e) {
+    console.error('No se pudo guardar en Supabase:', e);
+  }
 }
 
 function getProject(id) {
@@ -2346,7 +2473,7 @@ function stageDuration(p, fromKey, toKey, useBusiness=true) {
 
 /* expose globally */
 window.gs = {
-  state, save, load,
+  state, save, load, uploadToSupabase,
   getProject, updateProject, updateFecha, createProject, deleteProject,
   addNote, deleteNote,
   evaluateProject, currentStage, nextStage,
@@ -5359,7 +5486,7 @@ function excelDateToISO(val) {
 }
 
 /* ── init ── */
-window.addEventListener('DOMContentLoaded', () => {
+window.addEventListener('DOMContentLoaded', async () => {
   // theme + tweaks
   App.initTweaks();
   // tweaks panel UI sync
@@ -5371,7 +5498,7 @@ window.addEventListener('DOMContentLoaded', () => {
     });
   });
   // data
-  gs.load();
+  await gs.load();
   // nav wiring
   document.querySelectorAll('.nav-item').forEach(n => {
     n.addEventListener('click', () => App.go(n.dataset.view));
