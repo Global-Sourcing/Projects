@@ -1687,19 +1687,20 @@ table.tbl { width: 100%; border-collapse: collapse; }
 /* ───── Supabase connection status ───── */
 .supabase-status {
   position: fixed;
-  right: 18px;
-  bottom: 18px;
+  right: 14px;
+  bottom: 14px;
   z-index: 9998;
-  display: inline-flex;
+  display: none;
   align-items: center;
   gap: 7px;
-  padding: 8px 12px;
+  padding: 7px 10px;
   border-radius: 999px;
   border: 1px solid var(--border);
   background: var(--surface);
   color: var(--text2);
-  font-size: 12px;
+  font-size: 11px;
   box-shadow: var(--shadow-lg);
+  pointer-events: none;
 }
 .supabase-status::before {
   content: "";
@@ -1913,12 +1914,25 @@ let sbVersion = 0;
 let sbSaveTimer = null;
 let sbConflictShown = false;
 
+let sbStatusHideTimer = null;
+
 function setSupabaseStatus(type, text) {
   const el = document.getElementById('supabaseStatus');
   if (!el) return;
+
+  clearTimeout(sbStatusHideTimer);
   el.classList.remove('ok','warn','err');
   el.classList.add(type);
   el.textContent = text;
+  el.style.display = 'inline-flex';
+
+  // No lo dejamos fijo: si conectó/guardó, se oculta solo.
+  // Si hay error, queda visible para que puedas verlo.
+  if (type === 'ok') {
+    sbStatusHideTimer = setTimeout(() => {
+      el.style.display = 'none';
+    }, 1800);
+  }
 }
 
 function supabaseErrorMessage(error) {
