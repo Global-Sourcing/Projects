@@ -2212,6 +2212,133 @@ table.tbl { width: 100%; border-collapse: collapse; }
   #gantt-svg-wrap { padding: 8px 8px 10px !important; }
 }
 
+
+
+/* ───── v34 · ajustes gerencia: Gantt, Benchmark, Riesgo, Análisis y PDF ───── */
+.gantt-detail-table-v34 .tbl { min-width: 1120px !important; table-layout: fixed; }
+.gantt-detail-table-v34 th, .gantt-detail-table-v34 td { padding: 7px 8px !important; font-size: 11px !important; }
+.gantt-detail-table-v34 th { cursor: pointer; user-select: none; }
+.gantt-detail-table-v34 th:nth-child(1), .gantt-detail-table-v34 td:nth-child(1) { width: 19%; }
+.gantt-detail-table-v34 th:nth-child(2), .gantt-detail-table-v34 td:nth-child(2) { width: 6%; }
+.gantt-detail-table-v34 th:nth-child(3), .gantt-detail-table-v34 td:nth-child(3) { width: 10%; }
+.gantt-detail-table-v34 th:nth-child(4), .gantt-detail-table-v34 td:nth-child(4) { width: 12%; }
+.gantt-detail-table-v34 th:nth-child(5), .gantt-detail-table-v34 td:nth-child(5) { width: 8%; }
+.gantt-detail-table-v34 th:nth-child(6), .gantt-detail-table-v34 td:nth-child(6) { width: 10%; }
+.gantt-detail-table-v34 th:nth-child(7), .gantt-detail-table-v34 td:nth-child(7) { width: 10%; }
+.gantt-detail-table-v34 th:nth-child(8), .gantt-detail-table-v34 td:nth-child(8) { width: 13%; }
+.gantt-detail-table-v34 th:nth-child(9), .gantt-detail-table-v34 td:nth-child(9) { width: 12%; }
+.gantt-detail-table-v34 .comment-cell { max-width: 150px !important; line-height: 1.25 !important; }
+.gantt-detail-table-v34 .col-name .sub { font-size: 10px !important; }
+.benchmark-table-v34 .tbl { width:100% !important; min-width:0 !important; table-layout:fixed !important; }
+.benchmark-table-v34 th, .benchmark-table-v34 td { padding:5px 6px !important; font-size:10.5px !important; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.benchmark-table-v34 th:nth-child(1), .benchmark-table-v34 td:nth-child(1) { width:20%; }
+.benchmark-table-v34 th:nth-child(2), .benchmark-table-v34 td:nth-child(2) { width:13%; }
+.benchmark-table-v34 th:nth-child(3), .benchmark-table-v34 td:nth-child(3) { width:7%; }
+.benchmark-table-v34 th:nth-child(4), .benchmark-table-v34 td:nth-child(4) { width:8%; }
+.benchmark-table-v34 th:nth-child(5), .benchmark-table-v34 td:nth-child(5) { width:7%; }
+.benchmark-table-v34 th:nth-child(6), .benchmark-table-v34 td:nth-child(6) { width:7%; }
+.benchmark-table-v34 th:nth-child(7), .benchmark-table-v34 td:nth-child(7) { width:12%; }
+.benchmark-table-v34 th:nth-child(8), .benchmark-table-v34 td:nth-child(8) { width:12%; }
+.benchmark-table-v34 th:nth-child(9), .benchmark-table-v34 td:nth-child(9) { width:14%; min-width:110px; }
+.benchmark-table-v34 input.input, .benchmark-table-v34 select.input { height:23px !important; padding:2px 4px !important; font-size:10.5px !important; min-width:0 !important; width:100% !important; }
+.benchmark-table-v34 .benchmark-counter { font-size:9.8px !important; padding:2px 5px !important; max-width:100%; }
+.benchmark-kpis-v34 .kpi { min-height:70px !important; padding:8px 10px !important; }
+.benchmark-kpis-v34 .kpi-val { font-size:21px !important; }
+.benchmark-kpis-v34 .kpi-label { font-size:8.5px !important; }
+.benchmark-kpis-v34 .kpi-sub { font-size:9.5px !important; }
+.risk-v34 .card { padding:12px 14px !important; }
+.risk-v34 .card-title { font-size:9px !important; margin-bottom:7px !important; }
+.risk-v34 .risk-chip-name { font-size:11.5px !important; }
+.risk-v34 .risk-chip-meta { font-size:9.8px !important; }
+.risk-v34 .risk-quad-title { font-size:12px !important; }
+.risk-v34 .risk-quad-sub { font-size:9.8px !important; }
+.risk-v34 .risk-quad-count strong { font-size:16px !important; }
+.analysis-fixed-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:12px; }
+.analysis-bars .bar-row { grid-template-columns:80px 1fr 52px; display:grid; gap:8px; align-items:center; margin-bottom:7px; font-size:11px; }
+.analysis-bars .bar-label { width:auto; }
+.analysis-bars .bar-track { height:17px; }
+.analysis-bars .bar-fill { background:var(--accent); }
+.analysis-bars .bar-fill.info { background:var(--info); }
+.analysis-bars .bar-val { width:auto; font-weight:700; }
+@media (max-width: 1180px) { .analysis-fixed-grid { grid-template-columns:1fr; } }
+@media print {
+  @page { size: A4 landscape; margin: 5mm; }
+  html, body { width: 297mm !important; min-height: 210mm !important; margin:0 !important; padding:0 !important; overflow:hidden !important; background:white !important; -webkit-print-color-adjust:exact !important; print-color-adjust:exact !important; }
+  .lock-screen, .sidebar, .tweaks-toggle, .tweaks-panel, .drawer-backdrop, .drawer, .btn, .filter-bar, .page-h, #supabaseStatus { display:none !important; }
+  .shell, .main, #view-root { display:block !important; width:100% !important; margin:0 !important; padding:0 !important; max-width:none !important; min-height:0 !important; }
+  .exec-onepager { width:287mm !important; min-height:198mm !important; max-width:none !important; margin:0 auto !important; padding:8mm 9mm !important; border:none !important; border-radius:0 !important; box-shadow:none !important; box-sizing:border-box !important; page-break-inside:avoid !important; break-inside:avoid !important; }
+  .exec-header-simple { padding-bottom:5mm !important; margin-bottom:4mm !important; }
+  .exec-title { font-size:24px !important; }
+  .exec-metrics.exec-top-2 { grid-template-columns:repeat(2,1fr) !important; gap:4mm !important; margin-bottom:4mm !important; }
+  .exec-metric { padding:4mm !important; min-height:22mm !important; }
+  .exec-metric .val { font-size:28px !important; }
+  .exec-mini-table th, .exec-mini-table td { padding:2.4mm 3mm !important; font-size:11px !important; }
+  .exec-grid-2 { grid-template-columns:1fr 1fr !important; gap:5mm !important; }
+  .exec-chart-card { padding:4mm !important; min-height:62mm !important; }
+  .exec-bar-track { height:7mm !important; }
+  .exec-bar-row { margin:2.4mm 0 !important; grid-template-columns:18mm 1fr 18mm !important; }
+}
+
+
+
+/* ───── v36 · fit 13.3", compact timeline detail, stacked analysis, Excel backup ───── */
+html, body { overflow-x: hidden !important; }
+.sidebar { width: 150px !important; }
+.main { margin-left: 150px !important; padding: 10px 10px 14px !important; max-width: calc(100vw - 150px) !important; overflow-x: hidden !important; }
+.sb-brand { padding: 10px 8px 8px !important; }
+.sb-brand .label { font-size: 7.8px !important; letter-spacing: .14em !important; }
+.sb-brand .name { font-size: 12px !important; line-height: 1.15 !important; }
+.sb-section { padding: 8px 8px 4px !important; font-size: 8px !important; }
+.nav-item { padding: 6px 8px !important; gap: 6px !important; font-size: 10.5px !important; }
+.nav-icon { width: 12px !important; height: 12px !important; }
+.nav-pill { font-size: 9px !important; padding: 0 5px !important; }
+.page-h { margin-bottom: 8px !important; gap: 8px !important; }
+.page-h h1 { font-size: 22px !important; }
+.page-h p { font-size: 12px !important; }
+.card { padding: 10px 11px !important; max-width: 100% !important; }
+.card-tight.card, .gantt-help-card { padding: 6px 8px !important; }
+.filter-bar { gap: 5px 7px !important; margin-bottom: 8px !important; }
+.filter-label { font-size: 9px !important; }
+.pill { padding: 3px 8px !important; min-height: 24px !important; font-size: 10.5px !important; }
+.btn { padding: 5px 8px !important; font-size: 11px !important; }
+.input, select.input, textarea.input { font-size: 11px !important; min-width: 0 !important; }
+.input-search { width: 205px !important; flex-basis: 205px !important; height: 28px !important; }
+#gantt-svg-wrap { padding: 6px !important; overflow-x: hidden !important; }
+#gantt-svg-wrap svg { width: 100% !important; max-width: 100% !important; min-width: 0 !important; }
+.gantt-detail-table-v34 .tbl { min-width: 980px !important; }
+.gantt-detail-table-v34 th, .gantt-detail-table-v34 td { padding: 5px 6px !important; font-size: 10px !important; }
+.drawer { width: min(620px, calc(100vw - 18px)) !important; max-width: calc(100vw - 18px) !important; overflow-x: hidden !important; }
+.drawer-head { padding: 10px 14px !important; }
+.drawer-tabs { padding: 0 12px !important; overflow-x:auto !important; }
+.drawer-tab { padding: 8px 10px !important; font-size: 10px !important; }
+.drawer-body { padding: 10px 12px 14px !important; overflow-x: hidden !important; }
+.field-grid { min-width:0 !important; }
+.field { min-width:0 !important; }
+.compact-section { margin-top: 10px; }
+.compact-section-head { align-items:center !important; margin-bottom: 6px !important; }
+.compact-action-row { display:flex; justify-content:flex-end; margin-top:8px; }
+.compact-list { gap:6px !important; }
+.compact-edit-card { border:1px solid var(--border); border-left:3px solid var(--border2); border-radius:9px; background:var(--surface); padding:7px 8px; font-size:10.5px; }
+.compact-edit-card label, .compact-add-form label { font-size:8.5px !important; letter-spacing:.05em !important; }
+.compact-edit-card .input, .compact-add-form .input { font-size:10.5px !important; }
+.compact-edit-card textarea.input, .compact-add-form textarea.input { min-height:34px !important; max-height:60px !important; }
+.timeline-actions-card { margin-top: 8px !important; }
+.timeline-actions-card .card-title { font-size:9px !important; }
+.timeline-actions-card .ct-sub { font-size:9px !important; }
+.analysis-status-legend { display:flex; flex-wrap:wrap; gap:7px; margin:0 0 8px; font-size:9.5px; color:var(--text3); }
+.analysis-status-legend span { display:inline-flex; align-items:center; gap:4px; }
+.analysis-status-legend i { width:8px; height:8px; border-radius:2px; display:inline-block; }
+.analysis-stack-track { height:20px !important; border-radius:999px; overflow:hidden; }
+.analysis-stack { height:100%; display:flex; border-radius:999px; overflow:hidden; }
+.analysis-stack-seg { height:100%; display:flex; align-items:center; justify-content:center; color:white; font-family:'JetBrains Mono',monospace; font-size:9px; font-weight:800; line-height:1; text-shadow:0 1px 1px rgba(0,0,0,.35); border-right:1px solid rgba(255,255,255,.25); min-width:0; }
+.analysis-stack-seg:last-child { border-right:none; }
+@media (max-width: 1180px) {
+  .sidebar { width: 138px !important; }
+  .main { margin-left: 138px !important; max-width: calc(100vw - 138px) !important; padding: 8px !important; }
+  .input-search { width: 180px !important; flex-basis:180px !important; }
+  .drawer { width: min(600px, calc(100vw - 12px)) !important; }
+}
+
 </style>
 </head>
 <body>
@@ -2246,22 +2373,10 @@ table.tbl { width: 100%; border-collapse: collapse; }
     </div>
 
     <nav class="sb-nav">
-      <div class="sb-section">Trabajo del día</div>
-      <div class="nav-item" data-view="foco">
-        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
-        Foco
-        <span class="nav-pill" id="nav-pill-foco"></span>
-      </div>
-      <div class="nav-item" data-view="proyectos">
-        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
-        Proyectos
-        <span class="nav-pill" id="nav-pill-proj"></span>
-      </div>
-
-      <div class="sb-section">Análisis</div>
-      <div class="nav-item" data-view="historico">
-        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/><line x1="3" y1="20" x2="21" y2="20"/></svg>
-        Análisis
+      <div class="sb-section">Seguimiento</div>
+      <div class="nav-item" data-view="gantt">
+        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="13" y2="6"/><line x1="8" y1="12" x2="20" y2="12"/><line x1="5" y1="18" x2="15" y2="18"/></svg>
+        Gantt
       </div>
       <div class="nav-item" data-view="riesgo">
         <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
@@ -2271,13 +2386,18 @@ table.tbl { width: 100%; border-collapse: collapse; }
         <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-7"/></svg>
         Benchmark
       </div>
-      <div class="nav-item" data-view="gantt">
-        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="13" y2="6"/><line x1="8" y1="12" x2="20" y2="12"/><line x1="5" y1="18" x2="15" y2="18"/></svg>
-        Gantt
+      <div class="nav-item" data-view="historico">
+        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/><line x1="3" y1="20" x2="21" y2="20"/></svg>
+        Análisis
       </div>
       <div class="nav-item" data-view="ejecutivo">
         <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
         Ejecutivo
+      </div>
+      <div class="nav-item" data-view="proyectos">
+        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+        Proyectos
+        <span class="nav-pill" id="nav-pill-proj"></span>
       </div>
 
       <div class="sb-section">Setup</div>
@@ -2492,7 +2612,7 @@ const EMPTY_FECHAS = () => ({
 const state = {
   projects: [],
   selectedId: null,
-  view: 'foco',
+  view: 'gantt',
   filters: {
     search: '',
     regions: new Set(),       // empty = all
@@ -3648,7 +3768,7 @@ function renderDrawer(id) {
       <div class="row" style="gap:10px;align-items:center;flex-wrap:wrap">
         <h2 style="font-size:18px;font-weight:600;letter-spacing:-.01em;margin:0">${p.nombre}</h2>
         ${p.c9l ? `<span class="badge b-neutral num" style="font-size:11px;padding:3px 9px"><strong>${g.fmtC9L(p.c9l)}</strong>&nbsp;9LC</span>` : ''}
-        ${p.notes && p.notes.length ? `<span class="badge b-info" style="font-size:11px;padding:3px 9px" title="Notas cargadas">📝 ${p.notes.length}</span>` : ''}
+        ${(() => { const c=(p.notes||[]).filter(n=>!n.auto).length; return c ? `<span class="badge b-info" style="font-size:11px;padding:3px 9px" title="Notas manuales cargadas">📝 ${c}</span>` : ''; })()}
       </div>
       <div class="row" style="gap:6px;margin-top:6px;font-size:12px;color:var(--text3)">
         ${regionBadge(p.region)} ${statusBadge(p.status)}
@@ -3708,6 +3828,10 @@ function timelinePaneHTML(p) {
     {label:'Lanz. estimado',     date:p.lanzEstim,         cat:'lanzEst'},
     {label:'Lanz. real',         date:f.lanzReal,          cat:'lanzReal'},
     ...(p.timelineEvents || []).map(ev => ({label: ev.title || 'Evento', date: ev.date, cat:'event', comment: ev.comment || '', eventId: ev.id})),
+    ...((p.benchmarkNeeded||'No')==='Yes' ? [
+      {label:'Bench entregado', date:p.benchmarkStart, cat:'bench'},
+      {label:'Feedback bench',  date:p.benchmarkEnd,   cat:'bench'},
+    ] : []),
   ].filter(h => h.date);
 
   if (!hitos.length) {
@@ -3735,15 +3859,42 @@ function timelinePaneHTML(p) {
       <span class="row" style="gap:5px"><span style="width:8px;height:8px;border-radius:50%;background:#6B4FA0"></span> IPM</span>
       <span class="row" style="gap:5px"><span style="width:0;height:0;border-left:5px solid transparent;border-right:5px solid transparent;border-top:8px solid #4A7A28"></span> Lanz. estimado</span>
       <span class="row" style="gap:5px"><span style="width:0;height:0;border-left:5px solid transparent;border-right:5px solid transparent;border-top:8px solid #2D5016"></span> Lanz. real</span>
+      ${(p.benchmarkNeeded||'No')==='Yes' ? `<span class="row" style="gap:5px"><span style="display:inline-block;width:9px;height:9px;background:#0E8174;transform:rotate(45deg)"></span> Bench</span>` : ''}
       <span class="row" style="gap:5px"><span style="display:inline-block;width:14px;height:0;border-top:2px dashed #E24B4A"></span> Hoy</span>
       <span class="muted ml-auto">● pasado · ○ futuro · arrastrá para mover · rueda para zoom</span>
     </div>
 
-    ${timelineEventsPaneHTML(p)}
+    ${benchmarkBannerHTML(p)}
+
     <div class="timeline-actions-card">
       ${nextStepsPaneHTML(p)}
     </div>
+    ${timelineEventsPaneHTML(p)}
   `;
+}
+
+function benchmarkBannerHTML(p) {
+  if ((p.benchmarkNeeded||'No') !== 'Yes') return '';
+  let statusTxt, statusClr = '#0E8174';
+  if (!p.benchmarkStart) { statusTxt = 'Sin fecha de entrega cargada'; statusClr = 'var(--text3)'; }
+  else if (p.benchmarkEnd) {
+    const d = g.businessDays(p.benchmarkStart, p.benchmarkEnd);
+    statusTxt = `Cerrado en ${d}d hábiles`;
+    statusClr = d > 10 ? 'var(--danger)' : d >= 8 ? 'var(--warn)' : '#0E8174';
+  } else {
+    const d = g.businessDays(p.benchmarkStart, g.today());
+    statusTxt = `En curso · ${d}d hábiles`;
+    statusClr = d > 10 ? 'var(--danger)' : d >= 8 ? 'var(--warn)' : '#0E8174';
+  }
+  return `
+    <div class="row between" style="margin-top:12px;padding:11px 14px;border-radius:10px;background:rgba(14,129,116,.08);border:1px solid rgba(14,129,116,.3);flex-wrap:wrap;gap:8px">
+      <div class="row" style="gap:8px;align-items:center">
+        <span style="display:inline-block;width:11px;height:11px;background:#0E8174;transform:rotate(45deg)"></span>
+        <strong style="font-size:13px;color:#0E8174">Benchmark requerido</strong>
+        <span style="font-size:13px;color:${statusClr};font-weight:600">· ${statusTxt}</span>
+      </div>
+      <div class="tiny" style="color:var(--text2)">Entrega: <strong>${p.benchmarkStart ? g.fd(p.benchmarkStart) : '—'}</strong> · Feedback: <strong>${p.benchmarkEnd ? g.fd(p.benchmarkEnd) : '—'}</strong></div>
+    </div>`;
 }
 
 function initProjectTimeline(p) {
@@ -3766,9 +3917,13 @@ function initProjectTimeline(p) {
     {label:'Lanz. estimado',     date:p.lanzEstim,         cat:'lanzEst', shape:'tri'},
     {label:'Lanz. real',         date:f.lanzReal,          cat:'lanzReal', shape:'tri'},
     ...(p.timelineEvents || []).map(ev => ({label: ev.title || 'Evento', date: ev.date, cat:'event', shape:'event', comment: ev.comment || '', eventId: ev.id})),
+    ...((p.benchmarkNeeded||'No')==='Yes' ? [
+      {label:'Bench entregado', date:p.benchmarkStart, cat:'bench', shape:'bench', comment:'Bench entregado por Enología'},
+      {label:'Feedback bench',  date:p.benchmarkEnd,   cat:'bench', shape:'bench', comment:'Feedback del benchmark'},
+    ] : []),
   ].filter(h => h.date).sort((a,b) => a.date.localeCompare(b.date));
 
-  const catClr = {prefact:'#185FA5', ipm:'#6B4FA0', lanzEst:'#4A7A28', lanzReal:'#2D5016', event:'#A66514'};
+  const catClr = {prefact:'#185FA5', ipm:'#6B4FA0', lanzEst:'#4A7A28', lanzReal:'#2D5016', event:'#A66514', bench:'#0E8174'};
 
   // Base range
   const allDates = hitos.map(h => new Date(h.date));
@@ -3889,6 +4044,11 @@ function initProjectTimeline(p) {
         ctx.fillStyle = clr;
         ctx.fillRect(x-6, dotY-6, 12, 12);
         ctx.strokeStyle = 'white'; ctx.lineWidth = 2; ctx.strokeRect(x-6, dotY-6, 12, 12);
+      } else if (h.shape === 'bench') {
+        ctx.fillStyle = past ? clr : cssVar('--surface');
+        ctx.beginPath();
+        ctx.moveTo(x, dotY-7); ctx.lineTo(x+7, dotY); ctx.lineTo(x, dotY+7); ctx.lineTo(x-7, dotY); ctx.closePath();
+        ctx.fill(); ctx.strokeStyle = past ? 'white' : clr; ctx.lineWidth = 2; ctx.stroke();
       } else {
         ctx.beginPath(); ctx.arc(x, dotY, 6.5, 0, Math.PI*2);
         if (past) { ctx.fillStyle = clr; ctx.fill(); }
@@ -4033,25 +4193,30 @@ function timelineEventsPaneHTML(p) {
   const events = (p.timelineEvents || []).slice().sort((a,b) => (a.date || '').localeCompare(b.date || ''));
   return `
     <div class="card timeline-actions-card" style="padding:12px">
-      <div class="card-title"><span>Eventos para la línea de tiempo</span><span class="ct-sub">cargalos manualmente; se ven en el timeline</span></div>
-      <div class="field-grid" style="grid-template-columns:150px 1fr">
-        <div class="field"><label>Fecha del evento</label><input id="event-date" type="date" class="input date"></div>
-        <div class="field"><label>Evento</label><input id="event-title" class="input" placeholder="Ej: Reunión con Enología / aprobación de cliente / cambio de alcance"></div>
-        <div class="field" style="grid-column:1/-1"><label>Comentario</label><textarea id="event-comment" class="input" placeholder="Detalle breve para recordar en reunión…"></textarea></div>
+      <div class="row between" style="align-items:flex-start">
+        <div class="card-title" style="margin-bottom:0"><span>Eventos del proyecto</span><span class="ct-sub">${events.length} cargado${events.length!==1?'s':''} · se ven en el timeline y el Gantt</span></div>
+        <button class="btn btn-primary btn-sm" onclick="App.toggleAddForm('event-add-form', this)">${icon('plus')} Agregar evento</button>
       </div>
-      <div class="row" style="justify-content:flex-end;margin-top:8px">
-        <button class="btn btn-primary btn-sm" onclick="App.addTimelineEvent(${p.id})">${icon('plus')} Agregar evento</button>
+      <div id="event-add-form" style="display:none;margin-top:8px">
+        <div class="field-grid" style="grid-template-columns:125px minmax(0,1fr);gap:8px">
+          <div class="field"><label>Fecha del evento</label><input id="event-date" type="date" class="input date"></div>
+          <div class="field"><label>Evento</label><input id="event-title" class="input" placeholder="Evento"></div>
+          <div class="field" style="grid-column:1/-1"><label>Comentario</label><textarea id="event-comment" class="input" placeholder="Comentario breve…"></textarea></div>
+        </div>
+        <div class="row" style="justify-content:flex-end;gap:8px;margin-top:8px">
+          <button class="btn btn-ghost btn-sm" onclick="App.toggleAddForm('event-add-form', null)">Cancelar</button>
+          <button class="btn btn-primary btn-sm" onclick="App.addTimelineEvent(${p.id})">Guardar evento</button>
+        </div>
       </div>
-      <div class="divider"></div>
-      ${events.length ? `<div class="col" style="gap:8px">${events.map(ev => `
-        <div class="card-tight" style="border:1px solid var(--border);border-left:3px solid var(--info);border-radius:10px;background:var(--surface)">
-          <div class="field-grid" style="grid-template-columns:140px 1fr auto;gap:8px;align-items:end">
-            <div class="field"><label>Fecha</label><input type="date" class="input date" style="height:28px" value="${ev.date||''}" onchange="App.updateTimelineEvent(${p.id}, ${ev.id}, 'date', this.value)"></div>
-            <div class="field"><label>Evento</label><input class="input" style="height:28px" value="${escapeAttr(ev.title||'')}" onchange="App.updateTimelineEvent(${p.id}, ${ev.id}, 'title', this.value)"></div>
+      ${events.length ? `<div class="divider"></div><div class="col" style="gap:8px">${events.map(ev => `
+        <div class="compact-edit-card" style="border-left-color:var(--info)">
+          <div class="field-grid" style="grid-template-columns:120px minmax(0,1fr) auto;gap:8px;align-items:end">
+            <div class="field"><label>Fecha</label><input type="date" class="input date" style="height:24px" value="${ev.date||''}" onchange="App.updateTimelineEvent(${p.id}, ${ev.id}, 'date', this.value)"></div>
+            <div class="field"><label>Evento</label><input class="input" style="height:24px" value="${escapeAttr(ev.title||'')}" onchange="App.updateTimelineEvent(${p.id}, ${ev.id}, 'title', this.value)"></div>
             <button class="btn btn-ghost btn-sm" style="color:var(--danger);align-self:end" onclick="App.deleteTimelineEvent(${p.id}, ${ev.id})">Eliminar</button>
-            <div class="field" style="grid-column:1/-1"><label>Comentario</label><textarea class="input" style="min-height:48px" onchange="App.updateTimelineEvent(${p.id}, ${ev.id}, 'comment', this.value)">${escapeHTML(ev.comment||'')}</textarea></div>
+            <div class="field" style="grid-column:1/-1"><label>Comentario</label><textarea class="input" style="min-height:34px" onchange="App.updateTimelineEvent(${p.id}, ${ev.id}, 'comment', this.value)">${escapeHTML(ev.comment||'')}</textarea></div>
           </div>
-        </div>`).join('')}</div>` : '<p class="tiny muted">Sin eventos manuales cargados todavía.</p>'}
+        </div>`).join('')}</div>` : ''}
     </div>
   `;
 }
@@ -4093,35 +4258,44 @@ function nextStepsPaneHTML(p) {
     return (a.dueDate || '9999').localeCompare(b.dueDate || '9999');
   });
   const todayStr = g.today();
-  return `
-    <div>
-      <div class="card" style="padding:12px;margin-bottom:12px">
-        <div class="field-grid" style="grid-template-columns:1.2fr 150px">
-          <div class="field"><label>Próximo paso</label><input id="nextstep-text" class="input" placeholder="Ej: Confirmar costos con bottler / enviar feedback a Comercial"></div>
-          <div class="field"><label>Fecha compromiso</label><input id="nextstep-date" type="date" class="input date"></div>
-          <div class="field" style="grid-column:1/-1"><label>Comentario</label><textarea id="nextstep-comment" class="input" placeholder="Contexto, responsable, decisión pendiente…"></textarea></div>
-        </div>
-        <div class="row" style="justify-content:flex-end;margin-top:8px">
-          <button class="btn btn-primary btn-sm" onclick="App.addNextStep(${p.id})">${icon('plus')} Agregar próximo paso</button>
-        </div>
+  const addForm = `
+    <div id="nextstep-add-form" class="card compact-add-form" style="display:none;padding:10px;margin:8px 0 10px">
+      <div class="field-grid" style="grid-template-columns:minmax(0,1fr) 125px;gap:8px">
+        <div class="field"><label>Próximo paso</label><input id="nextstep-text" class="input" placeholder="Acción pendiente"></div>
+        <div class="field"><label>Fecha</label><input id="nextstep-date" type="date" class="input date"></div>
+        <div class="field" style="grid-column:1/-1"><label>Comentario</label><textarea id="nextstep-comment" class="input" placeholder="Contexto breve…"></textarea></div>
       </div>
-
-      ${steps.length ? `<div class="col" style="gap:8px">
+      <div class="row" style="justify-content:flex-end;gap:6px;margin-top:6px">
+        <button class="btn btn-ghost btn-sm" onclick="App.toggleAddForm('nextstep-add-form', null)">Cancelar</button>
+        <button class="btn btn-primary btn-sm" onclick="App.addNextStep(${p.id})">Guardar</button>
+      </div>
+    </div>`;
+  if (!steps.length) {
+    return `<div class="compact-action-row"><button class="btn btn-primary btn-sm" onclick="App.toggleAddForm('nextstep-add-form', this)">${icon('plus')} Agregar próximo paso</button></div>${addForm}`;
+  }
+  return `
+    <div class="compact-section">
+      <div class="row between compact-section-head">
+        <div class="card-title" style="margin-bottom:0"><span>Próximos pasos</span><span class="ct-sub">${steps.length} cargado${steps.length!==1?'s':''}</span></div>
+        <button class="btn btn-primary btn-sm" onclick="App.toggleAddForm('nextstep-add-form', this)">${icon('plus')} Agregar próximo paso</button>
+      </div>
+      ${addForm}
+      <div class="col compact-list">
         ${steps.map(st => {
           const overdue = st.dueDate && st.dueDate < todayStr && !st.done;
           const dueSoon = st.dueDate && g.daysBetween(todayStr, st.dueDate) <= 7 && g.daysBetween(todayStr, st.dueDate) >= 0 && !st.done;
           const borderColor = st.done ? 'var(--accent)' : overdue ? 'var(--danger)' : dueSoon ? 'var(--warn)' : 'var(--border2)';
-          return `<div class="card-tight" style="border:1px solid var(--border);border-left:3px solid ${borderColor};border-radius:10px;background:var(--surface)">
-            <div class="field-grid" style="grid-template-columns:28px 1fr 140px auto;gap:8px;align-items:end">
-              <div class="field" style="align-items:center"><label>OK</label><input type="checkbox" ${st.done?'checked':''} onchange="App.toggleNextStep(${p.id}, ${st.id}, this.checked)" style="height:18px;width:18px"></div>
-              <div class="field"><label>Próximo paso</label><input class="input" style="height:28px;text-decoration:${st.done?'line-through':'none'}" value="${escapeAttr(st.text||'')}" onchange="App.updateNextStep(${p.id}, ${st.id}, 'text', this.value)"></div>
-              <div class="field"><label>Fecha compromiso</label><input type="date" class="input date" style="height:28px;color:${overdue?'var(--danger)':dueSoon?'var(--warn)':'var(--text2)'}" value="${st.dueDate||''}" onchange="App.updateNextStep(${p.id}, ${st.id}, 'dueDate', this.value)"></div>
-              <button class="btn btn-ghost btn-sm" style="color:var(--danger);align-self:end" onclick="App.deleteNextStep(${p.id}, ${st.id})">Eliminar</button>
-              <div class="field" style="grid-column:2/-1"><label>Comentario</label><textarea class="input" style="min-height:48px" onchange="App.updateNextStep(${p.id}, ${st.id}, 'comment', this.value)">${escapeHTML(st.comment||'')}</textarea></div>
+          return `<div class="compact-edit-card" style="border-left-color:${borderColor}">
+            <div class="field-grid" style="grid-template-columns:24px minmax(0,1fr) 122px auto;gap:6px;align-items:end">
+              <div class="field" style="align-items:center"><label>OK</label><input type="checkbox" ${st.done?'checked':''} onchange="App.toggleNextStep(${p.id}, ${st.id}, this.checked)" style="height:15px;width:15px"></div>
+              <div class="field"><label>Próximo paso</label><input class="input" style="height:24px;text-decoration:${st.done?'line-through':'none'}" value="${escapeAttr(st.text||'')}" onchange="App.updateNextStep(${p.id}, ${st.id}, 'text', this.value)"></div>
+              <div class="field"><label>Fecha</label><input type="date" class="input date" style="height:24px;color:${overdue?'var(--danger)':dueSoon?'var(--warn)':'var(--text2)'}" value="${st.dueDate||''}" onchange="App.updateNextStep(${p.id}, ${st.id}, 'dueDate', this.value)"></div>
+              <button class="btn btn-ghost btn-sm" style="color:var(--danger);align-self:end;padding:3px 6px" onclick="App.deleteNextStep(${p.id}, ${st.id})">Eliminar</button>
+              <div class="field" style="grid-column:2/-1"><label>Comentario</label><textarea class="input" style="min-height:34px" onchange="App.updateNextStep(${p.id}, ${st.id}, 'comment', this.value)">${escapeHTML(st.comment||'')}</textarea></div>
             </div>
           </div>`;
         }).join('')}
-      </div>` : '<div class="empty"><p>Sin próximos pasos todavía. Agregalos arriba para liderar la reunión desde esta pantalla.</p></div>'}
+      </div>
     </div>
   `;
 }
@@ -4251,6 +4425,7 @@ function renderDatos() {
         <div class="row" style="gap:6px;flex-wrap:wrap">
           <button class="btn btn-sm" onclick="App.exportJSON()">↓ JSON</button>
           <button class="btn btn-sm" onclick="App.exportCSV()">↓ CSV</button>
+          <button class="btn btn-sm btn-primary" onclick="App.exportExcelBackup()">↓ Excel</button>
         </div>
         <div class="row" style="margin-top:10px">
           <label class="btn btn-sm" style="cursor:pointer;display:inline-flex">
@@ -4371,395 +4546,114 @@ Object.assign(window.Views, {
    ───────────────────────────────────────────── */
 
 const g2 = window.gs;
+const gs = window.gs;
 
 /* ════════════════════════════════════════════════════════════════
    VIEW · ANÁLISIS — analytics & benchmarks
 ═══════════════════════════════════════════════════════════════════ */
+
 function renderHistorico() {
   const hf = (() => {
-    if (!g2.state.histFilters) {
-      g2.state.histFilters = {region: '', tipos: new Set(), bottlers: new Set(), statuses: new Set(['Open','On going'])};
-    }
-    // migrate old shape
+    if (!g2.state.histFilters) g2.state.histFilters = {region:'', tipos:new Set(), bottlers:new Set(), statuses:new Set(['Open','On going'])};
     const f = g2.state.histFilters;
     if (!f.statuses) f.statuses = new Set(['Open','On going']);
     if (!f.tipos) f.tipos = new Set();
     if (!f.bottlers) f.bottlers = new Set();
     return f;
   })();
+  const q = (g2.state.histSearch||'').toLowerCase();
+  const uniqueRegions = [...new Set(g2.state.projects.map(p=>p.region).filter(Boolean))];
+  const uniqueStatuses = g2.STATUSES;
 
-  // Apply filters
-  let all = g2.state.projects;
-  if (hf.region) all = all.filter(p => p.region === hf.region);
-  if (hf.tipos && hf.tipos.size) all = all.filter(p => hf.tipos.has(p.tipo));
-  if (hf.bottlers && hf.bottlers.size) all = all.filter(p => hf.bottlers.has(p.bottler));
-  if (hf.statuses && hf.statuses.size) all = all.filter(p => hf.statuses.has(p.status));
-  const _hq = (g2.state.histSearch||'').toLowerCase();
-  if (_hq) all = all.filter(p => [p.nombre,p.cliente,p.bottler,p.region,p.tipo].join(' ').toLowerCase().includes(_hq));
+  let selected = g2.state.projects;
+  if (hf.region) selected = selected.filter(p => p.region === hf.region);
+  if (hf.statuses && hf.statuses.size) selected = selected.filter(p => hf.statuses.has(p.status));
+  if (q) selected = selected.filter(p => [p.nombre,p.cliente,p.bottler,p.region,p.tipo,p.pais].join(' ').toLowerCase().includes(q));
 
-  const allProjects = g2.state.projects; // unfiltered for filter options
+  const statusLabel = hf.statuses && hf.statuses.size ? [...hf.statuses].join(' + ') : 'todos';
+  const closedSelected = selected.filter(p => p.status === 'Closed');
+  const oneYearAgo = new Date(g2.today()); oneYearAgo.setDate(oneYearAgo.getDate()-365);
+  const closedLastYear = closedSelected.filter(p => p.fechas?.lanzReal && new Date(p.fechas.lanzReal) >= oneYearAgo);
+  const volClosedLastYear = closedLastYear.reduce((a,p)=>a+(p.c9l||0),0);
+  const withBC = selected.filter(p => (p.hasBC||'Yes') !== 'No').length;
+  const withCoreDate = selected.filter(p => p.fechas?.bcRecibido || p.lanzEstim || p.fechas?.feedbackFinal || p.fechas?.lanzReal).length;
+  const closedMissingLaunch = closedSelected.filter(p => !p.fechas?.lanzReal).length;
 
-  const stagePairs = [
-    {label:'BC → 1° Feedback',        from:'bcRecibido',    to:'primerFeedback', biz:true,  bench:3,  limit:15},
-    {label:'BC → Feedback final',      from:'bcRecibido',    to:'feedbackFinal',  biz:true,  bench:10, limit:15},
-    {label:'Cotiz → Resp. bottler',    from:'cotizBottler',  to:'respBottler',    biz:true,  bench:5,  limit:10},
-    {label:'Feedback final → Gate 1',  from:'feedbackFinal', to:'gate1',          biz:false, bench:30, limit:60},
-    {label:'Gate 1 → Gate 2',          from:'gate1',         to:'gate2',          biz:false, bench:45, limit:90},
-    {label:'Gate 2 → Gate 3',          from:'gate2',         to:'gate3',          biz:false, bench:45, limit:90},
-    {label:'Gate 3 → Lanz. real',      from:'gate3',         to:'lanzReal',       biz:false, bench:60, limit:120},
-    {label:'Ciclo total BC → Lanz.',   from:'bcRecibido',    to:'lanzReal',       biz:false, bench:180,limit:365},
-  ];
-
-  const stageStats = stagePairs.map(s => {
-    const pairs = all.filter(p => p.fechas[s.from] && p.fechas[s.to]);
-    const vals = pairs.map(p => g2.stageDuration(p, s.from, s.to, s.biz)).filter(v => v !== null && v >= 0);
-    const sorted = [...vals].sort((a,b)=>a-b);
-    return {
-      ...s,
-      projects: pairs, // store projects for drill-down
-      n: vals.length,
-      avg: vals.length ? Math.round(vals.reduce((a,b)=>a+b,0) / vals.length) : null,
-      median: vals.length ? sorted[Math.floor(vals.length/2)] : null,
-      onTime: vals.filter(v => v <= s.limit).length,
-    };
-  });
-
-  // KPIs
-  const launched = all.filter(p => p.fechas.lanzReal).length;
-  const canceled = all.filter(p => p.status === 'Canceled').length;
-  const closedProjects = all.filter(p => ['Closed','Canceled','Delegated'].includes(p.status) || p.fechas.lanzReal);
-  const successRate = closedProjects.length ? Math.round(100 * launched / closedProjects.length) : null;
-
-  const planVsReal = all.filter(p => p.fechas.lanzReal && p.lanzEstim);
-  const deltas = planVsReal.map(p => g2.daysBetween(p.lanzEstim, p.fechas.lanzReal));
-  const avgDelta = deltas.length ? Math.round(deltas.reduce((a,b)=>a+b,0)/deltas.length) : null;
-  const onTimePVR = deltas.filter(d => Math.abs(d) <= 14).length;
-
-  // Nuevos KPIs de control de gestión
-  const dataQualityPct = all.length ? Math.round(100 * all.filter(p => p.fechas?.bcRecibido || p.lanzEstim || p.fechas?.feedbackFinal || p.fechas?.lanzReal).length / all.length) : null;
-  const openAging30 = all.filter(p => p.status === 'Open' && p.createdAt && g2.daysBetween(p.createdAt.slice(0,10), g2.today()) > 30).length;
-  const criticalCount = all.filter(p => g2.evaluateProject(p).severity === 'critico').length;
-  const prefOpenOverdue = all.filter(p => p.fechas?.bcRecibido && !p.fechas?.feedbackFinal && g2.businessDays(p.fechas.bcRecibido, g2.today()) > 15).length;
-  const launchedLast90 = all.filter(p => p.fechas?.lanzReal && g2.daysBetween(p.fechas.lanzReal, g2.today()) <= 90).length;
-  const conversionPct = all.length ? Math.round(100 * all.filter(p => p.fechas?.lanzReal).length / all.length) : null;
-
-  // By bottler
-  const byBottler = g2.groupBy(all.filter(p => p.bottler && p.bottler !== '-'), p => p.bottler);
-  const bottlerStats = Object.entries(byBottler).map(([name, projs]) => {
-    const slaVals = projs.map(p => g2.stageDuration(p, 'cotizBottler', 'respBottler', true)).filter(v => v !== null && v >= 0);
-    return {
-      name, n: projs.length,
-      vol: projs.reduce((a,p)=>a+(p.c9l||0), 0),
-      avgRespBiz: slaVals.length ? Math.round(slaVals.reduce((a,b)=>a+b,0)/slaVals.length) : null,
-      pctSLA: slaVals.length ? Math.round(100 * slaVals.filter(v=>v<=10).length / slaVals.length) : null,
-    };
-  }).sort((a,b) => b.vol - a.vol);
-
-  // By region
-  const byRegion = g2.groupBy(all, p => p.region);
-  const regionStats = Object.entries(byRegion).map(([name, projs]) => {
-    const slaVals = projs.map(p => g2.stageDuration(p, 'bcRecibido', 'feedbackFinal', true)).filter(v => v !== null && v >= 0);
-    const cycleDays = projs.map(p => p.fechas.lanzReal && p.fechas.bcRecibido ? g2.daysBetween(p.fechas.bcRecibido, p.fechas.lanzReal) : null).filter(v => v !== null && v > 0);
-    return {
-      name, n: projs.length,
-      vol: projs.reduce((a,p)=>a+(p.c9l||0),0),
-      avgSlaBiz: slaVals.length ? Math.round(slaVals.reduce((a,b)=>a+b,0)/slaVals.length) : null,
-      avgCycle: cycleDays.length ? Math.round(cycleDays.reduce((a,b)=>a+b,0)/cycleDays.length) : null,
-      launched: projs.filter(p => p.fechas.lanzReal).length,
-    };
-  }).sort((a,b) => b.vol - a.vol);
-
-  // Tendencia mensual
-  const monthlyMap = {};
-  all.forEach(p => {
-    const d = p.fechas?.bcRecibido || p.bcRecibido;
-    if (!d) return;
-    const m = d.slice(0,7);
-    monthlyMap[m] = (monthlyMap[m]||0)+1;
-  });
-  const months = Object.keys(monthlyMap).sort().slice(-12);
-
-  const allProjects2 = g2.state.projects;
-  const uniqueRegions = [...new Set(allProjects2.map(p=>p.region).filter(Boolean))].sort();
-  const uniqueStatuses= [...new Set(allProjects2.map(p=>p.status).filter(Boolean))].sort();
-  // Cascade: tipo options filtered by region+status+bottlers
-  const forTipoH = allProjects2.filter(p => {
-    if (hf.region && p.region !== hf.region) return false;
-    if (hf.statuses.size && !hf.statuses.has(p.status)) return false;
-    if (hf.bottlers.size && !hf.bottlers.has(p.bottler)) return false;
-    return true;
-  });
-  // Cascade: bottler options filtered by region+status+tipos
-  const forBottlerH = allProjects2.filter(p => {
-    if (hf.region && p.region !== hf.region) return false;
-    if (hf.statuses.size && !hf.statuses.has(p.status)) return false;
-    if (hf.tipos.size && !hf.tipos.has(p.tipo)) return false;
-    return true;
-  });
-  const uniqueTipos   = [...new Set(forTipoH.map(p=>p.tipo).filter(Boolean))].sort();
-  const uniqueBottlers= [...new Set(forBottlerH.map(p=>p.bottler).filter(b=>b&&b!=='-'))].sort();
-
-  // Drill-down state
-  const drill = g2.state.histDrill;
-
-  // If drill is active, show a project list
-  let drillHTML = '';
-  if (drill) {
-    const dp = stagePairs.find(s => s.label === drill);
-    if (dp) {
-      const drillProjs = dp.projects || [];
-      drillHTML = `
-        <div class="card" style="margin-bottom:16px">
-          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
-            <div class="card-title">${dp.label} · ${drillProjs.length} proyecto${drillProjs.length!==1?'s':''} con ambas fechas cargadas</div>
-            <button class="btn btn-ghost btn-sm" onclick="App.histDrill(null)">✕ Cerrar</button>
-          </div>
-          <div class="tbl-wrap"><table class="tbl"><thead><tr>
-            <th>Proyecto</th><th>Región</th><th>Bottler</th>
-            <th title="Días ${dp.biz?'hábiles':'corridos'}">${dp.biz?'Días háb.':'Días corr.'}</th>
-            <th>Fecha inicio</th><th>Fecha fin</th>
-          </tr></thead><tbody>
-          ${drillProjs.map(p => {
-            const dur = g2.stageDuration(p, dp.from, dp.to, dp.biz);
-            const overLimit = dur !== null && dur > dp.limit;
-            return `<tr onclick="App.openDrawer(${p.id})" style="cursor:pointer">
-              <td onclick="App.histFilter('__project__','${p.nombre}')" style="cursor:pointer;text-decoration:underline;text-decoration-color:var(--border2)"><strong>${p.nombre}</strong></td>
-              <td><span class="tag">${p.region}</span></td>
-              <td>${p.bottler||'—'}</td>
-              <td class="num" style="color:${overLimit?'var(--danger)':'inherit'};font-weight:${overLimit?'700':'400'}">${dur !== null ? dur+'d'+(overLimit?' ⚠':' ✓') : '—'}</td>
-              <td class="tiny" style="font-family:'JetBrains Mono',monospace">${p.fechas[dp.from]?g2.fd(p.fechas[dp.from]):'—'}</td>
-              <td class="tiny" style="font-family:'JetBrains Mono',monospace">${p.fechas[dp.to]?g2.fd(p.fechas[dp.to]):'—'}</td>
-            </tr>`;
-          }).join('')}
-          </tbody></table></div>
-        </div>`;
-    }
-  }
+  const byStatus = g2.STATUSES.map(s => {
+    const arr = g2.state.projects.filter(p => p.status === s);
+    return {label:g2.STATUS_META[s].label||s, status:s, n:arr.length, vol:arr.reduce((a,p)=>a+(p.c9l||0),0), color:g2.STATUS_META[s].color};
+  }).filter(x=>x.n);
+  const maxStatus = Math.max(1, ...byStatus.map(x=>x.n));
+  const byBU = g2.REGIONS.map(r => {
+    const arr = g2.state.projects.filter(p => p.region === r);
+    const total = arr.reduce((a,p)=>a+(p.c9l||0),0);
+    const bySt = g2.STATUSES.map(s => {
+      const stArr = arr.filter(p => p.status === s);
+      return {status:s, label:g2.STATUS_META[s].label||s, color:g2.STATUS_META[s].color, vol:stArr.reduce((a,p)=>a+(p.c9l||0),0), n:stArr.length};
+    }).filter(x=>x.vol || x.n);
+    return {region:r, n:arr.length, vol:total, bySt};
+  }).filter(x=>x.n || x.vol);
+  const maxBUVol = Math.max(1, ...byBU.map(x=>x.vol));
 
   return `
     <div class="page-h">
       <div>
         <h1>Análisis</h1>
-        <p>KPIs de performance, tiempos reales por etapa, calidad de datos y cumplimiento de SLAs · click en cualquier etapa para ver los proyectos</p>
+        <p>Vista simple para lectura de portfolio. <strong>Closed = proyectos cerrados/lanzados</strong>; no incluye Canceled ni Delegated.</p>
       </div>
     </div>
 
-    <div class="filter-bar" style="margin-bottom:6px;flex-wrap:wrap;gap:10px">
+    <div class="analysis-fixed-grid">
+      <div class="card analysis-bars">
+        <div class="card-title">Portfolio completo por estado <span class="ct-sub">referencia fija</span></div>
+        ${byStatus.map(x => `<div class="bar-row"><div class="bar-label">${x.label}</div><div class="bar-track"><div class="bar-fill" style="width:${Math.max(3, x.n/maxStatus*100)}%;background:${x.color}"></div></div><div class="bar-val">${x.n}</div></div>`).join('')}
+      </div>
+      <div class="card analysis-bars analysis-stacked-bars">
+        <div class="card-title">Cajas 9LC por BU y estado <span class="ct-sub">segmentos por estado</span></div>
+        <div class="analysis-status-legend">
+          ${g2.STATUSES.map(s=>`<span><i style="background:${g2.STATUS_META[s].color}"></i>${g2.STATUS_META[s].label}</span>`).join('')}
+        </div>
+        ${byBU.map(x => `<div class="bar-row"><div class="bar-label">${x.region}</div><div class="bar-track analysis-stack-track" title="${x.region} · total ${g2.fmtC9L(x.vol)} 9LC">
+          <div class="analysis-stack" style="width:${Math.max(3, x.vol/maxBUVol*100)}%">
+            ${x.bySt.map(seg => {
+              const pct = x.vol ? (seg.vol/x.vol*100) : 0;
+              return `<span class="analysis-stack-seg" style="width:${Math.max(0,pct)}%;background:${seg.color}" title="${seg.label}: ${g2.fmtC9L(seg.vol)} 9LC · ${seg.n} proyectos">${pct >= 14 ? g2.fmtC9L(seg.vol) : ''}</span>`;
+            }).join('')}
+          </div>
+        </div><div class="bar-val">${g2.fmtC9L(x.vol)}</div></div>`).join('')}
+      </div>
+    </div>
+
+    <div class="filter-bar">
       <input type="text" class="input input-search" id="hist-search-input" style="width:220px" placeholder="Buscar proyecto…" value="${g2.state.histSearch||''}" oninput="App.setHistSearch(this.value)">
-      <div class="filter-group">
-        <span class="filter-label">Región</span>
+      <div class="filter-group"><span class="filter-label">BU</span>
         <button class="pill ${!hf.region?'active':''}" onclick="App.histFilter('region','')">Todas</button>
         ${uniqueRegions.map(r=>`<button class="pill ${hf.region===r?'active':''}" onclick="App.histFilter('region','${r}')">${r}</button>`).join('')}
       </div>
-      <div class="filter-group">
-        <span class="filter-label">Estado</span>
+      <div class="filter-group"><span class="filter-label">Estado</span>
         <button class="pill ${!hf.statuses.size?'active':''}" onclick="App.histFilter('statuses',null)">Todos</button>
-        ${uniqueStatuses.map(s=>`<button class="pill ${hf.statuses.has(s)?'active':''}" onclick="App.histFilter('statuses','${s}')">${s}</button>`).join('')}
+        ${uniqueStatuses.map(s=>`<button class="pill ${hf.statuses.has(s)?'active':''}" onclick="App.histFilter('statuses','${s}')">${g2.STATUS_META[s].label}</button>`).join('')}
       </div>
-      <button class="btn btn-ghost btn-sm" style="margin-left:auto;align-self:center" onclick="App.histFilter('__reset__','')">✕ Limpiar</button>
-    </div>
-    <div class="filter-bar" style="margin-bottom:12px;flex-wrap:wrap;gap:10px;align-items:flex-start">
-      <div class="filter-group" style="flex-direction:column;align-items:flex-start;gap:4px">
-        <span class="filter-label">Tipo <span class="muted" style="font-weight:400;text-transform:none;letter-spacing:0">(multi)</span></span>
-        <div style="display:flex;flex-wrap:wrap;gap:4px;max-width:500px">
-          <button class="pill ${!hf.tipos.size?'active':''}" onclick="App.histFilter('tipos',null)">Todos</button>
-          ${uniqueTipos.map(t=>`<button class="pill ${hf.tipos.has(t)?'active':''}" onclick="App.histFilter('tipos','${t}')" style="white-space:nowrap">${t}</button>`).join('')}
-        </div>
-      </div>
-      <div class="filter-group" style="flex-direction:column;align-items:flex-start;gap:4px">
-        <span class="filter-label">Bottler <span class="muted" style="font-weight:400;text-transform:none;letter-spacing:0">(multi)</span></span>
-        <div style="display:flex;flex-wrap:wrap;gap:4px;max-width:500px">
-          <button class="pill ${!hf.bottlers.size?'active':''}" onclick="App.histFilter('bottlers',null)">Todos</button>
-          ${uniqueBottlers.map(b=>`<button class="pill ${hf.bottlers.has(b)?'active':''}" onclick="App.histFilter('bottlers','${b}')" style="white-space:nowrap">${b}</button>`).join('')}
-        </div>
-      </div>
+      <button class="btn btn-ghost btn-sm" style="margin-left:auto" onclick="App.histFilter('__reset__','')">✕ Limpiar</button>
     </div>
 
-    <div class="kpi-row">
-      <div class="kpi" title="Porcentaje de proyectos (en la selección actual) que tienen BC recibido cargado. No todos los proyectos ingresan por BC formal.">
-        <div class="kpi-label">BC ingresado</div>
-        <div class="kpi-val" style="color:var(--accent)">${all.length ? Math.round(100*all.filter(p=>p.fechas?.bcRecibido||p.bcRecibido).length/all.length)+'%' : '—'}</div>
-        <div class="kpi-sub">${all.filter(p=>p.fechas?.bcRecibido||p.bcRecibido).length} de ${all.length} proyectos</div>
-      </div>
-      <div class="kpi kpi-btn" onclick="App.histDrill('${stagePairs[1].label}')" title="Proyectos con BC y Feedback final cargados · click para ver lista">
-        <div class="kpi-label">SLA pref. promedio</div>
-        <div class="kpi-val">${stageStats[1].avg !== null ? stageStats[1].avg+'d' : '—'}</div>
-        <div class="kpi-sub">hábiles · límite 15 · ${stageStats[1].n} datos</div>
-      </div>
-      <div class="kpi kpi-btn" onclick="App.histDrill('${stagePairs[2].label}')" title="Proyectos con cotización y respuesta bottler · click para ver lista">
-        <div class="kpi-label">SLA bottler prom.</div>
-        <div class="kpi-val">${stageStats[2].avg !== null ? stageStats[2].avg+'d' : '—'}</div>
-        <div class="kpi-sub">hábiles · límite 10 · ${stageStats[2].n} datos</div>
-      </div>
-      <div class="kpi kpi-btn" onclick="App.histDrill('${stagePairs[7].label}')" title="Ciclo completo BC → Lanzamiento · click para ver lista">
-        <div class="kpi-label">Ciclo total BC→Lanz.</div>
-        <div class="kpi-val">${stageStats[7].avg !== null ? stageStats[7].avg+'d' : '—'}</div>
-        <div class="kpi-sub">días corridos · ${stageStats[7].n} datos</div>
-      </div>
-      <div class="kpi kpi-btn" onclick="App.histShowLaunched()" title="Click para ver todos los proyectos lanzados">
-        <div class="kpi-label">Lanzados</div>
-        <div class="kpi-val" style="color:var(--accent)">${launched}</div>
-        <div class="kpi-sub">con fecha real cargada</div>
-      </div>
-      <div class="kpi kpi-btn" onclick="App.histShowCanceled()" title="Click para ver los cancelados">
-        <div class="kpi-label">Cancelados</div>
-        <div class="kpi-val" style="color:var(--danger)">${canceled}</div>
-        <div class="kpi-sub">no llegaron a lanzar</div>
-      </div>
-      <div class="kpi" title="Proyectos con lanzamiento real y estimado. Positivo = se lanzó tarde, negativo = antes de lo previsto.">
-        <div class="kpi-label">Δ Plan vs Real</div>
-        <div class="kpi-val">${avgDelta !== null ? (avgDelta>=0?'+':'')+avgDelta+'d' : '—'}</div>
-        <div class="kpi-sub">${onTimePVR}/${planVsReal.length||0} a tiempo (±14d)</div>
-      </div>
+    <div class="kpi-row" style="grid-template-columns:repeat(5,minmax(0,1fr)) !important">
+      <div class="kpi"><div class="kpi-label">Proyectos filtrados</div><div class="kpi-val">${selected.length}</div><div class="kpi-sub">criterio: ${statusLabel}</div></div>
+      <div class="kpi"><div class="kpi-label">Cajas 9LC filtradas</div><div class="kpi-val">${g2.fmtC9L(selected.reduce((a,p)=>a+(p.c9l||0),0))}</div><div class="kpi-sub">según filtros actuales</div></div>
+      <div class="kpi"><div class="kpi-label">Cajas cerradas último año</div><div class="kpi-val" style="color:var(--accent)">${g2.fmtC9L(volClosedLastYear)}</div><div class="kpi-sub">Closed con lanz. real cargado</div></div>
+      <div class="kpi"><div class="kpi-label">Con Business Case</div><div class="kpi-val">${withBC}</div><div class="kpi-sub">${selected.length ? Math.round(100*withBC/selected.length) : 0}% de la selección</div></div>
+      <div class="kpi"><div class="kpi-label">Calidad de datos</div><div class="kpi-val" style="color:${closedMissingLaunch?'var(--warn)':'var(--accent)'}">${selected.length ? Math.round(100*withCoreDate/selected.length) : 0}%</div><div class="kpi-sub">${closedMissingLaunch} closed sin lanz. real</div></div>
     </div>
 
     <div class="spacer"></div>
-
-    <div class="card-grid grid-6" style="gap:10px;margin-bottom:16px">
-      <div class="kpi" title="Porcentaje de proyectos con al menos una fecha clave cargada: BC, lanzamiento estimado, feedback final o lanzamiento real.">
-        <div class="kpi-label">Calidad de datos</div>
-        <div class="kpi-val" style="color:${dataQualityPct!==null&&dataQualityPct<80?'var(--warn)':'var(--accent)'}">${dataQualityPct !== null ? dataQualityPct+'%' : '—'}</div>
-        <div class="kpi-sub">fechas clave cargadas</div>
-      </div>
-      <div class="kpi" title="Open con más de 30 días desde la creación. Sirve para detectar oportunidades o pedidos que quedaron sin definición.">
-        <div class="kpi-label">Open envejecidos</div>
-        <div class="kpi-val" style="color:${openAging30?'var(--warn)':'inherit'}">${openAging30}</div>
-        <div class="kpi-sub">+30 días sin pasar a On going</div>
-      </div>
-      <div class="kpi" title="Proyectos con severidad crítica según motor de alertas: SLA vencido, lanzamiento atrasado o riesgo alto.">
-        <div class="kpi-label">Críticos</div>
-        <div class="kpi-val" style="color:${criticalCount?'var(--danger)':'var(--accent)'}">${criticalCount}</div>
-        <div class="kpi-sub">requieren gestión</div>
-      </div>
-      <div class="kpi" title="BC recibido sin feedback final y con más de 15 días hábiles.">
-        <div class="kpi-label">Pref. vencidas</div>
-        <div class="kpi-val" style="color:${prefOpenOverdue?'var(--danger)':'inherit'}">${prefOpenOverdue}</div>
-        <div class="kpi-sub">SLA 15d hábiles</div>
-      </div>
-      <div class="kpi" title="Proyectos con lanzamiento real cargado en los últimos 90 días.">
-        <div class="kpi-label">Lanzados 90d</div>
-        <div class="kpi-val" style="color:var(--accent)">${launchedLast90}</div>
-        <div class="kpi-sub">throughput reciente</div>
-      </div>
-      <div class="kpi" title="Porcentaje de proyectos de la selección con lanzamiento real cargado.">
-        <div class="kpi-label">Conversión a launch</div>
-        <div class="kpi-val">${conversionPct !== null ? conversionPct+'%' : '—'}</div>
-        <div class="kpi-sub">lanzados / selección</div>
-      </div>
-    </div>
-
-    ${drillHTML}
-
-    <div class="card-grid grid-2">
-
-      <!-- Tiempos por etapa -->
-      <div class="card">
-        <div class="card-title">Tiempos promedio por etapa
-          <span class="ct-sub">N = proyectos con ambas fechas cargadas · días hábiles para SLAs, corridos para gates · click para ver proyectos</span>
-        </div>
-        <table class="tbl" style="font-size:12px">
-          <thead><tr><th>Etapa</th><th title="Cantidad de proyectos con ambas fechas cargadas">N datos</th><th>Prom.</th><th>Mediana</th><th>Límite</th><th>% En tiempo</th></tr></thead>
-          <tbody>
-          ${stageStats.map(s => {
-            const pct = s.n ? Math.round(100*s.onTime/s.n) : null;
-            const overAvg = s.avg !== null && s.avg > s.limit;
-            return `<tr onclick="App.histDrill('${s.label}')" style="cursor:pointer" title="Click para ver los ${s.n} proyectos">
-              <td>${s.label}</td>
-              <td class="num" style="color:${s.n===0?'var(--text3)':'inherit'}">${s.n}</td>
-              <td class="num" style="color:${overAvg?'var(--danger)':'inherit'};font-weight:${overAvg?'700':'400'}">${s.avg !== null ? s.avg+'d' : '—'}</td>
-              <td class="num">${s.median !== null ? s.median+'d' : '—'}</td>
-              <td class="num muted">${s.limit}d</td>
-              <td class="num" style="color:${pct!==null&&pct<70?'var(--danger)':pct!==null&&pct<90?'var(--warn)':'var(--accent)'}">${pct !== null ? pct+'%' : '—'}</td>
-            </tr>`;
-          }).join('')}
-          </tbody>
-        </table>
-      </div>
-
-      <!-- Tendencia mensual + Plan vs Real -->
-      <div class="col" style="gap:14px">
-        <div class="card">
-          <div class="card-title">BCs recibidos por mes
-            <span class="ct-sub">últimos 12 meses · usa fecha BC recibido</span>
-          </div>
-          ${months.length === 0
-            ? '<p class="muted tiny">Sin fechas de BC cargadas</p>'
-            : `<div style="display:flex;align-items:flex-end;gap:6px;height:80px;padding-top:8px">
-              ${months.map(m => {
-                const v = monthlyMap[m] || 0;
-                const maxV = Math.max(...months.map(mm => monthlyMap[mm]||0), 1);
-                const pct = Math.round((v/maxV)*100);
-                return `<div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:4px" title="${m}: ${v} proyecto${v!==1?'s':''}">
-                  <div style="font-size:9px;color:var(--text3)">${v||''}</div>
-                  <div style="width:100%;background:var(--accent);border-radius:2px 2px 0 0;height:${pct}%;min-height:${v?4:0}px;opacity:0.85"></div>
-                  <div style="font-size:9px;color:var(--text3);white-space:nowrap">${m.slice(5)}</div>
-                </div>`;
-              }).join('')}
-            </div>`
-          }
-        </div>
-
-        <div class="card">
-          <div class="card-title">Plan vs Real · lanzamientos
-            <span class="ct-sub">${planVsReal.length} proyectos con ambas fechas</span>
-          </div>
-          ${planVsReal.length === 0
-            ? '<p class="muted tiny">Sin proyectos con lanzamiento real y estimado cargados</p>'
-            : `${planVsReal.sort((a,b)=>(a.fechas.lanzReal||'').localeCompare(b.fechas.lanzReal||'')).slice(-8).map(p => {
-                const d = g2.daysBetween(p.lanzEstim, p.fechas.lanzReal);
-                const clr = d===null?'var(--text3)':Math.abs(d)<=14?'var(--accent)':d>0?'var(--danger)':'var(--info)';
-                return `<div style="display:flex;justify-content:space-between;align-items:center;padding:5px 0;border-bottom:1px solid var(--border)">
-                  <div style="font-size:12px;flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${p.nombre}</div>
-                  <div class="num tiny" style="color:${clr};font-weight:700;margin-left:8px">${d===null?'—':d===0?'exacto':(d>0?'+'+d+'d':d+'d')}</div>
-                </div>`;
-              }).join('')}
-              <div class="tiny muted" style="margin-top:8px">Promedio: ${avgDelta !== null?(avgDelta>=0?'+':'')+avgDelta+'d':'—'} · ${onTimePVR}/${planVsReal.length} a tiempo</div>`
-          }
-        </div>
-      </div>
-    </div>
-
-    <div class="spacer"></div>
-
-    <!-- Por bottler -->
-    ${bottlerStats.length ? `
-    <div class="card" style="margin-bottom:14px">
-      <div class="card-title">Performance por bottler</div>
-      <table class="tbl" style="font-size:12px">
-        <thead><tr><th>Bottler</th><th>Proyectos</th><th>Vol. 9LC</th><th title="Días hábiles promedio entre cotización enviada y respuesta recibida">Resp. prom.</th><th>% SLA cumplido</th></tr></thead>
-        <tbody>
-        ${bottlerStats.map(b => `<tr>
-          <td><strong>${b.name}</strong></td>
-          <td class="num">${b.n}</td>
-          <td class="num">${g2.fmtC9L(b.vol)}</td>
-          <td class="num" style="color:${b.avgRespBiz!==null&&b.avgRespBiz>10?'var(--danger)':b.avgRespBiz!==null&&b.avgRespBiz>7?'var(--warn)':'inherit'}">${b.avgRespBiz !== null ? b.avgRespBiz+'d háb.' : '—'}</td>
-          <td class="num" style="color:${b.pctSLA!==null&&b.pctSLA<70?'var(--danger)':b.pctSLA!==null&&b.pctSLA<90?'var(--warn)':'var(--accent)'}">${b.pctSLA !== null ? b.pctSLA+'%' : '—'}</td>
-        </tr>`).join('')}
-        </tbody>
-      </table>
-    </div>` : ''}
-
-    <!-- Por región -->
-    ${regionStats.length ? `
     <div class="card">
-      <div class="card-title">Performance por región</div>
-      <table class="tbl" style="font-size:12px">
-        <thead><tr><th>Región</th><th>Proyectos</th><th>Vol. 9LC</th><th title="Promedio días hábiles BC → Feedback final">SLA pref. prom.</th><th title="Días corridos promedio BC → Lanzamiento real">Ciclo total</th><th>Lanzados</th></tr></thead>
-        <tbody>
-        ${regionStats.map(r => `<tr>
-          <td><span class="tag">${r.name}</span></td>
-          <td class="num">${r.n}</td>
-          <td class="num">${g2.fmtC9L(r.vol)}</td>
-          <td class="num" style="color:${r.avgSlaBiz!==null&&r.avgSlaBiz>15?'var(--danger)':r.avgSlaBiz!==null&&r.avgSlaBiz>12?'var(--warn)':'inherit'}">${r.avgSlaBiz !== null ? r.avgSlaBiz+'d' : '—'}</td>
-          <td class="num">${r.avgCycle !== null ? r.avgCycle+'d' : '—'}</td>
-          <td class="num" style="color:var(--accent)">${r.launched}</td>
-        </tr>`).join('')}
-        </tbody>
-      </table>
-    </div>` : ''}
+      <div class="card-title">Proyectos según filtros <span class="ct-sub">${selected.length} visibles</span></div>
+      ${selected.length ? `<div class="tbl-wrap"><table class="tbl"><thead><tr><th>Proyecto</th><th>BU</th><th>Estado</th><th>Cliente</th><th>Cajas</th><th>BC formal</th><th>Lanz. est.</th><th>Lanz. real</th></tr></thead><tbody>
+        ${selected.sort((a,b)=>(a.status||'').localeCompare(b.status||'') || (a.region||'').localeCompare(b.region||'') || (a.nombre||'').localeCompare(b.nombre||'')).map(p => `<tr onclick="App.openProject(${p.id})"><td class="col-name"><div>${p.nombre}</div><div class="sub">${p.tipo||'—'} · ${p.bottler||'—'}</div></td><td>${regionBadge(p.region)}</td><td>${statusBadge(p.status)}</td><td>${p.cliente||'—'}</td><td class="num tiny">${p.c9l?g2.fmtC9L(p.c9l):'—'}</td><td>${(p.hasBC||'Yes')==='No'?'No':'Sí'}</td><td class="date-val">${p.lanzEstim?g2.fd(p.lanzEstim):'—'}</td><td class="date-val">${p.fechas?.lanzReal?g2.fd(p.fechas.lanzReal):'—'}</td></tr>`).join('')}
+      </tbody></table></div>` : '<div class="empty"><p>Sin proyectos para esos filtros.</p></div>'}
+    </div>
   `;
 }
-
 
 function renderMonthlyTrend(all) {
   // last 12 months of BC reception
@@ -4831,7 +4725,7 @@ function renderRiesgo() {
     <div class="page-h">
       <div>
         <h1>Riesgo</h1>
-        <p>Matriz volumen × fecha de lanzamiento. Arriba = mayor volumen; izquierda = lanzamiento más cercano o pasado.</p>
+        <p>Mapa simple de prioridad. <strong>Score</strong> = puntaje interno de urgencia: SLA vencido + cercanía al lanzamiento + bloqueos + prioridad + volumen. A mayor score, más conviene mirarlo primero.</p>
       </div>
       <div class="page-h-right" style="gap:14px;align-items:center">
         <div style="display:flex;gap:16px;font-size:13px;align-items:center">
@@ -4853,76 +4747,146 @@ function renderRiesgo() {
         <button class="pill ${!rf.statuses.size?'active':''}" onclick="App.toggleRiesgoFilter('statuses',null)" title="Vuelve a la base por defecto (Open + On going)">Activos</button>
         ${g2.STATUSES.map(s => `<button class="pill ${rf.statuses.has(s)?'active':''}" onclick="App.toggleRiesgoFilter('statuses','${s}')">${g2.STATUS_META[s].label}</button>`).join('')}
       </div>
-      <div class="filter-group">
-        <span class="filter-label">Prioridad</span>
-        <button class="pill ${!rf.severities.size?'active':''}" onclick="App.toggleRiesgoFilter('severities',null)">Todas</button>
-        ${['critico','atencion','info','ok'].map(s => `<button class="pill ${rf.severities.has(s)?'active':''}" onclick="App.toggleRiesgoFilter('severities','${s}')">${({critico:'Urgente',atencion:'Atención',info:'En radar',ok:'OK'})[s]}</button>`).join('')}
-      </div>
       <button class="btn btn-ghost btn-sm" style="margin-left:auto" onclick="App.clearAllFilters()" title="Limpiar filtros">✕ Limpiar filtros</button>
     </div>
 
-    <div class="card riesgo-matrix-card">
-      <div class="card-title">
-        Matriz de riesgo
-        <span class="ct-sub">${all.length} proyectos activos · hover para detalle · click para abrir</span>
-      </div>
-      <div class="row riesgo-legend-row" style="gap:14px;margin-bottom:18px;font-size:11px">
-        <span class="row" style="gap:6px"><span style="width:10px;height:10px;border-radius:50%;background:var(--danger);display:inline-block"></span> Crítico</span>
-        <span class="row" style="gap:6px"><span style="width:10px;height:10px;border-radius:50%;background:var(--warn);display:inline-block"></span> Atención</span>
-        <span class="row" style="gap:6px"><span style="width:10px;height:10px;border-radius:50%;background:var(--info);display:inline-block"></span> En radar / bloqueo</span>
-        <span class="row" style="gap:6px"><span style="width:10px;height:10px;border-radius:50%;background:var(--accent);display:inline-block"></span> OK</span>
-        </div><div class="risk-quadrant-note"><span style="color:var(--danger)">◀ Izquierda: pasado / más urgente</span><span style="color:var(--info)">Derecha: futuro ▶</span><span style="color:var(--accent)">↑ Arriba: mayor volumen</span><span>↓ Abajo: menor volumen</span></div><div class="row riesgo-legend-row" style="gap:14px;margin-bottom:18px;font-size:11px">
-      </div>
-      <div id="riesgo-canvas-wrap" style="position:relative;padding-left:48px;padding-bottom:34px">
-        <div class="heatmap-wrap">
-          <div class="heatmap-grid" id="heatmap-grid">
-            <!-- guide lines at label positions -->
-            ${yLabels.filter(l => l.y > 0 && l.y < 100).map(l => `<div style="position:absolute;left:0;right:0;bottom:${l.y}%;height:1px;background:var(--border);opacity:.6"></div>`).join('')}
-            <!-- quadrant labels -->
-            <div class="risk-axis-label vol-high">↑ Mayor volumen</div>
-            <div class="risk-axis-label vol-low">↓ Menor volumen</div>
-            <div class="risk-axis-label past">◀ Pasado / cercano</div>
-            <div class="risk-axis-label future">Futuro ▶</div>
+    <style>
+      .risk-axislead{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;font-size:11.5px;color:var(--text3);margin:6px 0 14px}
+      .risk-board{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+      .risk-quad{background:var(--bg);border:1px solid var(--border);border-radius:12px;display:flex;flex-direction:column;min-height:150px}
+      .risk-quad-head{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;padding:11px 13px 9px;border-bottom:1px solid var(--border)}
+      .risk-quad-title{font-size:14px;font-weight:700}
+      .risk-quad-sub{font-size:11px;color:var(--text3);margin-top:1px}
+      .risk-quad-count{text-align:right;line-height:1.15}
+      .risk-quad-count strong{font-size:20px;font-family:'JetBrains Mono',monospace}
+      .risk-quad-count span{display:block;font-size:10px;color:var(--text3);font-family:'JetBrains Mono',monospace}
+      .risk-quad-list{display:flex;flex-direction:column;gap:6px;padding:10px;max-height:320px;overflow-y:auto}
+      .risk-chip{display:flex;gap:9px;align-items:flex-start;background:var(--surface);border:1px solid var(--border);border-radius:9px;padding:8px 10px;cursor:pointer;transition:border-color .12s,transform .12s}
+      .risk-chip:hover{border-color:var(--border2);transform:translateY(-1px)}
+      .risk-chip-dot{width:9px;height:9px;border-radius:50%;margin-top:4px;flex:none}
+      .risk-chip-name{font-size:13px;font-weight:600;color:var(--text);line-height:1.25}
+      .risk-chip-meta{font-size:11px;color:var(--text3);margin-top:1px}
+      .risk-quad-empty{font-size:12px;color:var(--text3);font-style:italic;padding:6px 4px}
+      @media (max-width:900px){.risk-board{grid-template-columns:1fr}}
+    
 
-            ${evals.map(({p, e}) => {
-              const lanz = p.lanzEstim ? g2.daysBetween(g2.today(), p.lanzEstim) : 200;
-              const xPct = Math.max(2, Math.min(98, ((lanz - xMin) / (xMax - xMin)) * 100));
-              const yPct = volToYBottom(p.c9l);
-              const size = 14 + Math.min(28, Math.sqrt(p.c9l || 0) / 5);
-              // Mostrar nombre al lado si el dot es grande (>= 22px) o si el proyecto es importante
-              const showLabel = size >= 22;
-              const labelText = p.nombre.length > 22 ? p.nombre.slice(0, 20) + '…' : p.nombre;
-              return `
-                <div class="heat-dot ${e.severity}"
-                  style="left:${xPct}%;bottom:${yPct}%;width:${size}px;height:${size}px"
-                  onclick="App.openProject(${p.id})"
-                  onmouseenter="App.showHeatTooltip(event, ${p.id})"
-                  onmouseleave="App.hideHeatTooltip()"></div>
-                ${showLabel ? `<div class="heat-label" style="left:calc(${xPct}% + ${size/2 + 4}px);bottom:calc(${yPct}% - 6px)" onclick="App.openProject(${p.id})">${labelText}</div>` : ''}
-              `;
-            }).join('')}
-          </div>
-          <div class="heat-axis-x">
-            <span>-60d (tarde)</span>
-            <span>HOY</span>
-            <span>+60</span>
-            <span>+120</span>
-            <span>+180</span>
-            <span>+240 / TBC</span>
-          </div>
-          <div class="heat-axis-y" style="position:absolute;top:0;bottom:0;left:-44px;width:38px">
-            ${yLabels.map(l => `<span style="position:absolute;bottom:${l.y}%;right:0;transform:translateY(50%);font-size:10px;color:var(--text3);font-family:'JetBrains Mono',monospace;line-height:1">${l.v}</span>`).join('')}
-          </div>
-        </div>
+/* ───── v34 · ajustes gerencia: Gantt, Benchmark, Riesgo, Análisis y PDF ───── */
+.gantt-detail-table-v34 .tbl { min-width: 1120px !important; table-layout: fixed; }
+.gantt-detail-table-v34 th, .gantt-detail-table-v34 td { padding: 7px 8px !important; font-size: 11px !important; }
+.gantt-detail-table-v34 th { cursor: pointer; user-select: none; }
+.gantt-detail-table-v34 th:nth-child(1), .gantt-detail-table-v34 td:nth-child(1) { width: 19%; }
+.gantt-detail-table-v34 th:nth-child(2), .gantt-detail-table-v34 td:nth-child(2) { width: 6%; }
+.gantt-detail-table-v34 th:nth-child(3), .gantt-detail-table-v34 td:nth-child(3) { width: 10%; }
+.gantt-detail-table-v34 th:nth-child(4), .gantt-detail-table-v34 td:nth-child(4) { width: 12%; }
+.gantt-detail-table-v34 th:nth-child(5), .gantt-detail-table-v34 td:nth-child(5) { width: 8%; }
+.gantt-detail-table-v34 th:nth-child(6), .gantt-detail-table-v34 td:nth-child(6) { width: 10%; }
+.gantt-detail-table-v34 th:nth-child(7), .gantt-detail-table-v34 td:nth-child(7) { width: 10%; }
+.gantt-detail-table-v34 th:nth-child(8), .gantt-detail-table-v34 td:nth-child(8) { width: 13%; }
+.gantt-detail-table-v34 th:nth-child(9), .gantt-detail-table-v34 td:nth-child(9) { width: 12%; }
+.gantt-detail-table-v34 .comment-cell { max-width: 150px !important; line-height: 1.25 !important; }
+.gantt-detail-table-v34 .col-name .sub { font-size: 10px !important; }
+.benchmark-table-v34 .tbl { width:100% !important; min-width:0 !important; table-layout:fixed !important; }
+.benchmark-table-v34 th, .benchmark-table-v34 td { padding:5px 6px !important; font-size:10.5px !important; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.benchmark-table-v34 th:nth-child(1), .benchmark-table-v34 td:nth-child(1) { width:20%; }
+.benchmark-table-v34 th:nth-child(2), .benchmark-table-v34 td:nth-child(2) { width:13%; }
+.benchmark-table-v34 th:nth-child(3), .benchmark-table-v34 td:nth-child(3) { width:7%; }
+.benchmark-table-v34 th:nth-child(4), .benchmark-table-v34 td:nth-child(4) { width:8%; }
+.benchmark-table-v34 th:nth-child(5), .benchmark-table-v34 td:nth-child(5) { width:7%; }
+.benchmark-table-v34 th:nth-child(6), .benchmark-table-v34 td:nth-child(6) { width:7%; }
+.benchmark-table-v34 th:nth-child(7), .benchmark-table-v34 td:nth-child(7) { width:12%; }
+.benchmark-table-v34 th:nth-child(8), .benchmark-table-v34 td:nth-child(8) { width:12%; }
+.benchmark-table-v34 th:nth-child(9), .benchmark-table-v34 td:nth-child(9) { width:14%; min-width:110px; }
+.benchmark-table-v34 input.input, .benchmark-table-v34 select.input { height:23px !important; padding:2px 4px !important; font-size:10.5px !important; min-width:0 !important; width:100% !important; }
+.benchmark-table-v34 .benchmark-counter { font-size:9.8px !important; padding:2px 5px !important; max-width:100%; }
+.benchmark-kpis-v34 .kpi { min-height:70px !important; padding:8px 10px !important; }
+.benchmark-kpis-v34 .kpi-val { font-size:21px !important; }
+.benchmark-kpis-v34 .kpi-label { font-size:8.5px !important; }
+.benchmark-kpis-v34 .kpi-sub { font-size:9.5px !important; }
+.risk-v34 .card { padding:12px 14px !important; }
+.risk-v34 .card-title { font-size:9px !important; margin-bottom:7px !important; }
+.risk-v34 .risk-chip-name { font-size:11.5px !important; }
+.risk-v34 .risk-chip-meta { font-size:9.8px !important; }
+.risk-v34 .risk-quad-title { font-size:12px !important; }
+.risk-v34 .risk-quad-sub { font-size:9.8px !important; }
+.risk-v34 .risk-quad-count strong { font-size:16px !important; }
+.analysis-fixed-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:12px; }
+.analysis-bars .bar-row { grid-template-columns:80px 1fr 52px; display:grid; gap:8px; align-items:center; margin-bottom:7px; font-size:11px; }
+.analysis-bars .bar-label { width:auto; }
+.analysis-bars .bar-track { height:17px; }
+.analysis-bars .bar-fill { background:var(--accent); }
+.analysis-bars .bar-fill.info { background:var(--info); }
+.analysis-bars .bar-val { width:auto; font-weight:700; }
+@media (max-width: 1180px) { .analysis-fixed-grid { grid-template-columns:1fr; } }
+@media print {
+  @page { size: A4 landscape; margin: 5mm; }
+  html, body { width: 297mm !important; min-height: 210mm !important; margin:0 !important; padding:0 !important; overflow:hidden !important; background:white !important; -webkit-print-color-adjust:exact !important; print-color-adjust:exact !important; }
+  .lock-screen, .sidebar, .tweaks-toggle, .tweaks-panel, .drawer-backdrop, .drawer, .btn, .filter-bar, .page-h, #supabaseStatus { display:none !important; }
+  .shell, .main, #view-root { display:block !important; width:100% !important; margin:0 !important; padding:0 !important; max-width:none !important; min-height:0 !important; }
+  .exec-onepager { width:287mm !important; min-height:198mm !important; max-width:none !important; margin:0 auto !important; padding:8mm 9mm !important; border:none !important; border-radius:0 !important; box-shadow:none !important; box-sizing:border-box !important; page-break-inside:avoid !important; break-inside:avoid !important; }
+  .exec-header-simple { padding-bottom:5mm !important; margin-bottom:4mm !important; }
+  .exec-title { font-size:24px !important; }
+  .exec-metrics.exec-top-2 { grid-template-columns:repeat(2,1fr) !important; gap:4mm !important; margin-bottom:4mm !important; }
+  .exec-metric { padding:4mm !important; min-height:22mm !important; }
+  .exec-metric .val { font-size:28px !important; }
+  .exec-mini-table th, .exec-mini-table td { padding:2.4mm 3mm !important; font-size:11px !important; }
+  .exec-grid-2 { grid-template-columns:1fr 1fr !important; gap:5mm !important; }
+  .exec-chart-card { padding:4mm !important; min-height:62mm !important; }
+  .exec-bar-track { height:7mm !important; }
+  .exec-bar-row { margin:2.4mm 0 !important; grid-template-columns:18mm 1fr 18mm !important; }
+}
+
+</style>
+    <div class="card" style="padding:14px 16px">
+      <div class="card-title" style="margin-bottom:4px">Prioridad por volumen y urgencia
+        <span class="ct-sub">${all.length} proyectos · color = nivel de alerta · click para abrir</span>
       </div>
+      ${(() => {
+        const VOL_HI = 10000;
+        const sevClr = {critico:'var(--danger)', atencion:'var(--warn)', info:'var(--info)', ok:'var(--accent)'};
+        const enrich = evals.map(({p, e}) => {
+          const lanz = p.lanzEstim ? g2.daysBetween(g2.today(), p.lanzEstim) : null;
+          const urgent = lanz !== null && lanz < 45;
+          const hiVol = (p.c9l || 0) >= VOL_HI;
+          return {p, e, lanz, urgent, hiVol};
+        });
+        const q = (hi, urg) => enrich.filter(x => x.hiVol === hi && x.urgent === urg).sort((a,b) => b.e.score - a.e.score);
+        const cell = (items, accent, title, sub) => {
+          const vol = items.reduce((a,x) => a + (x.p.c9l||0), 0);
+          return `<div class="risk-quad" style="border-top:3px solid ${accent}">
+            <div class="risk-quad-head">
+              <div><div class="risk-quad-title" style="color:${accent}">${title}</div><div class="risk-quad-sub">${sub}</div></div>
+              <div class="risk-quad-count"><strong>${items.length}</strong><span>${g2.fmtC9L(vol)} 9LC</span></div>
+            </div>
+            <div class="risk-quad-list">
+              ${items.length ? items.map(x => `
+                <div class="risk-chip" onclick="App.openProject(${x.p.id})">
+                  <span class="risk-chip-dot" style="background:${sevClr[x.e.severity]}"></span>
+                  <div class="risk-chip-body">
+                    <div class="risk-chip-name">${x.p.nombre}</div>
+                    <div class="risk-chip-meta">${x.p.region} · ${g2.fmtC9L(x.p.c9l)} 9LC · ${x.lanz===null?'lanz. TBC':x.lanz<0?Math.abs(x.lanz)+'d tarde':'faltan '+x.lanz+'d'}</div>
+                  </div>
+                </div>`).join('') : '<div class="risk-quad-empty">Sin proyectos en este cuadrante</div>'}
+            </div>
+          </div>`;
+        };
+        return `
+          <div class="risk-axislead">
+            <span><span style="color:var(--danger);font-weight:700">Urgente</span> = lanza pronto o atrasado &nbsp;·&nbsp; <span style="font-weight:700">Holgado</span> = +45 días o sin fecha</span>
+            <span>Arriba = alto volumen (≥ ${g2.fmtC9L(VOL_HI)}) · Abajo = menor volumen</span>
+          </div>
+          <div class="risk-board">
+            ${cell(q(true,true),  'var(--danger)', 'Prioridad máxima', 'Alto volumen · urgente — actuar ya')}
+            ${cell(q(true,false), 'var(--info)',   'Planificar',       'Alto volumen · con tiempo')}
+            ${cell(q(false,true), 'var(--warn)',   'Resolver pronto',  'Bajo volumen · urgente')}
+            ${cell(q(false,false),'var(--accent)', 'En seguimiento',   'Bajo volumen · con tiempo')}
+          </div>`;
+      })()}
     </div>
-    <div id="heat-tooltip" class="heat-tooltip"></div>
 
     <div class="spacer"></div>
 
-    <div class="card-grid grid-2">
-      <div class="card">
-        <div class="card-title">Top riesgo · ordenado por score</div>
+    <div class="card risk-v34">
+        <div class="card-title">Top riesgo · ordenado por score <span class="ct-sub">mayor score = mayor prioridad de gestión</span></div>
         ${evals.sort((a,b) => b.e.score - a.e.score).slice(0, 8).map(({p, e}) => `
           <div class="row between" style="padding:8px 0;border-bottom:1px solid var(--border);cursor:pointer" onclick="App.openProject(${p.id})">
             <div style="flex:1;min-width:0">
@@ -4935,27 +4899,6 @@ function renderRiesgo() {
             <div class="num tiny" style="color:var(--text2);font-weight:600">${e.score}</div>
           </div>
         `).join('')}
-      </div>
-
-      <div class="card">
-        <div class="card-title">Resumen de exposición</div>
-        ${(() => {
-          const sevs = ['critico','atencion','info','ok'];
-          const sevLabels = {critico:'Urgente', atencion:'Atención', info:'En radar', ok:'OK'};
-          return sevs.map(s => {
-            const grp = evals.filter(x => x.e.severity === s);
-            const vol = grp.reduce((a,{p}) => a + (p.c9l||0), 0);
-            return `
-              <div class="row between" style="padding:10px 0;border-bottom:1px solid var(--border)">
-                <div class="row" style="gap:8px"><span class="sev-bar sev-${s}" style="display:inline-block;width:4px;height:18px"></span><strong style="font-size:13px">${sevLabels[s]}</strong></div>
-                <div class="ta-r">
-                  <div class="num" style="font-weight:600">${grp.length} proy.</div>
-                  <div class="num tiny muted">${g2.fmtC9L(vol)} 9LC</div>
-                </div>
-              </div>
-            `;
-          }).join('');
-        })()}
       </div>
     </div>
   `;
@@ -5114,10 +5057,23 @@ function renderEjecutivo() {
     </div>
   `;
 }
+
+const GANTT_CLR = {
+  prefact: '#185FA5',
+  ipm: '#6B4FA0',
+  lanzEst: '#4A7A28',
+  lanzReal: '#2D5016',
+  late: '#A33A32',
+  today: '#E24B4A',
+  event: '#B07020',
+  bench: '#5A478A'
+};
+
 /* ════════════════════════════════════════════════════════════════
    VIEW · GANTT (improved)
 ═══════════════════════════════════════════════════════════════════ */
 let ganttFilter = {regions: new Set(), statuses: new Set(['On going','Open'])};
+let ganttDetailSort = {key:'bu', dir:'asc'};
 
 function renderGantt() {
   // Compute filtered projects for totals display
@@ -5159,8 +5115,8 @@ function renderGantt() {
 
     <div class="filter-bar">
       <div class="filter-group">
-        <span class="filter-label">Región</span>
-        <button class="pill ${!ganttFilter.regions.size?'active':''}" onclick="App.toggleGantt('regions',null)">Todos</button>
+        <span class="filter-label">BU</span>
+        <button class="pill ${!ganttFilter.regions.size?'active':''}" onclick="App.toggleGantt('regions',null)">Todas</button>
         ${g2.REGIONS.map(r => `<button class="pill ${ganttFilter.regions.has(r)?'active':''}" onclick="App.toggleGantt('regions','${r}')">${r}</button>`).join('')}
       </div>
       <div class="filter-group">
@@ -5179,7 +5135,7 @@ function renderGantt() {
       <div class="gantt-detail-toolbar">
         <div>
           <div class="card-title" style="margin-bottom:2px">Gantt detallado para gerencia</div>
-          <div class="tiny muted">Comentario último, alerta principal, próximo paso y datos clave por proyecto</div>
+          <div class="tiny muted">Ordenable por columna · al copiar, sale ordenada por BU para pegar directo en correo</div>
         </div>
         <div class="row" style="gap:8px">
           <button class="btn btn-sm btn-primary" onclick="App.copyGanttTable(event)">Copiar tabla</button>
@@ -5192,6 +5148,7 @@ function renderGantt() {
 }
 
 
+
 function ganttDetailTableHTML() {
   const items = g2.state.projects.filter(p => {
     if (ganttFilter.regions.size && !ganttFilter.regions.has(p.region)) return false;
@@ -5199,21 +5156,49 @@ function ganttDetailTableHTML() {
     const q = (g2.state.ganttSearch||'').toLowerCase();
     if (q && ![p.nombre,p.cliente,p.bottler,p.region,p.tipo,p.ipm].join(' ').toLowerCase().includes(q)) return false;
     return true;
-  }).map(p => ({p, e:g2.evaluateProject(p)}))
-    .sort((a,b) => (a.p.lanzEstim||'9999').localeCompare(b.p.lanzEstim||'9999'));
+  }).map(p => ({p, e:g2.evaluateProject(p)}));
+
+  const val = ({p,e}, key) => {
+    const manualNotes = (p.notes||[]).filter(n => !n.auto);
+    const firstSignal = e.signals[0];
+    const openStep = (p.nextSteps||[]).filter(s=>!s.done).sort((a,b)=>(a.dueDate||'9999').localeCompare(b.dueDate||'9999'))[0];
+    switch(key) {
+      case 'project': return (p.nombre||'').toLowerCase();
+      case 'bu': return (p.region||'').toLowerCase();
+      case 'status': return (p.status||'').toLowerCase();
+      case 'stage': return e.currentStage.idx;
+      case 'launch': return p.lanzEstim || '9999';
+      case 'volume': return p.c9l || 0;
+      case 'bench': return (p.benchmarkNeeded||'No') === 'Yes' ? 1 : 0;
+      case 'comment': return (manualNotes[0]?.text || '').toLowerCase();
+      case 'alert': return firstSignal ? (firstSignal.tag||'').toLowerCase() : 'zz';
+      case 'next': return (openStep?.dueDate || p.lanzEstim || '9999');
+      default: return '';
+    }
+  };
+  items.sort((a,b) => {
+    const av = val(a, ganttDetailSort.key), bv = val(b, ganttDetailSort.key);
+    if (av < bv) return ganttDetailSort.dir === 'asc' ? -1 : 1;
+    if (av > bv) return ganttDetailSort.dir === 'asc' ? 1 : -1;
+    return (a.p.region||'').localeCompare(b.p.region||'') || (a.p.lanzEstim||'9999').localeCompare(b.p.lanzEstim||'9999') || (a.p.nombre||'').localeCompare(b.p.nombre||'');
+  });
 
   if (!items.length) return '<div class="empty"><p>Sin proyectos para esos filtros</p></div>';
+  const th = (key, label, tip='') => `<th class="${ganttDetailSort.key===key?'sort-'+ganttDetailSort.dir:''}" onclick="App.sortGanttDetail('${key}')" ${tip?`title="${tip}"`:''}>${label}</th>`;
 
   return `
-    <div class="tbl-wrap gantt-detail-table-wrap" style="overflow-x:auto">
+    <div class="tbl-wrap gantt-detail-table-wrap gantt-detail-table-v34" style="overflow-x:auto">
       <table class="tbl gantt-detail-table">
         <thead><tr>
-          <th>Proyecto</th>
-          <th>Estado / etapa</th>
-          <th>Lanzamiento</th>
-          <th>Volumen</th>
-          <th>Comentario</th>
-          <th>Alerta / próximo paso</th>
+          ${th('project','Proyecto')}
+          ${th('bu','BU')}
+          ${th('status','Estado / etapa')}
+          ${th('launch','Lanzamiento')}
+          ${th('volume','Volumen')}
+          ${th('bench','Bench')}
+          ${th('comment','Comentario')}
+          ${th('alert','Alerta')}
+          ${th('next','Próximo paso')}
         </tr></thead>
         <tbody>
           ${items.map(({p,e}) => {
@@ -5222,13 +5207,18 @@ function ganttDetailTableHTML() {
             const launchDays = p.lanzEstim ? g2.daysBetween(g2.today(), p.lanzEstim) : null;
             const launchText = p.lanzEstim ? `${g2.fd(p.lanzEstim)}${launchDays!==null ? ' · ' + (launchDays<0 ? Math.abs(launchDays)+'d tarde' : '+'+launchDays+'d') : ''}` : 'TBC';
             const firstSignal = e.signals[0];
+            const nextStep = (p.nextSteps||[]).filter(s=>!s.done).sort((a,b)=>(a.dueDate||'9999').localeCompare(b.dueDate||'9999'))[0];
+            const nextStepText = nextStep ? `${nextStep.text}${nextStep.dueDate ? ' · '+g2.fd(nextStep.dueDate) : ''}` : (e.nextAction || 'Sin acción pendiente');
             return `<tr onclick="App.openProject(${p.id})" style="cursor:pointer">
-              <td class="col-name"><div>${p.nombre}</div><div class="sub">${p.region} · ${p.cliente||'—'} · ${p.bottler||'—'}</div></td>
-              <td>${statusBadge(p.status)}<div class="tiny muted" style="margin-top:4px">${e.currentStage.label}</div></td>
+              <td class="col-name"><div>${p.nombre}</div><div class="sub">${p.cliente||'—'} · ${p.bottler||'—'}</div></td>
+              <td><span class="badge b-region">${p.region||'—'}</span></td>
+              <td>${statusBadge(p.status)}<div class="tiny muted" style="margin-top:3px">${e.currentStage.label}</div></td>
               <td><span class="date-val">${launchText}</span></td>
               <td class="num tiny">${p.c9l ? g2.fmtC9L(p.c9l)+' 9LC' : '—'}</td>
-              <td class="comment-cell">${lastNote ? escapeHTML(lastNote).slice(0,220) : '<span class="empty-note">Sin comentario manual cargado</span>'}</td>
-              <td><span class="badge ${firstSignal ? 'b-'+(firstSignal.sev==='critico'?'bad':firstSignal.sev==='atencion'?'warn':firstSignal.sev==='info'?'info':'ok') : 'b-ok'}">${firstSignal ? firstSignal.tag : 'OK'}</span><div class="tiny muted" style="margin-top:4px">${e.nextAction || 'Sin acción pendiente'}</div></td>
+              <td>${(p.benchmarkNeeded||'No')==='Yes' ? benchmarkCounterHTML(p) : '<span class="tiny muted">No</span>'}</td>
+              <td class="comment-cell" title="${escapeHTML(lastNote)}">${lastNote ? escapeHTML(lastNote).slice(0,90) + (lastNote.length>90?'…':'') : '<span class="empty-note">—</span>'}</td>
+              <td><span class="badge ${firstSignal ? 'b-'+(firstSignal.sev==='critico'?'bad':firstSignal.sev==='atencion'?'warn':firstSignal.sev==='info'?'info':'ok') : 'b-ok'}">${firstSignal ? firstSignal.tag : 'OK'}</span></td>
+              <td><span class="tiny" title="${escapeHTML(nextStepText)}">${escapeHTML(nextStepText).slice(0,80)}${nextStepText.length>80?'…':''}</span></td>
             </tr>`;
           }).join('')}
         </tbody>
@@ -5236,31 +5226,6 @@ function ganttDetailTableHTML() {
     </div>
   `;
 }
-
-/* Color tokens for Gantt (resolved values so they look right in both themes) */
-const GANTT_CLR = {
-  prefact: '#185FA5',   // azul
-  ipm:     '#6B4FA0',   // violeta
-  lanzEst: '#4A7A28',   // verde
-  lanzReal:'#2D5016',   // verde oscuro
-  late:    '#C8453E',   // rojo (lanz pasado)
-  today:   '#E24B4A',
-};
-
-/* Labels mostrados arriba/abajo de cada hito */
-const GANTT_STAGE_LABEL = {
-  bcRecibido:       {short:'BC',   long:'BC recibido',    cat:'prefact'},
-  receptionDate:    {short:'Rec.', long:'Reception Date', cat:'prefact'},
-  primerFeedback:   {short:'1°FB', long:'1° Feedback',    cat:'prefact'},
-  cotizBottler:     {short:'Cot.', long:'Cotiz. al bottler', cat:'prefact'},
-  respBottler:      {short:'RspB', long:'Resp. del bottler', cat:'prefact'},
-  feedbackFinal:    {short:'FF',   long:'Feedback Final', cat:'prefact'},
-  gate1:            {short:'G1',   long:'Gate 1',         cat:'ipm'},
-  gate2:            {short:'G2',   long:'Gate 2',         cat:'ipm'},
-  gate3:            {short:'G3',   long:'Gate 3',         cat:'ipm'},
-  primeraProduccion:{short:'1ª P', long:'1ª Producción',  cat:'ipm'},
-  lanzReal:         {short:'Lanz.',long:'Lanzamiento real', cat:'lanzReal'},
-};
 
 function ganttSvgHTML() {
   const all = g2.state.projects.filter(p => {
@@ -5296,11 +5261,11 @@ function ganttSvgHTML() {
 
   // Geometría v28: pensada para entrar en notebook 13.3" sin scroll horizontal.
   // No se dibuja texto fuera de su propia fila: eso evita que un proyecto pise al siguiente.
-  const W = 1000;
-  const LEFT = 158;
-  const RIGHT_PAD = 14;
-  const TOP = 50;
-  const ROW_H = 86;
+  const W = 930;
+  const LEFT = 128;
+  const RIGHT_PAD = 10;
+  const TOP = 44;
+  const ROW_H = 74;
   const H = TOP + all.length * ROW_H + 42;
   const CHART_W = W - LEFT - RIGHT_PAD;
   const xPct = dateStr => LEFT + ((new Date(dateStr) - minD) / 86400000 / totalDays) * CHART_W;
@@ -5357,14 +5322,27 @@ function ganttSvgHTML() {
     const leftComment = (manualNotes[0]?.text || e.nextAction || '').replace(/\s+/g, ' ').trim();
 
     // Columna izquierda: compacta y con altura controlada.
-    svg += `<text x="12" y="${y+17}" font-size="10.4" font-weight="700" fill="var(--text)">${esc(cut(p.nombre, 23))}</text>`;
-    svg += `<text x="12" y="${y+32}" font-size="8" fill="var(--text3)">${esc(cut((p.cliente||'—') + ' · ' + (p.region||'—'), 28))}</text>`;
-    svg += `<text x="12" y="${y+46}" font-size="8" fill="var(--text3)">${esc(cut(p.tipo||'—', 22))}</text>`;
-    svg += `<rect x="12" y="${y+54}" width="${Math.min(70, (sm.label||'').length*5+15)}" height="14" rx="4" fill="${sm.color}" opacity="0.15"/>`;
-    svg += `<text x="19" y="${y+64}" font-size="7.8" font-weight="700" fill="${sm.color}">${esc(cut(sm.label, 12))}</text>`;
-    svg += `<text x="88" y="${y+64}" font-size="7.8" fill="${launchClr}" font-weight="700">${esc(launchLabel)}</text>`;
+    svg += `<text x="12" y="${y+17}" font-size="9.4" font-weight="700" fill="var(--text)">${esc(cut(p.nombre, 20))}</text>`;
+    svg += `<text x="12" y="${y+29}" font-size="7.3" fill="var(--text3)">${esc(cut((p.cliente||'—') + ' · ' + (p.region||'—'), 22))}</text>`;
+    svg += `<text x="12" y="${y+41}" font-size="7.3" fill="var(--text3)">${esc(cut(p.tipo||'—', 18))}</text>`;
+    svg += `<rect x="12" y="${y+49}" width="${Math.min(70, (sm.label||'').length*5+15)}" height="14" rx="4" fill="${sm.color}" opacity="0.15"/>`;
+    svg += `<text x="19" y="${y+59}" font-size="7.8" font-weight="700" fill="${sm.color}">${esc(cut(sm.label, 12))}</text>`;
+    svg += `<text x="88" y="${y+59}" font-size="7.8" fill="${launchClr}" font-weight="700">${esc(launchLabel)}</text>`;
     if (leftComment) {
-      svg += `<text x="12" y="${y+79}" font-size="7.8" fill="var(--accent)" font-style="italic">➤ ${esc(cut(leftComment, 31))}</text>`;
+      svg += `<text x="12" y="${y+69}" font-size="7.8" fill="var(--accent)" font-style="italic">➤ ${esc(cut(leftComment, 25))}</text>`;
+    }
+
+    // Marca de benchmark requerido: barra de acento + chip a la derecha de la fila.
+    const needsBench = (p.benchmarkNeeded||'No') === 'Yes';
+    if (needsBench) {
+      svg += `<rect x="0" y="${y}" width="3" height="${ROW_H}" fill="var(--purple)"><title>Requiere benchmark</title></rect>`;
+      const d = g2.businessDays(p.benchmarkStart, p.benchmarkEnd || g2.today());
+      const benchTxt = !p.benchmarkStart ? 'BENCH · sin inicio'
+        : (p.benchmarkEnd ? `BENCH · cerrado ${d}d` : `BENCH · en curso ${d}d`);
+      const benchClr = !p.benchmarkStart ? 'var(--text3)' : (d!==null && d>10 ? 'var(--danger)' : d!==null && d>=8 ? 'var(--warn)' : 'var(--purple)');
+      const bw = benchTxt.length*4.6 + 12;
+      svg += `<rect x="${W-RIGHT_PAD-bw}" y="${y+6}" width="${bw}" height="14" rx="7" fill="${benchClr}" opacity="0.14"/>`;
+      svg += `<text x="${W-RIGHT_PAD-bw/2}" y="${y+16}" font-size="7.6" font-weight="700" fill="${benchClr}" text-anchor="middle">${esc(benchTxt)}</text>`;
     }
 
     const filled = stageDef.filter(s => f[s.key]).map(s => ({...s, date:f[s.key]}));
@@ -5390,22 +5368,22 @@ function ganttSvgHTML() {
       if (lineEnd && s.key === lineEnd.key) return;
       const x = xPct(s.date);
       const clr = GANTT_CLR[s.cat] || GANTT_CLR.prefact;
-      svg += `<circle cx="${x}" cy="${cy}" r="3.2" fill="${clr}" stroke="white" stroke-width="1"><title>${esc(s.long)} · ${g2.fd(s.date)}</title></circle>`;
+      svg += `<circle cx="${x}" cy="${cy}" r="3.2" fill="${clr}" stroke="white" stroke-width="1" style="cursor:pointer" onclick="App.openProject(${p.id})"><title>${esc(s.long)} · ${g2.fd(s.date)}</title></circle>`;
     });
 
     // Primer hito abajo: solo short + fecha, dentro de la fila.
     if (lineStart) {
       const x = xPct(lineStart.date);
-      svg += `<circle cx="${x}" cy="${cy}" r="5.4" fill="var(--text)" stroke="white" stroke-width="1.8"><title>${esc(lineStart.long)} · ${g2.fd(lineStart.date)}</title></circle>`;
+      svg += `<circle cx="${x}" cy="${cy}" r="5.4" fill="var(--text)" stroke="white" stroke-width="1.8" style="cursor:pointer" onclick="App.openProject(${p.id})"><title>${esc(lineStart.long)} · ${g2.fd(lineStart.date)}</title></circle>`;
       svg += `<text x="${x}" y="${cy+19}" font-size="8.8" font-weight="700" fill="var(--text2)" text-anchor="middle">${esc(lineStart.label)}</text>`;
-      svg += `<text x="${x}" y="${cy+31}" font-size="8" fill="var(--text3)" text-anchor="middle" font-family="JetBrains Mono, monospace">${g2.fd(lineStart.date)}</text>`;
+      svg += `<text x="${x}" y="${cy+31}" font-size="7.3" fill="var(--text3)" text-anchor="middle" font-family="JetBrains Mono, monospace">${g2.fd(lineStart.date)}</text>`;
     }
 
     // Último hito arriba: short + fecha, dentro de la fila.
     if (lineEnd && (!lineStart || lineEnd.key !== lineStart.key)) {
       const x = xPct(lineEnd.date);
       const clr = GANTT_CLR[lineEnd.cat] || GANTT_CLR.prefact;
-      svg += `<circle cx="${x}" cy="${cy}" r="6.2" fill="${clr}" stroke="white" stroke-width="1.8"><title>${esc(lineEnd.long)} · ${g2.fd(lineEnd.date)}</title></circle>`;
+      svg += `<circle cx="${x}" cy="${cy}" r="6.2" fill="${clr}" stroke="white" stroke-width="1.8" style="cursor:pointer" onclick="App.openProject(${p.id})"><title>${esc(lineEnd.long)} · ${g2.fd(lineEnd.date)}</title></circle>`;
       svg += `<text x="${x}" y="${cy-22}" font-size="8.8" font-weight="700" fill="${clr}" text-anchor="middle">${esc(lineEnd.label)}</text>`;
       svg += `<text x="${x}" y="${cy-10}" font-size="8" fill="${clr}" text-anchor="middle" font-family="JetBrains Mono, monospace">${g2.fd(lineEnd.date)}</text>`;
     }
@@ -5415,17 +5393,17 @@ function ganttSvgHTML() {
       const x = xPct(p.lanzEstim);
       const past = new Date(p.lanzEstim) < new Date(g2.today());
       const clr = past && !f.lanzReal ? GANTT_CLR.late : GANTT_CLR.lanzEst;
-      svg += `<polygon points="${x},${cy+7} ${x+7},${cy+20} ${x-7},${cy+20}" fill="${clr}" stroke="white" stroke-width="1.2"><title>Lanzamiento estimado · ${g2.fd(p.lanzEstim)}</title></polygon>`;
+      svg += `<polygon points="${x},${cy+7} ${x+7},${cy+20} ${x-7},${cy+20}" fill="${clr}" stroke="white" stroke-width="1.2" style="cursor:pointer" onclick="App.openProject(${p.id})"><title>Lanzamiento estimado · ${g2.fd(p.lanzEstim)}</title></polygon>`;
       svg += `<text x="${x}" y="${cy+34}" font-size="8" fill="${clr}" text-anchor="middle" font-weight="700" font-family="JetBrains Mono, monospace">${g2.fd(p.lanzEstim)}</text>`;
     }
 
     // Eventos manuales: puntito naranja sobre la línea.
     (p.timelineEvents || []).filter(ev => ev.date).forEach(ev => {
       const x = xPct(ev.date);
-      svg += `<circle cx="${x}" cy="${cy-9}" r="3.8" fill="var(--warn)" stroke="white" stroke-width="1"><title>Evento · ${esc(ev.title||'Sin título')} · ${g2.fd(ev.date)}</title></circle>`;
+      svg += `<circle cx="${x}" cy="${cy-9}" r="3.8" fill="var(--warn)" stroke="white" stroke-width="1" style="cursor:pointer" onclick="App.openProject(${p.id})"><title>Evento · ${esc(ev.title||'Sin título')} · ${g2.fd(ev.date)}${ev.comment ? ' · ' + esc(ev.comment) : ''}</title></circle>`;
     });
 
-    svg += `<rect x="0" y="${y}" width="${W}" height="${ROW_H}" fill="transparent" style="cursor:pointer" onclick="App.openProject(${p.id})"><title>${esc(p.nombre)} — click para ver detalle</title></rect>`;
+    svg += `<rect x="0" y="${y}" width="${LEFT-8}" height="${ROW_H}" fill="transparent" style="cursor:pointer" onclick="App.openProject(${p.id})"><title>${esc(p.nombre)} — click para ver detalle</title></rect>`;
   });
 
   // Leyenda compacta.
@@ -5436,6 +5414,7 @@ function ganttSvgHTML() {
     {clr:'var(--text)', label:'Primer hito'},
     {clr:GANTT_CLR.lanzEst, label:'Lanz. estim.'},
     {clr:'var(--warn)', label:'Evento'},
+    {clr:'var(--purple)', label:'Requiere bench'},
   ];
   let lx = 12;
   legends.forEach(l => {
@@ -5448,12 +5427,22 @@ function ganttSvgHTML() {
   return svg;
 }
 
+function benchmarkFiltersNorm() {
+  const bf = gs.state.benchmarkFilters ||= {statuses:new Set(), regions:new Set(), needed:new Set(), search:''};
+  if (!(bf.statuses instanceof Set)) bf.statuses = new Set(bf.status ? [bf.status] : []);
+  if (!(bf.regions instanceof Set)) bf.regions = new Set(bf.region ? [bf.region] : []);
+  if (!(bf.needed instanceof Set)) bf.needed = bf.needed ? new Set([bf.needed]) : new Set();
+  bf.search ||= '';
+  return bf;
+}
+
 function benchmarkItems() {
-  const bf = gs.state.benchmarkFilters ||= {status:'', region:'', needed:'', search:''};
-  let items = [...gs.state.projects];
-  if (bf.status) items = items.filter(p => p.status === bf.status);
-  if (bf.region) items = items.filter(p => p.region === bf.region);
-  if (bf.needed) items = items.filter(p => (p.benchmarkNeeded || 'No') === bf.needed);
+  const bf = benchmarkFiltersNorm();
+  // Base = proyectos activos (Open + On going), igual criterio que el resto de las hojas
+  let items = [...gs.activeBase()];
+  if (bf.statuses.size) items = items.filter(p => bf.statuses.has(p.status));
+  if (bf.regions.size) items = items.filter(p => bf.regions.has(p.region));
+  if (bf.needed.size) items = items.filter(p => bf.needed.has(p.benchmarkNeeded || 'No'));
   if (bf.search) {
     const q = bf.search.toLowerCase();
     items = items.filter(p => [p.nombre, p.cliente, p.bottler, p.pais, p.region, p.tipo, p.ipm].join(' ').toLowerCase().includes(q));
@@ -5480,11 +5469,13 @@ function benchmarkDaysClass(days) {
 }
 
 function renderBenchmark() {
-  const bf = gs.state.benchmarkFilters ||= {status:'', region:'', needed:'', search:''};
+  const bf = benchmarkFiltersNorm();
   const items = benchmarkItems();
-  const total = gs.state.projects.length;
-  const needed = gs.state.projects.filter(p => (p.benchmarkNeeded||'No') === 'Yes');
-  const notNeeded = gs.state.projects.filter(p => (p.benchmarkNeeded||'No') !== 'Yes');
+  // Base = proyectos activos (Open + On going), igual criterio que el resto de las hojas
+  const base = gs.activeBase();
+  const total = base.length;
+  const needed = base.filter(p => (p.benchmarkNeeded||'No') === 'Yes');
+  const notNeeded = base.filter(p => (p.benchmarkNeeded||'No') !== 'Yes');
   const closed = needed.filter(p => p.benchmarkStart && p.benchmarkEnd);
   const pending = needed.filter(p => p.benchmarkStart && !p.benchmarkEnd);
   const withoutStart = needed.filter(p => !p.benchmarkStart);
@@ -5496,12 +5487,12 @@ function renderBenchmark() {
     <div class="page-h">
       <div>
         <h1>Benchmark</h1>
-        <p>Control simple de benchmark: cuántos proyectos lo requieren y contador de días hábiles desde bench entregado por Enología hasta feedback.</p>
+        <p>Base: proyectos activos (Open + On going). Cuántos lo requieren y contador de días hábiles desde bench entregado por Enología hasta feedback.</p>
       </div>
     </div>
 
-    <div class="kpi-row" style="grid-template-columns:repeat(6,minmax(0,1fr)) !important">
-      <div class="kpi"><div class="kpi-label">Proyectos totales</div><div class="kpi-val">${total}</div><div class="kpi-sub">portfolio completo</div></div>
+    <div class="kpi-row benchmark-kpis-v34" style="grid-template-columns:repeat(6,minmax(0,1fr)) !important">
+      <div class="kpi"><div class="kpi-label">Proyectos activos</div><div class="kpi-val">${total}</div><div class="kpi-sub">Open + On going</div></div>
       <div class="kpi"><div class="kpi-label">Requieren bench</div><div class="kpi-val" style="color:var(--warn)">${needed.length}</div><div class="kpi-sub">marcados Sí</div></div>
       <div class="kpi"><div class="kpi-label">No requieren</div><div class="kpi-val" style="color:var(--accent)">${notNeeded.length}</div><div class="kpi-sub">marcados No</div></div>
       <div class="kpi"><div class="kpi-label">Pendientes feedback</div><div class="kpi-val" style="color:${pending.length?'var(--warn)':'var(--accent)'}">${pending.length}</div><div class="kpi-sub">${overdue} con +10d háb.</div></div>
@@ -5514,43 +5505,44 @@ function renderBenchmark() {
       <div class="card-title"><span>Benchmark por proyecto</span><span class="ct-sub">contador entre fechas · ${items.length} visibles</span></div>
       <div class="filter-bar" style="margin-bottom:10px">
         <input type="text" class="input input-search" style="width:240px" placeholder="Buscar proyecto…" value="${escapeHTML(bf.search||'')}" id="benchmark-search-input" oninput="App.setBenchmarkSearch(this.value)">
-        <span class="filter-label">Benchmark</span>
-        <select class="input" onchange="App.setBenchmarkFilter('needed', this.value)" style="width:150px">
-          <option value="" ${bf.needed===''?'selected':''}>Todos</option>
-          <option value="Yes" ${bf.needed==='Yes'?'selected':''}>Requieren</option>
-          <option value="No" ${bf.needed==='No'?'selected':''}>No requieren</option>
-        </select>
-        <span class="filter-label">Estado</span>
-        <select class="input" onchange="App.setBenchmarkFilter('status', this.value)" style="width:140px">
-          <option value="">Todos</option>
-          ${gs.STATUSES.map(s => `<option value="${s}" ${bf.status===s?'selected':''}>${gs.STATUS_META[s].label}</option>`).join('')}
-        </select>
-        <span class="filter-label">Región</span>
-        <select class="input" onchange="App.setBenchmarkFilter('region', this.value)" style="width:120px">
-          <option value="">Todas</option>
-          ${gs.REGIONS.map(r => `<option value="${r}" ${bf.region===r?'selected':''}>${r}</option>`).join('')}
-        </select>
-        <button class="btn btn-ghost btn-sm" onclick="App.clearBenchmarkFilters()">✕ Limpiar</button>
+        <div class="filter-group">
+          <span class="filter-label">Benchmark</span>
+          <button class="pill ${!bf.needed.size?'active':''}" onclick="App.toggleBenchmarkFilter('needed',null)">Todos</button>
+          <button class="pill ${bf.needed.has('Yes')?'active':''}" onclick="App.toggleBenchmarkFilter('needed','Yes')">Requieren</button>
+          <button class="pill ${bf.needed.has('No')?'active':''}" onclick="App.toggleBenchmarkFilter('needed','No')">No requieren</button>
+        </div>
+        <div class="filter-group">
+          <span class="filter-label">Estado</span>
+          <button class="pill ${!bf.statuses.size?'active':''}" onclick="App.toggleBenchmarkFilter('statuses',null)">Todos</button>
+          ${(gs.state.tweaks?.activeStatuses||['Open','On going']).map(s => `<button class="pill ${bf.statuses.has(s)?'active':''}" onclick="App.toggleBenchmarkFilter('statuses','${s}')">${gs.STATUS_META[s].label}</button>`).join('')}
+        </div>
+        <div class="filter-group">
+          <span class="filter-label">BU</span>
+          <button class="pill ${!bf.regions.size?'active':''}" onclick="App.toggleBenchmarkFilter('regions',null)">Todas</button>
+          ${gs.REGIONS.map(r => `<button class="pill ${bf.regions.has(r)?'active':''}" onclick="App.toggleBenchmarkFilter('regions','${r}')">${r}</button>`).join('')}
+        </div>
+        <button class="btn btn-ghost btn-sm" style="margin-left:auto" onclick="App.clearBenchmarkFilters()">✕ Limpiar</button>
       </div>
       ${benchmarkTableHTML(items)}
     </div>
   `;
 }
 
+
 function benchmarkTableHTML(items) {
   if (!items.length) return '<div class="empty"><p>No hay proyectos para esos filtros</p></div>';
   return `
-    <div class="tbl-wrap benchmark-table-v28" style="overflow-x:hidden">
+    <div class="tbl-wrap benchmark-table-v34" style="overflow-x:hidden">
       <table class="tbl">
         <thead><tr>
           <th>Proyecto</th>
-          <th>Cliente</th>
-          <th>País / Región</th>
+          <th>Cliente / país</th>
+          <th>BU</th>
           <th>Estado</th>
           <th>Cajas</th>
           <th>Bench</th>
-          <th>Bench entregado Enología</th>
-          <th>Feedback dado</th>
+          <th>Entrega</th>
+          <th>Feedback</th>
           <th>Contador</th>
         </tr></thead>
         <tbody>
@@ -5563,8 +5555,8 @@ function benchmarkTableHTML(items) {
             const missingEnd = needs && p.benchmarkStart && !p.benchmarkEnd;
             return `<tr onclick="App.openProject(${p.id})">
               <td class="col-name"><div>${p.nombre}</div><div class="sub">${p.tipo||'—'} · ${p.bottler||'—'}</div></td>
-              <td><span class="tiny">${p.cliente||'—'}</span></td>
-              <td><span class="tiny">${p.pais||'—'} · ${p.region||'—'}</span></td>
+              <td><span class="tiny">${p.cliente||'—'} · ${p.pais||'—'}</span></td>
+              <td><span class="badge b-region">${p.region||'—'}</span></td>
               <td>${statusBadge(p.status)}</td>
               <td class="num tiny">${p.c9l ? gs.fmtC9L(p.c9l) : '—'}</td>
               <td onclick="event.stopPropagation()"><select class="input" onchange="App.updateProj(${p.id}, 'benchmarkNeeded', this.value)"><option value="No" ${!needs?'selected':''}>No</option><option value="Yes" ${needs?'selected':''}>Sí</option></select></td>
@@ -5734,7 +5726,6 @@ const App = {
     document.querySelectorAll('.nav-item').forEach(n => n.classList.toggle('active', n.dataset.view === view));
     const main = document.getElementById('view-root');
     const map = {
-      foco:       Views.renderFoco,
       proyectos:  Views.renderProyectos,
       historico:  Views.renderHistorico,
       riesgo:     Views.renderRiesgo,
@@ -5744,7 +5735,7 @@ const App = {
       flujo:      Views.renderFlujo,
       datos:      Views.renderDatos,
     };
-    main.innerHTML = (map[view] || map.foco)();
+    main.innerHTML = (map[view] || map.gantt)();
     // update counts
     App.updateNavCounts();
     location.hash = view;
@@ -5856,16 +5847,16 @@ const App = {
       if (q && ![p.nombre,p.cliente,p.bottler,p.region,p.tipo,p.ipm].join(' ').toLowerCase().includes(q)) return false;
       return true;
     }).map(p => ({p, e:g2.evaluateProject(p)}))
-      .sort((a,b) => (a.p.lanzEstim||'9999').localeCompare(b.p.lanzEstim||'9999'));
+      .sort((a,b) => (a.p.region||'').localeCompare(b.p.region||'') || (a.p.lanzEstim||'9999').localeCompare(b.p.lanzEstim||'9999') || (a.p.nombre||'').localeCompare(b.p.nombre||''));
 
-    const header = ['Proyecto','Estado','Región','País','Cliente','Tipo','Bottler','Lanz. estimado','Cajas 9LC','Etapa','Comentario','Alerta','Próximo paso'];
+    const header = ['Proyecto','BU','Estado','País','Cliente','Tipo','Bottler','Lanz. estimado','Cajas 9LC','Etapa','Bench','Comentario','Alerta','Próximo paso'];
     const rows = items.map(({p,e}) => {
       const manualNotes = (p.notes||[]).filter(n => !n.auto);
       const lastNote = (manualNotes[0]?.text || '').replace(/\s+/g,' ').trim();
       const firstSignal = e.signals[0];
       const nextStep = (p.nextSteps||[]).filter(s=>!s.done).sort((a,b)=>(a.dueDate||'9999').localeCompare(b.dueDate||'9999'))[0];
       const nextStepText = nextStep ? `${nextStep.text}${nextStep.dueDate ? ' · '+g2.fd(nextStep.dueDate) : ''}` : (e.nextAction || '');
-      return [p.nombre, p.status, p.region||'', p.pais||'', p.cliente||'', p.tipo||'', p.bottler||'', p.lanzEstim ? g2.fd(p.lanzEstim) : 'TBC', p.c9l||0, e.currentStage.label, lastNote, firstSignal ? firstSignal.tag : 'OK', nextStepText];
+      return [p.nombre, p.region||'', p.status, p.pais||'', p.cliente||'', p.tipo||'', p.bottler||'', p.lanzEstim ? g2.fd(p.lanzEstim) : 'TBC', p.c9l||0, e.currentStage.label, (p.benchmarkNeeded||'No')==='Yes' ? (p.benchmarkStart ? (p.benchmarkEnd ? 'Cerrado '+g2.businessDays(p.benchmarkStart,p.benchmarkEnd)+'d' : 'En curso '+g2.businessDays(p.benchmarkStart,g2.today())+'d') : 'Sí · sin fecha') : 'No', lastNote, firstSignal ? firstSignal.tag : 'OK', nextStepText];
     });
 
     const clean = v => String(v ?? '').replace(/\t/g,' ').replace(/\n/g,' ').trim();
@@ -5910,7 +5901,7 @@ const App = {
 
   /* ── benchmark filters ── */
   setBenchmarkSearch(val) {
-    gs.state.benchmarkFilters ||= {status:'', region:'', needed:'', search:''};
+    benchmarkFiltersNorm();
     gs.state.benchmarkFilters.search = val || '';
     App.go('benchmark');
     requestAnimationFrame(() => {
@@ -5919,12 +5910,21 @@ const App = {
     });
   },
   setBenchmarkFilter(key, value) {
-    gs.state.benchmarkFilters ||= {status:'', region:'', needed:'', search:''};
-    gs.state.benchmarkFilters[key] = value;
+    const bf = benchmarkFiltersNorm();
+    if (key === 'needed') { bf.needed = value ? new Set([value]) : new Set(); }
+    else { gs.state.benchmarkFilters[key] = value; }
+    App.go('benchmark');
+  },
+  toggleBenchmarkFilter(key, val) {
+    const bf = benchmarkFiltersNorm();
+    const set = bf[key];
+    if (val === null) { set.clear(); }
+    else if (set.has(val)) set.delete(val);
+    else set.add(val);
     App.go('benchmark');
   },
   clearBenchmarkFilters() {
-    gs.state.benchmarkFilters = {status:'', region:'', needed:'', search:''};
+    gs.state.benchmarkFilters = {statuses:new Set(), regions:new Set(), needed:new Set(), search:''};
     App.go('benchmark');
   },
 
@@ -5935,6 +5935,18 @@ const App = {
     else if (set.has(val)) set.delete(val);
     else set.add(val);
     App.go('gantt');
+  },
+
+  sortGanttDetail(key) {
+    if (ganttDetailSort.key === key) {
+      ganttDetailSort.dir = ganttDetailSort.dir === 'asc' ? 'desc' : 'asc';
+    } else {
+      const asc = ['project','bu','status','stage','comment','alert'];
+      ganttDetailSort = {key, dir: asc.includes(key) ? 'asc' : 'desc'};
+    }
+    const wrap = document.querySelector('.gantt-detail-table-v34');
+    if (wrap && wrap.parentElement) wrap.outerHTML = Views.ganttDetailTableHTML();
+    else App.go('gantt');
   },
 
 
@@ -5948,7 +5960,7 @@ const App = {
     }).map(p => ({p, e:g2.evaluateProject(p)}))
       .sort((a,b) => (a.p.lanzEstim||'9999').localeCompare(b.p.lanzEstim||'9999'));
 
-    const header = ['Proyecto','Región','Cliente','Bottler','Estado','Etapa','Lanzamiento','Volumen 9LC','Comentario','Alerta / próximo paso'];
+    const header = ['Proyecto','BU','Cliente','Bottler','Estado','Etapa','Lanzamiento','Volumen 9LC','Comentario','Alerta / próximo paso'];
     const lines = [header.join('\t')];
     rows.forEach(({p,e}) => {
       const manualNotes = (p.notes||[]).filter(n => !n.auto);
@@ -6026,6 +6038,13 @@ const App = {
   deleteNote(id, noteId) {
     gs.deleteNote(id, noteId);
     Views.renderDrawer(id);
+  },
+  toggleAddForm(formId, btn) {
+    const form = document.getElementById(formId);
+    if (!form) return;
+    const show = btn !== null && form.style.display === 'none';
+    form.style.display = show ? 'block' : 'none';
+    if (show) { const first = form.querySelector('input,textarea,select'); if (first) first.focus(); }
   },
   addNextStep(id) {
     const text = document.getElementById('nextstep-text')?.value || '';
@@ -6192,6 +6211,7 @@ const App = {
     gs.state.ganttSearch = '';
     gs.state.riesgoSearch = '';
     gs.state.histSearch = '';
+    gs.state.benchmarkFilters = {statuses:new Set(), regions:new Set(), needed:new Set(), search:''};
     if (typeof ganttFilter !== 'undefined') { ganttFilter.regions = new Set(); ganttFilter.statuses = new Set(['On going','Open']); }
     // Clear any visible search inputs
     ['foco-search-input','gantt-search-input','riesgo-search-input','proj-search-input','hist-search-input'].forEach(id => {
@@ -6489,6 +6509,68 @@ const App = {
     };
     reader.readAsText(file);
   },
+  exportExcelBackup() {
+    if (!window.XLSX) { alert('No se pudo cargar la librería Excel. Probá nuevamente con conexión a internet.'); return; }
+    const dateCols = ['bcRecibido','primerFeedback','cotizBottler','respBottler','feedbackFinal','gate1','gate2','gate3','primeraProduccion','lanzReal'];
+    const wb = XLSX.utils.book_new();
+    const proyectos = gs.state.projects.map(p => {
+      const manualNotes = (p.notes||[]).filter(n=>!n.auto);
+      const openSteps = (p.nextSteps||[]).filter(st=>!st.done);
+      const obj = {
+        id: p.id,
+        proyecto: p.nombre || '',
+        BU: p.region || '',
+        pais: p.pais || '',
+        cliente: p.cliente || '',
+        tipo: p.tipo || '',
+        bottler: p.bottler || '',
+        estado: p.status || '',
+        prioridad: p.prioridad || '',
+        cajas_9LC: p.c9l || 0,
+        lanzamiento_estimado: p.lanzEstim || '',
+        ipm_actual: p.ipm || '',
+        complejidad: p.complejidad || '',
+        business_case_formal: (p.hasBC || 'Yes') === 'No' ? 'No' : 'Sí',
+        requiere_benchmark: (p.benchmarkNeeded || 'No') === 'Yes' ? 'Sí' : 'No',
+        benchmark_entrega: p.benchmarkStart || '',
+        benchmark_feedback: p.benchmarkEnd || '',
+        benchmark_comentarios: p.benchmarkComments || '',
+        bloqueado_por: p.bloqueadoPor || '',
+        bloqueado_desde: p.bloqueadoDesde || '',
+        notas_manuales: manualNotes.length,
+        proximos_pasos_abiertos: openSteps.length,
+        eventos: (p.timelineEvents||[]).length,
+        creado: p.createdAt || '',
+        actualizado: p.updatedAt || ''
+      };
+      dateCols.forEach(k => obj[k] = p.fechas?.[k] || '');
+      return obj;
+    });
+    XLSX.utils.book_append_sheet(wb, XLSX.utils.json_to_sheet(proyectos), 'Proyectos');
+    const fechas = gs.state.projects.map(p => ({
+      id: p.id, proyecto: p.nombre || '', BU: p.region || '', estado: p.status || '', lanzamiento_estimado: p.lanzEstim || '',
+      ...Object.fromEntries(dateCols.map(k => [k, p.fechas?.[k] || '']))
+    }));
+    XLSX.utils.book_append_sheet(wb, XLSX.utils.json_to_sheet(fechas), 'Fechas');
+    const pasos = [];
+    gs.state.projects.forEach(p => (p.nextSteps||[]).forEach(st => pasos.push({
+      project_id:p.id, proyecto:p.nombre||'', BU:p.region||'', texto:st.text||'', fecha_compromiso:st.dueDate||'', comentario:st.comment||'', hecho:st.done?'Sí':'No', creado:st.createdAt||'', actualizado:st.updatedAt||''
+    })));
+    XLSX.utils.book_append_sheet(wb, XLSX.utils.json_to_sheet(pasos.length?pasos:[{project_id:'',proyecto:'',texto:'',fecha_compromiso:'',comentario:'',hecho:''}]), 'Proximos pasos');
+    const eventos = [];
+    gs.state.projects.forEach(p => (p.timelineEvents||[]).forEach(ev => eventos.push({
+      project_id:p.id, proyecto:p.nombre||'', BU:p.region||'', fecha:ev.date||'', evento:ev.title||'', comentario:ev.comment||'', creado:ev.createdAt||'', actualizado:ev.updatedAt||''
+    })));
+    XLSX.utils.book_append_sheet(wb, XLSX.utils.json_to_sheet(eventos.length?eventos:[{project_id:'',proyecto:'',fecha:'',evento:'',comentario:''}]), 'Eventos');
+    const notas = [];
+    gs.state.projects.forEach(p => (p.notes||[]).filter(n=>!n.auto).forEach(n => notas.push({
+      project_id:p.id, proyecto:p.nombre||'', BU:p.region||'', tipo:n.type||'note', fecha:n.ts||'', nota:n.text||''
+    })));
+    XLSX.utils.book_append_sheet(wb, XLSX.utils.json_to_sheet(notas.length?notas:[{project_id:'',proyecto:'',tipo:'',fecha:'',nota:''}]), 'Notas');
+    const meta = [{exportado: new Date().toISOString(), proyectos: gs.state.projects.length, version:'GS Tracker backup Excel'}];
+    XLSX.utils.book_append_sheet(wb, XLSX.utils.json_to_sheet(meta), 'README');
+    XLSX.writeFile(wb, `gs_tracker_backup_${gs.today()}.xlsx`);
+  },
   exportCSV() {
     const headers = ['id','nombre','region','pais','cliente','tipo','bottler','status','prioridad','bloqueadoPor','lanzEstim','ipm','c9l','complejidad','hasBC','benchmarkNeeded','benchmarkStart','benchmarkEnd','benchmarkComments','bcRecibido','primerFeedback','cotizBottler','respBottler','feedbackFinal','gate1','gate2','gate3','primeraProduccion','lanzReal','updatedAt'];
     const rows = gs.state.projects.map(p => [
@@ -6574,7 +6656,8 @@ window.addEventListener('DOMContentLoaded', async () => {
   document.getElementById('tweaks-toggle').addEventListener('click', App.toggleTweaksPanel);
 
   // Initial route from hash
-  const initial = (location.hash || '').replace('#','') || 'foco';
+  let initial = (location.hash || '').replace('#','') || 'gantt';
+  if (initial === 'foco') initial = 'gantt';
   App.go(initial);
 
   // ESC closes drawer
