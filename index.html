@@ -1963,6 +1963,255 @@ table.tbl { width: 100%; border-collapse: collapse; }
   .project-table-compact .tbl { min-width: 936px !important; }
 }
 
+
+
+/* ───── v23 · Proyectos: filtros sin cortes / wrapping robusto ───── */
+.project-filter-card {
+  overflow: visible !important;
+  max-width: 100% !important;
+}
+.project-filter-line {
+  width: 100% !important;
+  max-width: 100% !important;
+  flex-wrap: wrap !important;
+  align-items: flex-start !important;
+  row-gap: 8px !important;
+}
+.project-filter-line .filter-group {
+  min-width: 0 !important;
+  flex-wrap: wrap !important;
+}
+#proj-search-input {
+  width: 250px !important;
+  flex: 0 0 250px !important;
+}
+.project-filter-line:first-child .filter-group:nth-of-type(1) {
+  flex: 0 1 auto !important;
+}
+.project-filter-line:first-child .filter-group:nth-of-type(2) {
+  flex: 1 1 520px !important;
+  min-width: 360px !important;
+}
+.project-filter-line:first-child .filter-group:nth-of-type(2) .pill {
+  flex: 0 0 auto !important;
+}
+.project-filter-line:nth-of-type(2) {
+  display: grid !important;
+  grid-template-columns: minmax(180px, 250px) minmax(190px, 280px) minmax(230px, 300px) auto;
+  column-gap: 10px !important;
+  row-gap: 8px !important;
+  align-items: center !important;
+}
+.project-filter-line:nth-of-type(2) .filter-group {
+  width: 100% !important;
+}
+.project-filter-line:nth-of-type(2) .project-filter-select {
+  width: 100% !important;
+  min-width: 0 !important;
+}
+.project-filter-line:nth-of-type(2) .btn {
+  justify-self: end !important;
+  margin-left: 0 !important;
+}
+.project-sort-group {
+  margin-left: 0 !important;
+}
+.project-sort-select {
+  width: 100% !important;
+}
+@media (max-width: 1366px) {
+  #proj-search-input {
+    width: 220px !important;
+    flex-basis: 220px !important;
+  }
+  .project-filter-line:first-child .filter-group:nth-of-type(2) {
+    flex-basis: 460px !important;
+    min-width: 320px !important;
+  }
+  .project-filter-line:nth-of-type(2) {
+    grid-template-columns: minmax(170px, 1fr) minmax(180px, 1fr) minmax(220px, 1.15fr) auto;
+  }
+}
+@media (max-width: 1120px) {
+  .project-filter-line:first-child .filter-group:nth-of-type(2) {
+    flex: 1 1 100% !important;
+    min-width: 0 !important;
+  }
+  .project-filter-line:nth-of-type(2) {
+    grid-template-columns: 1fr 1fr;
+  }
+  .project-filter-line:nth-of-type(2) .btn {
+    justify-self: start !important;
+  }
+}
+
+
+
+/* ───── v24 · Gantt full-height + reuniones + benchmark ───── */
+.sidebar { width: 205px; }
+.main { margin-left: 205px; }
+@media (max-width: 1366px) {
+  .sidebar { width: 174px !important; }
+  .main { margin-left: 174px !important; }
+  .sb-brand { padding-left: 12px !important; padding-right: 10px !important; }
+  .nav-item { padding-left: 12px !important; padding-right: 10px !important; }
+}
+#gantt-svg-wrap {
+  max-height: none !important;
+  overflow-y: visible !important;
+}
+#gantt-svg-wrap svg {
+  min-width: 900px !important;
+  width: 100% !important;
+}
+.next-step-done { text-decoration: line-through; opacity:.72; }
+
+
+/* ───── v25 · ajustes reunión interna: Gantt completo, timeline + acciones + benchmark enología ───── */
+#gantt-svg-wrap {
+  max-height: none !important;
+  overflow-y: visible !important;
+  overflow-x: auto !important;
+}
+#gantt-svg-wrap svg {
+  min-width: 1040px !important;
+}
+.gantt-copy-card {
+  margin-top: 12px;
+}
+.gantt-copy-card.collapsed .gantt-detail-table-wrap {
+  display: none;
+}
+.timeline-actions-card {
+  margin-top: 14px;
+}
+.timeline-event-dot {
+  display:inline-block;
+  width:8px;
+  height:8px;
+  border-radius:50%;
+  background:var(--warn);
+  margin-right:6px;
+}
+.benchmark-days-bad { color: var(--danger); font-weight: 700; }
+.benchmark-days-warn { color: var(--warn); font-weight: 700; }
+.benchmark-days-ok { color: var(--accent); font-weight: 700; }
+
+
+/* ───── v26 · Gantt estilo v12 + Benchmark simple ───── */
+#gantt-svg-wrap {
+  max-height: none !important;
+  overflow-y: visible !important;
+  overflow-x: auto !important;
+  padding: 18px !important;
+}
+#gantt-svg-wrap svg {
+  min-width: 1200px !important;
+  width: 100% !important;
+}
+.benchmark-simple-table .tbl { min-width: 1120px; }
+.benchmark-simple-table th,
+.benchmark-simple-table td { white-space: nowrap; }
+.benchmark-simple-table .col-name { min-width: 230px; }
+.benchmark-simple-table .bench-comment { min-width: 260px; white-space: normal; }
+
+
+
+/* ───── v27 · Gantt ancho 13.3'' + Benchmark real + copiar tabla ───── */
+#gantt-svg-wrap {
+  max-height: none !important;
+  overflow-y: visible !important;
+  overflow-x: hidden !important;
+  padding: 12px !important;
+}
+#gantt-svg-wrap svg {
+  min-width: 0 !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  display: block;
+}
+.gantt-detail-table-wrap table { min-width: 980px !important; }
+.gantt-copy-ok { color: var(--accent); font-size: 11px; margin-left: 8px; }
+.benchmark-simple-table .tbl { min-width: 980px !important; table-layout: fixed; }
+.benchmark-simple-table th, .benchmark-simple-table td { overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.benchmark-simple-table .col-name { width: 210px; min-width: 210px; }
+.benchmark-simple-table input.input, .benchmark-simple-table select.input { height: 25px !important; font-size: 11px !important; padding: 3px 6px !important; }
+@media (max-width: 1366px) {
+  .main { padding: 14px 16px !important; }
+  .page-h h1 { font-size: 22px !important; }
+  .gantt-help-card, .card-tight.card { padding: 7px 9px !important; gap: 8px !important; font-size: 10.5px !important; }
+}
+
+
+/* ───── v28 · Gantt readable 13.3 + Benchmark counters ───── */
+#gantt-svg-wrap {
+  max-height: none !important;
+  overflow-y: visible !important;
+  overflow-x: hidden !important;
+  padding: 10px 10px 12px !important;
+}
+#gantt-svg-wrap svg {
+  min-width: 0 !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  display: block !important;
+}
+.gantt-detail-toolbar {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-bottom:10px;
+}
+.gantt-detail-table .comment-cell {
+  max-width: 280px !important;
+  white-space: normal !important;
+  line-height: 1.35 !important;
+}
+@media (max-width: 1366px) {
+  .gantt-detail-table-wrap table { min-width: 900px !important; }
+  .gantt-detail-table th, .gantt-detail-table td { padding: 6px 7px !important; font-size: 11px !important; }
+  .gantt-detail-table .col-name { max-width: 220px !important; }
+}
+.benchmark-counter {
+  display:inline-flex; align-items:center; gap:5px;
+  padding:2px 7px; border-radius:999px;
+  font-family:'JetBrains Mono', monospace;
+  font-size:10.5px; font-weight:700; white-space:nowrap;
+}
+.benchmark-counter.ok { background:var(--accent-soft); color:var(--accent); }
+.benchmark-counter.warn { background:var(--warn-soft); color:var(--warn); }
+.benchmark-counter.bad { background:var(--danger-soft); color:var(--danger); }
+.benchmark-counter.neutral { background:var(--surface2); color:var(--text3); }
+.benchmark-table-v28 .tbl { min-width: 0 !important; width:100% !important; table-layout: fixed !important; }
+.benchmark-table-v28 th, .benchmark-table-v28 td { padding: 7px 8px !important; font-size: 11.5px !important; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.benchmark-table-v28 th:nth-child(1), .benchmark-table-v28 td:nth-child(1) { width: 22%; }
+.benchmark-table-v28 th:nth-child(2), .benchmark-table-v28 td:nth-child(2) { width: 11%; }
+.benchmark-table-v28 th:nth-child(3), .benchmark-table-v28 td:nth-child(3) { width: 11%; }
+.benchmark-table-v28 th:nth-child(4), .benchmark-table-v28 td:nth-child(4) { width: 9%; }
+.benchmark-table-v28 th:nth-child(5), .benchmark-table-v28 td:nth-child(5) { width: 8%; }
+.benchmark-table-v28 th:nth-child(6), .benchmark-table-v28 td:nth-child(6) { width: 7%; }
+.benchmark-table-v28 th:nth-child(7), .benchmark-table-v28 td:nth-child(7),
+.benchmark-table-v28 th:nth-child(8), .benchmark-table-v28 td:nth-child(8) { width: 12%; }
+.benchmark-table-v28 th:nth-child(9), .benchmark-table-v28 td:nth-child(9) { width: 8%; }
+.benchmark-table-v28 input.input, .benchmark-table-v28 select.input { height:24px !important; padding:2px 5px !important; font-size:11px !important; }
+@media (max-width: 1366px) {
+  .benchmark-table-v28 th, .benchmark-table-v28 td { padding: 5px 6px !important; font-size: 10.5px !important; }
+  .benchmark-table-v28 input.input, .benchmark-table-v28 select.input { width:100% !important; min-width:0 !important; font-size:10.5px !important; }
+}
+
+
+/* ───── v31 · Benchmark search + Gantt compact left comments ───── */
+#benchmark-search-input {
+  width: 250px !important;
+  flex: 0 0 250px;
+}
+@media (max-width: 1366px) {
+  #benchmark-search-input { width: 220px !important; flex-basis: 220px; }
+  #gantt-svg-wrap { padding: 8px 8px 10px !important; }
+}
+
 </style>
 </head>
 <body>
@@ -2018,6 +2267,10 @@ table.tbl { width: 100%; border-collapse: collapse; }
         <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
         Riesgo
       </div>
+      <div class="nav-item" data-view="benchmark">
+        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-7"/></svg>
+        Benchmark
+      </div>
       <div class="nav-item" data-view="gantt">
         <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="13" y2="6"/><line x1="8" y1="12" x2="20" y2="12"/><line x1="5" y1="18" x2="15" y2="18"/></svg>
         Gantt
@@ -2062,7 +2315,7 @@ table.tbl { width: 100%; border-collapse: collapse; }
   <div class="drawer-tabs">
     <div class="drawer-tab active" data-tab="timeline">Timeline</div>
     <div class="drawer-tab" data-tab="fechas">Fechas &amp; SLA</div>
-    <div class="drawer-tab" data-tab="notas">Notas &amp; eventos</div>
+    <div class="drawer-tab" data-tab="notas">Comentarios</div>
     <div class="drawer-tab" data-tab="detalles">Detalles</div>
 
   </div>
@@ -2085,7 +2338,7 @@ table.tbl { width: 100%; border-collapse: collapse; }
         <div class="field"><label>Tipo</label><select class="input" id="new-tipo"><option>Launch</option><option>Bottling Migration</option><option>Tender</option><option>Restyling</option><option>Roll Out</option><option>Temporary import</option></select></div>
         <div class="field"><label>Bottler</label><input type="text" class="input" id="new-bottler"></div>
         <div class="field"><label>Estado</label><select class="input" id="new-status"><option value="Open">Open</option><option value="On going">On going</option><option value="Stand by">Stand by</option></select></div>
-        <div class="field"><label>BC recibido *</label><input type="date" class="input date" id="new-bc"></div>
+        <div class="field"><label>Reception Date *</label><input type="date" class="input date" id="new-bc"></div>
         <div class="field"><label>Lanz. estimado</label><input type="date" class="input date" id="new-lanz"></div>
         <div class="field"><label>Volumen 9LC</label><input type="number" class="input" id="new-c9l" placeholder="0"></div>
         <div class="field"><label>Complejidad</label><select class="input" id="new-complejidad"><option value="">—</option><option value="1">1 - Mínima</option><option value="2">2 - Baja</option><option value="3">3 - Media</option><option value="4">4 - Alta</option></select></div>
@@ -2256,7 +2509,14 @@ const state = {
 /* ── persistence ── */
 function normalizeProject(p) {
   p.notes ||= [];
+  p.nextSteps ||= [];
+  p.timelineEvents ||= [];
   p.fechas ||= EMPTY_FECHAS();
+  if (p.benchmarkNeeded == null || p.benchmarkNeeded === '') p.benchmarkNeeded = 'No';
+  // Compatibilidad: benchmarkStart/End ahora significan pedido a Enología / feedback de Enología
+  p.benchmarkStart ||= p.enologiaFeedbackRequest || null;
+  p.benchmarkEnd ||= p.enologiaFeedbackDate || null;
+  p.benchmarkComments ||= p.enologiaFeedbackComments || '';
   if (!p.createdAt) p.createdAt = new Date().toISOString();
   if (!p.updatedAt) p.updatedAt = new Date().toISOString();
   return p;
@@ -2266,6 +2526,12 @@ function seedProjects() {
   state.projects = DEFAULT_PROJECTS.map(p => normalizeProject({
     ...p,
     notes: [],
+    nextSteps: [],
+    timelineEvents: [],
+    benchmarkNeeded: 'No',
+    benchmarkStart: null,
+    benchmarkEnd: null,
+    benchmarkComments: '',
     prioridad: 'media',
     bloqueadoPor: null,
     bloqueadoDesde: null,
@@ -2450,8 +2716,6 @@ function updateFecha(id, key, value) {
   if (!p) return;
   p.fechas[key] = value || null;
   p.updatedAt = new Date().toISOString();
-  // auto-log to notes timeline
-  addAutoNote(p, `Fecha actualizada — ${dateLabels[key] || key}: ${fd(value) || '—'}`, 'event');
   save();
 }
 
@@ -2487,6 +2751,76 @@ function deleteNote(id, noteId) {
   save();
 }
 
+function addNextStep(id, text, dueDate='', comment='') {
+  const p = getProject(id);
+  if (!p || !text) return;
+  p.nextSteps ||= [];
+  p.nextSteps.unshift({
+    id: Date.now() + Math.random(),
+    text: text.trim(),
+    dueDate: dueDate || null,
+    comment: (comment || '').trim(),
+    done: false,
+    createdAt: new Date().toISOString(),
+    updatedAt: new Date().toISOString(),
+  });
+  p.updatedAt = new Date().toISOString();
+  save();
+}
+
+function updateNextStep(id, stepId, patch) {
+  const p = getProject(id);
+  if (!p) return;
+  const step = (p.nextSteps || []).find(s => String(s.id) === String(stepId));
+  if (!step) return;
+  Object.assign(step, patch);
+  step.updatedAt = new Date().toISOString();
+  p.updatedAt = new Date().toISOString();
+  save();
+}
+
+function deleteNextStep(id, stepId) {
+  const p = getProject(id);
+  if (!p) return;
+  p.nextSteps = (p.nextSteps || []).filter(s => String(s.id) !== String(stepId));
+  p.updatedAt = new Date().toISOString();
+  save();
+}
+
+function addTimelineEvent(id, date, title, comment='') {
+  const p = getProject(id);
+  if (!p || !date || !title) return;
+  p.timelineEvents ||= [];
+  p.timelineEvents.unshift({
+    id: Date.now() + Math.random(),
+    date,
+    title: title.trim(),
+    comment: (comment || '').trim(),
+    createdAt: new Date().toISOString(),
+  });
+  p.updatedAt = new Date().toISOString();
+  save();
+}
+
+function updateTimelineEvent(id, eventId, patch) {
+  const p = getProject(id);
+  if (!p) return;
+  const ev = (p.timelineEvents || []).find(e => String(e.id) === String(eventId));
+  if (!ev) return;
+  Object.assign(ev, patch);
+  ev.updatedAt = new Date().toISOString();
+  p.updatedAt = new Date().toISOString();
+  save();
+}
+
+function deleteTimelineEvent(id, eventId) {
+  const p = getProject(id);
+  if (!p) return;
+  p.timelineEvents = (p.timelineEvents || []).filter(ev => String(ev.id) !== String(eventId));
+  p.updatedAt = new Date().toISOString();
+  save();
+}
+
 function createProject(data) {
   const newId = Math.max(0, ...state.projects.map(p => p.id)) + 1;
   state.projects.push({
@@ -2507,6 +2841,12 @@ function createProject(data) {
     bloqueadoPor: null,
     bloqueadoDesde: null,
     notes: [],
+    nextSteps: [],
+    timelineEvents: [],
+    benchmarkNeeded: 'No',
+    benchmarkStart: null,
+    benchmarkEnd: null,
+    benchmarkComments: '',
     createdAt: new Date().toISOString(),
     updatedAt: new Date().toISOString(),
     fechas: { ...EMPTY_FECHAS(), bcRecibido: data.bc || null },
@@ -2627,7 +2967,9 @@ function evaluateProject(p, opts={}) {
   let score = 0;
 
   // --- SLA prefactibilidad ---
-  if (hasBC && f.bcRecibido && !closed) {
+  // El reloj corre desde la Reception Date, tenga o no Business Case formal.
+  // El BC formal queda como KPI/criterio separado, no como condición para medir tiempos.
+  if (f.bcRecibido && !closed) {
     const endRef = f.feedbackFinal || today();
     const bd = businessDays(f.bcRecibido, endRef);
     if (f.feedbackFinal) {
@@ -2636,18 +2978,19 @@ function evaluateProject(p, opts={}) {
       }
     } else if (!standby) {
       if (bd > 15) {
-        signals.push({sev:'critico', tag:'SLA pref. VENCIDO', msg:`${bd}d hábiles sin feedback final (límite 15d, +${bd-15})`});
+        signals.push({sev:'critico', tag:'SLA pref. VENCIDO', msg:`${bd}d hábiles desde Reception Date sin feedback final (límite 15d, +${bd-15})`});
         score += 100 + (bd - 15) * 3;
       } else if (bd >= 12) {
-        signals.push({sev:'atencion', tag:'SLA pref. cerca', msg:`${bd}d hábiles de 15 — faltan ${15-bd}`});
+        signals.push({sev:'atencion', tag:'SLA pref. cerca', msg:`${bd}d hábiles de 15 desde Reception Date — faltan ${15-bd}`});
         score += 40;
       } else if (bd >= 8) {
-        signals.push({sev:'info', tag:'SLA pref.', msg:`${bd}d hábiles en curso de 15`});
+        signals.push({sev:'info', tag:'SLA pref.', msg:`${bd}d hábiles en curso de 15 desde Reception Date`});
         score += 10;
       }
     }
-  } else if (!hasBC && !closed) {
-    signals.push({sev:'info', tag:'Sin BC formal', msg:'Proyecto sin Business Case — no aplica SLA pref.'});
+  }
+  if (!hasBC && !closed) {
+    signals.push({sev:'info', tag:'Sin BC formal', msg:'Proyecto recibido sin Business Case formal — se mide desde Reception Date'});
   }
 
   // --- SLA bottler ---
@@ -2795,7 +3138,7 @@ function stageDuration(p, fromKey, toKey, useBusiness=true) {
 window.gs = {
   state, save, load, uploadToSupabase,
   getProject, updateProject, updateFecha, createProject, deleteProject,
-  addNote, deleteNote,
+  addNote, deleteNote, addNextStep, updateNextStep, deleteNextStep, addTimelineEvent, updateTimelineEvent, deleteTimelineEvent,
   evaluateProject, currentStage, nextStage,
   today, fd, fdLong, daysBetween, businessDays, relTime, fmtC9L,
   STATUSES, STATUS_META, REGIONS, TIPOS,
@@ -3364,6 +3707,7 @@ function timelinePaneHTML(p) {
     {label:'1ª Producción',      date:f.primeraProduccion, cat:'ipm'},
     {label:'Lanz. estimado',     date:p.lanzEstim,         cat:'lanzEst'},
     {label:'Lanz. real',         date:f.lanzReal,          cat:'lanzReal'},
+    ...(p.timelineEvents || []).map(ev => ({label: ev.title || 'Evento', date: ev.date, cat:'event', comment: ev.comment || '', eventId: ev.id})),
   ].filter(h => h.date);
 
   if (!hitos.length) {
@@ -3394,6 +3738,11 @@ function timelinePaneHTML(p) {
       <span class="row" style="gap:5px"><span style="display:inline-block;width:14px;height:0;border-top:2px dashed #E24B4A"></span> Hoy</span>
       <span class="muted ml-auto">● pasado · ○ futuro · arrastrá para mover · rueda para zoom</span>
     </div>
+
+    ${timelineEventsPaneHTML(p)}
+    <div class="timeline-actions-card">
+      ${nextStepsPaneHTML(p)}
+    </div>
   `;
 }
 
@@ -3416,9 +3765,10 @@ function initProjectTimeline(p) {
     {label:'1ª Producción',      date:f.primeraProduccion, cat:'ipm'},
     {label:'Lanz. estimado',     date:p.lanzEstim,         cat:'lanzEst', shape:'tri'},
     {label:'Lanz. real',         date:f.lanzReal,          cat:'lanzReal', shape:'tri'},
+    ...(p.timelineEvents || []).map(ev => ({label: ev.title || 'Evento', date: ev.date, cat:'event', shape:'event', comment: ev.comment || '', eventId: ev.id})),
   ].filter(h => h.date).sort((a,b) => a.date.localeCompare(b.date));
 
-  const catClr = {prefact:'#185FA5', ipm:'#6B4FA0', lanzEst:'#4A7A28', lanzReal:'#2D5016'};
+  const catClr = {prefact:'#185FA5', ipm:'#6B4FA0', lanzEst:'#4A7A28', lanzReal:'#2D5016', event:'#A66514'};
 
   // Base range
   const allDates = hitos.map(h => new Date(h.date));
@@ -3535,6 +3885,10 @@ function initProjectTimeline(p) {
         ctx.lineTo(x+8, above ? dotY+5 : dotY-5);
         ctx.lineTo(x-8, above ? dotY+5 : dotY-5);
         ctx.closePath(); ctx.fill();
+      } else if (h.shape === 'event') {
+        ctx.fillStyle = clr;
+        ctx.fillRect(x-6, dotY-6, 12, 12);
+        ctx.strokeStyle = 'white'; ctx.lineWidth = 2; ctx.strokeRect(x-6, dotY-6, 12, 12);
       } else {
         ctx.beginPath(); ctx.arc(x, dotY, 6.5, 0, Math.PI*2);
         if (past) { ctx.fillStyle = clr; ctx.fill(); }
@@ -3586,7 +3940,7 @@ function initProjectTimeline(p) {
         sla = d >= 0 ? `Faltan ${d} días` : `Hace ${Math.abs(d)} días (atrasado)`;
       }
       tooltip.style.display = 'block';
-      tooltip.innerHTML = `<strong>${found.h.label}</strong><br>${g.fd(found.h.date)}<br><span style="opacity:.85">${sla}</span>`;
+      tooltip.innerHTML = `<strong>${found.h.label}</strong><br>${g.fd(found.h.date)}${found.h.comment ? '<br>'+escapeHTML(found.h.comment) : ''}<br><span style="opacity:.85">${sla}</span>`;
       let tx2 = mx + 14, ty2 = my - 8;
       if (tx2 + 200 > canvas.offsetWidth) tx2 = mx - 200;
       tooltip.style.left = tx2 + 'px';
@@ -3675,26 +4029,52 @@ function fechasPaneHTML(p) {
   `;
 }
 
+function timelineEventsPaneHTML(p) {
+  const events = (p.timelineEvents || []).slice().sort((a,b) => (a.date || '').localeCompare(b.date || ''));
+  return `
+    <div class="card timeline-actions-card" style="padding:12px">
+      <div class="card-title"><span>Eventos para la línea de tiempo</span><span class="ct-sub">cargalos manualmente; se ven en el timeline</span></div>
+      <div class="field-grid" style="grid-template-columns:150px 1fr">
+        <div class="field"><label>Fecha del evento</label><input id="event-date" type="date" class="input date"></div>
+        <div class="field"><label>Evento</label><input id="event-title" class="input" placeholder="Ej: Reunión con Enología / aprobación de cliente / cambio de alcance"></div>
+        <div class="field" style="grid-column:1/-1"><label>Comentario</label><textarea id="event-comment" class="input" placeholder="Detalle breve para recordar en reunión…"></textarea></div>
+      </div>
+      <div class="row" style="justify-content:flex-end;margin-top:8px">
+        <button class="btn btn-primary btn-sm" onclick="App.addTimelineEvent(${p.id})">${icon('plus')} Agregar evento</button>
+      </div>
+      <div class="divider"></div>
+      ${events.length ? `<div class="col" style="gap:8px">${events.map(ev => `
+        <div class="card-tight" style="border:1px solid var(--border);border-left:3px solid var(--info);border-radius:10px;background:var(--surface)">
+          <div class="field-grid" style="grid-template-columns:140px 1fr auto;gap:8px;align-items:end">
+            <div class="field"><label>Fecha</label><input type="date" class="input date" style="height:28px" value="${ev.date||''}" onchange="App.updateTimelineEvent(${p.id}, ${ev.id}, 'date', this.value)"></div>
+            <div class="field"><label>Evento</label><input class="input" style="height:28px" value="${escapeAttr(ev.title||'')}" onchange="App.updateTimelineEvent(${p.id}, ${ev.id}, 'title', this.value)"></div>
+            <button class="btn btn-ghost btn-sm" style="color:var(--danger);align-self:end" onclick="App.deleteTimelineEvent(${p.id}, ${ev.id})">Eliminar</button>
+            <div class="field" style="grid-column:1/-1"><label>Comentario</label><textarea class="input" style="min-height:48px" onchange="App.updateTimelineEvent(${p.id}, ${ev.id}, 'comment', this.value)">${escapeHTML(ev.comment||'')}</textarea></div>
+          </div>
+        </div>`).join('')}</div>` : '<p class="tiny muted">Sin eventos manuales cargados todavía.</p>'}
+    </div>
+  `;
+}
+
 function notasPaneHTML(p) {
   return `
     <div>
       <div class="row" style="gap:8px;margin-bottom:8px">
         <select id="note-type" class="input" style="width:160px">
           <option value="note">Nota</option>
-          <option value="event">Evento</option>
           <option value="risk">Riesgo</option>
           <option value="blocker">Bloqueo</option>
         </select>
-        <input id="note-text" class="input" placeholder="Escribí una nota, evento o riesgo… (Enter para guardar)" style="flex:1" onkeydown="if(event.key==='Enter') App.addNote(${p.id})">
+        <input id="note-text" class="input" placeholder="Escribí un comentario, riesgo o bloqueo… (Enter para guardar)" style="flex:1" onkeydown="if(event.key==='Enter') App.addNote(${p.id})">
         <button class="btn btn-primary btn-sm" onclick="App.addNote(${p.id})">${icon('plus')} Agregar</button>
       </div>
       <div class="divider"></div>
-      ${p.notes && p.notes.length ? `
+      ${p.notes && p.notes.filter(n => !n.auto).length ? `
         <div class="note-tl">
-          ${p.notes.map(n => `
+          ${p.notes.filter(n => !n.auto).map(n => `
             <div class="note-item type-${n.type||'note'}">
               <div class="note-head">
-                <strong style="color:var(--text2);text-transform:uppercase;font-size:10px;letter-spacing:.06em">${n.type||'nota'}${n.auto?' · auto':''}</strong>
+                <strong style="color:var(--text2);text-transform:uppercase;font-size:10px;letter-spacing:.06em">${n.type||'nota'}</strong>
                 <span class="muted">${g.relTime(n.ts)}</span>
                 ${!n.auto ? `<a style="cursor:pointer;color:var(--text3);font-size:11px;margin-left:auto" onclick="App.deleteNote(${p.id}, ${n.id})">✕</a>` : ''}
               </div>
@@ -3703,6 +4083,45 @@ function notasPaneHTML(p) {
           `).join('')}
         </div>
       ` : '<div class="empty"><p>Sin notas todavía — agregá la primera arriba</p></div>'}
+    </div>
+  `;
+}
+
+function nextStepsPaneHTML(p) {
+  const steps = (p.nextSteps || []).slice().sort((a,b) => {
+    if (a.done !== b.done) return a.done ? 1 : -1;
+    return (a.dueDate || '9999').localeCompare(b.dueDate || '9999');
+  });
+  const todayStr = g.today();
+  return `
+    <div>
+      <div class="card" style="padding:12px;margin-bottom:12px">
+        <div class="field-grid" style="grid-template-columns:1.2fr 150px">
+          <div class="field"><label>Próximo paso</label><input id="nextstep-text" class="input" placeholder="Ej: Confirmar costos con bottler / enviar feedback a Comercial"></div>
+          <div class="field"><label>Fecha compromiso</label><input id="nextstep-date" type="date" class="input date"></div>
+          <div class="field" style="grid-column:1/-1"><label>Comentario</label><textarea id="nextstep-comment" class="input" placeholder="Contexto, responsable, decisión pendiente…"></textarea></div>
+        </div>
+        <div class="row" style="justify-content:flex-end;margin-top:8px">
+          <button class="btn btn-primary btn-sm" onclick="App.addNextStep(${p.id})">${icon('plus')} Agregar próximo paso</button>
+        </div>
+      </div>
+
+      ${steps.length ? `<div class="col" style="gap:8px">
+        ${steps.map(st => {
+          const overdue = st.dueDate && st.dueDate < todayStr && !st.done;
+          const dueSoon = st.dueDate && g.daysBetween(todayStr, st.dueDate) <= 7 && g.daysBetween(todayStr, st.dueDate) >= 0 && !st.done;
+          const borderColor = st.done ? 'var(--accent)' : overdue ? 'var(--danger)' : dueSoon ? 'var(--warn)' : 'var(--border2)';
+          return `<div class="card-tight" style="border:1px solid var(--border);border-left:3px solid ${borderColor};border-radius:10px;background:var(--surface)">
+            <div class="field-grid" style="grid-template-columns:28px 1fr 140px auto;gap:8px;align-items:end">
+              <div class="field" style="align-items:center"><label>OK</label><input type="checkbox" ${st.done?'checked':''} onchange="App.toggleNextStep(${p.id}, ${st.id}, this.checked)" style="height:18px;width:18px"></div>
+              <div class="field"><label>Próximo paso</label><input class="input" style="height:28px;text-decoration:${st.done?'line-through':'none'}" value="${escapeAttr(st.text||'')}" onchange="App.updateNextStep(${p.id}, ${st.id}, 'text', this.value)"></div>
+              <div class="field"><label>Fecha compromiso</label><input type="date" class="input date" style="height:28px;color:${overdue?'var(--danger)':dueSoon?'var(--warn)':'var(--text2)'}" value="${st.dueDate||''}" onchange="App.updateNextStep(${p.id}, ${st.id}, 'dueDate', this.value)"></div>
+              <button class="btn btn-ghost btn-sm" style="color:var(--danger);align-self:end" onclick="App.deleteNextStep(${p.id}, ${st.id})">Eliminar</button>
+              <div class="field" style="grid-column:2/-1"><label>Comentario</label><textarea class="input" style="min-height:48px" onchange="App.updateNextStep(${p.id}, ${st.id}, 'comment', this.value)">${escapeHTML(st.comment||'')}</textarea></div>
+            </div>
+          </div>`;
+        }).join('')}
+      </div>` : '<div class="empty"><p>Sin próximos pasos todavía. Agregalos arriba para liderar la reunión desde esta pantalla.</p></div>'}
     </div>
   `;
 }
@@ -3742,6 +4161,14 @@ function detallesPaneHTML(p) {
         ${inp('complejidad', 'Complejidad', 'select', [{v:'',l:'—'},{v:1,l:'1 - Mínima'},{v:2,l:'2 - Baja'},{v:3,l:'3 - Media'},{v:4,l:'4 - Alta'}])}
       </div>
 
+      <div class="section-head">Benchmark</div>
+      <div class="field-grid">
+        ${inp('benchmarkNeeded', '¿Requiere bench?', 'select', [{v:'No',l:'No'},{v:'Yes',l:'Sí'}])}
+        <div class="field"><label>Bench entregado por Enología</label><input type="date" class="input date" value="${p.benchmarkStart||''}" onchange="App.updateProj(${p.id}, 'benchmarkStart', this.value)"><div class="hint">Inicio del conteo</div></div>
+        <div class="field"><label>Feedback del bench</label><input type="date" class="input date" value="${p.benchmarkEnd||''}" onchange="App.updateProj(${p.id}, 'benchmarkEnd', this.value)"><div class="hint">Fin del conteo</div></div>
+        <div class="field"><label>Comentario corto</label><input type="text" class="input" value="${escapeHTML(p.benchmarkComments||'')}" onchange="App.updateProj(${p.id}, 'benchmarkComments', this.value)" placeholder="Ej: OK / ajustar corte / pendiente cliente"></div>
+      </div>
+
       <div class="section-head">Bloqueo</div>
       <div class="field-grid">
         ${inp('bloqueadoPor', 'Bloqueado por (vacío = no bloqueado)', 'select', [
@@ -3772,6 +4199,9 @@ function detallesPaneHTML(p) {
 function escapeHTML(s) {
   return (s||'').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 }
+function escapeAttr(s) {
+  return escapeHTML(String(s || '')).replace(/`/g, '&#96;');
+}
 
 /* ════════════════════════════════════════════════════════════════
    VIEW · DATOS — manual entry, import/export
@@ -3784,7 +4214,7 @@ function renderDatos() {
     <div class="page-h">
       <div>
         <h1>Datos</h1>
-        <p>Carga rápida de fechas críticas del portfolio. Filtrá por estado para completar primero lo que sí o sí necesita seguimiento.</p>
+        <p>Carga rápida de datos y fechas críticas del portfolio. Filtrá por estado para completar primero lo que sí o sí necesita seguimiento.</p>
       </div>
       <div class="page-h-right">
         <button class="btn btn-primary" onclick="App.openModal('new-project')">${icon('plus')} Nuevo proyecto</button>
@@ -3859,7 +4289,7 @@ function renderDatos() {
 
 function missingCoreDates(p) {
   const missing = [];
-  if ((p.hasBC || 'Yes') !== 'No' && !p.fechas?.bcRecibido) missing.push('BC');
+  if (!p.fechas?.bcRecibido && !['Closed','Canceled','Delegated'].includes(p.status)) missing.push('Recepción');
   if (!p.lanzEstim && !['Closed','Canceled','Delegated'].includes(p.status)) missing.push('Lanz. estim.');
   if (p.status === 'On going' && !p.fechas?.feedbackFinal) missing.push('FB Final');
   if (p.status === 'On going' && !p.fechas?.gate1) missing.push('Gate 1');
@@ -3891,6 +4321,8 @@ function quickEditTableHTML() {
           <th>Proyecto</th>
           <th>Estado</th>
           <th>Faltantes</th>
+          <th>BC formal</th>
+          <th>Benchmark</th>
           <th>Lanz. estim.</th>
           ${cols.map(k => `<th title="${g.dateLabels[k]}">${shortLabel(k)}</th>`).join('')}
         </tr></thead>
@@ -3902,6 +4334,8 @@ function quickEditTableHTML() {
               <td class="col-name" style="max-width:220px"><div style="cursor:pointer" onclick="App.openProject(${p.id})">${p.nombre}</div><div class="sub">${p.region} · ${p.cliente||'—'}</div></td>
               <td>${statusBadge(p.status)}</td>
               <td>${miss.length ? `<span class="badge b-warn">${miss.join(', ')}</span>` : '<span class="badge b-ok">OK</span>'}</td>
+              <td><select class="input" style="width:78px;height:26px" onchange="App.updateProj(${p.id}, 'hasBC', this.value)"><option value="Yes" ${p.hasBC !== 'No'?'selected':''}>Sí</option><option value="No" ${p.hasBC === 'No'?'selected':''}>No</option></select></td>
+              <td><select class="input" style="width:78px;height:26px" onchange="App.updateProj(${p.id}, 'benchmarkNeeded', this.value)"><option value="No" ${(p.benchmarkNeeded||'No') !== 'Yes'?'selected':''}>No</option><option value="Yes" ${(p.benchmarkNeeded||'No') === 'Yes'?'selected':''}>Sí</option></select></td>
               <td><input type="date" class="input date ${!p.lanzEstim?'date-missing':''}" style="width:118px;height:26px" value="${p.lanzEstim||''}" onchange="App.updateProj(${p.id}, 'lanzEstim', this.value)"></td>
               ${cols.map(k => `<td><input type="date" class="input date ${!p.fechas[k]?'date-missing':''}" style="width:118px;height:26px" value="${p.fechas[k]||''}" onchange="App.setDate(${p.id}, '${k}', this.value)"></td>`).join('')}
             </tr>`;
@@ -4709,12 +5143,12 @@ function renderGantt() {
       </div>
     </div>
 
-    <div class="filter-bar gantt-filter-bar" style="margin-bottom:8px">
+    <div class="filter-bar" style="margin-bottom:10px">
       <input type="text" class="input input-search" style="width:240px" placeholder="Buscar proyecto…" value="${gs.state.ganttSearch||''}" id="gantt-search-input" oninput="App.setGanttSearch(this.value)">
       <button class="btn btn-ghost btn-sm" style="margin-left:auto" onclick="App.clearAllFilters()" title="Limpiar filtros">✕ Limpiar filtros</button>
     </div>
 
-    <div class="card-tight card gantt-help-card" style="margin-bottom:8px;display:flex;flex-wrap:wrap;gap:12px;align-items:center;font-size:11px">
+    <div class="card-tight card" style="margin-bottom:14px;display:flex;flex-wrap:wrap;gap:18px;align-items:center;font-size:12px">
       <div><strong>Cómo leer cada fila</strong></div>
       <div style="display:flex;align-items:center;gap:6px"><span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:#0D0D0D"></span> Primer hito cronológico <span class="muted">(abajo · BC o Reception Date)</span></div>
       <div style="display:flex;align-items:center;gap:6px"><span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:#185FA5"></span> Último hito completado <span class="muted">(arriba · azul = prefact)</span></div>
@@ -4723,7 +5157,7 @@ function renderGantt() {
       <div style="display:flex;align-items:center;gap:6px"><span style="display:inline-block;width:8px;height:8px;background:#2D5016;transform:rotate(45deg)"></span> Lanz. real</div>
     </div>
 
-    <div class="filter-bar gantt-filter-bar">
+    <div class="filter-bar">
       <div class="filter-group">
         <span class="filter-label">Región</span>
         <button class="pill ${!ganttFilter.regions.size?'active':''}" onclick="App.toggleGantt('regions',null)">Todos</button>
@@ -4742,11 +5176,15 @@ function renderGantt() {
     <div class="spacer"></div>
 
     <div class="card">
-      <div class="card-title">Gantt detallado para gerencia
-        <span class="ct-sub">incluye comentario último, alerta principal, próximo paso y datos clave por proyecto</span>
-      </div>
-      <div class="row" style="justify-content:flex-end;margin:-4px 0 8px">
-        <button class="btn btn-sm" onclick="App.copyGanttDetail()">Copiar tabla para enviar</button>
+      <div class="gantt-detail-toolbar">
+        <div>
+          <div class="card-title" style="margin-bottom:2px">Gantt detallado para gerencia</div>
+          <div class="tiny muted">Comentario último, alerta principal, próximo paso y datos clave por proyecto</div>
+        </div>
+        <div class="row" style="gap:8px">
+          <button class="btn btn-sm btn-primary" onclick="App.copyGanttTable(event)">Copiar tabla</button>
+          <span id="gantt-copy-ok" class="gantt-copy-ok" style="display:none">Copiada</span>
+        </div>
       </div>
       ${ganttDetailTableHTML()}
     </div>
@@ -4767,7 +5205,7 @@ function ganttDetailTableHTML() {
   if (!items.length) return '<div class="empty"><p>Sin proyectos para esos filtros</p></div>';
 
   return `
-    <div class="tbl-wrap" style="overflow-x:auto">
+    <div class="tbl-wrap gantt-detail-table-wrap" style="overflow-x:auto">
       <table class="tbl gantt-detail-table">
         <thead><tr>
           <th>Proyecto</th>
@@ -4829,227 +5267,347 @@ function ganttSvgHTML() {
     if (ganttFilter.regions.size && !ganttFilter.regions.has(p.region)) return false;
     if (ganttFilter.statuses.size && !ganttFilter.statuses.has(p.status)) return false;
     const q = (g2.state.ganttSearch||'').toLowerCase();
-    if (q && ![p.nombre,p.cliente,p.bottler,p.region].join(' ').toLowerCase().includes(q)) return false;
+    if (q && ![p.nombre,p.cliente,p.bottler,p.region,p.tipo].join(' ').toLowerCase().includes(q)) return false;
     return true;
   }).sort((a,b) => (a.lanzEstim||'9999').localeCompare(b.lanzEstim||'9999'));
 
   if (!all.length) return '<div class="empty"><p>Sin proyectos para esos filtros</p></div>';
 
-  // Recolectar todas las fechas para el rango
+  const esc = v => String(v ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const cut = (v, n) => {
+    v = String(v || '');
+    return v.length > n ? v.slice(0, n-1) + '…' : v;
+  };
+
   const allDates = [];
   all.forEach(p => {
-    Object.values(p.fechas).forEach(d => { if (d) allDates.push(d); });
+    Object.values(p.fechas || {}).forEach(d => { if (d) allDates.push(d); });
     if (p.lanzEstim) allDates.push(p.lanzEstim);
+    (p.timelineEvents || []).forEach(ev => { if (ev.date) allDates.push(ev.date); });
   });
   allDates.push(g2.today());
   if (!allDates.length) return '<div class="empty"><p>Sin fechas cargadas en ninguno de los proyectos</p></div>';
 
   const minD = new Date(allDates.reduce((a,b)=>a<b?a:b));
   const maxD = new Date(allDates.reduce((a,b)=>a>b?a:b));
-  minD.setDate(minD.getDate() - 25);
+  minD.setDate(minD.getDate() - 20);
   maxD.setDate(maxD.getDate() + 25);
-  const totalDays = (maxD - minD) / 86400000;
+  const totalDays = Math.max(1, (maxD - minD) / 86400000);
 
-  // Geometry — v15: timeline más angosto para entrar mejor a 100% zoom
-  const ROW_H = 112;
-  const LEFT  = 190;
-  const TOP   = 50;
-  const W = 1180;
-  const H = TOP + all.length * ROW_H + 46;
+  // Geometría v28: pensada para entrar en notebook 13.3" sin scroll horizontal.
+  // No se dibuja texto fuera de su propia fila: eso evita que un proyecto pise al siguiente.
+  const W = 1000;
+  const LEFT = 158;
+  const RIGHT_PAD = 14;
+  const TOP = 50;
+  const ROW_H = 86;
+  const H = TOP + all.length * ROW_H + 42;
+  const CHART_W = W - LEFT - RIGHT_PAD;
+  const xPct = dateStr => LEFT + ((new Date(dateStr) - minD) / 86400000 / totalDays) * CHART_W;
 
-  const xPct = dateStr => LEFT + ((new Date(dateStr) - minD) / 86400000 / totalDays) * (W - LEFT - 30);
+  let svg = `<svg width="100%" viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg" style="font-family:Inter,sans-serif;max-width:100%;display:block">`;
 
-  let svg = `<svg width="100%" viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg" style="min-width:960px;font-family:Inter,sans-serif">`;
-
-  // Background rows alternated
+  // Fondo + filas
   all.forEach((p, i) => {
     const y = TOP + i * ROW_H;
     const fill = i % 2 === 0 ? 'var(--bg)' : 'var(--surface)';
     svg += `<rect x="0" y="${y}" width="${W}" height="${ROW_H}" fill="${fill}"/>`;
+    svg += `<line x1="0" y1="${y+ROW_H}" x2="${W}" y2="${y+ROW_H}" stroke="var(--border)" stroke-width="0.6"/>`;
   });
 
-  // Month grid
-  const cursor = new Date(minD); cursor.setDate(1);
+  // Meses
+  const cursor = new Date(minD); cursor.setDate(1); cursor.setHours(0,0,0,0);
   while (cursor <= maxD) {
     const x = xPct(cursor.toISOString().slice(0,10));
-    svg += `<line x1="${x}" y1="${TOP-12}" x2="${x}" y2="${H-30}" stroke="var(--border)" stroke-width="0.5"/>`;
-    svg += `<text x="${x+4}" y="${TOP-22}" font-size="10" fill="var(--text3)" font-weight="600">${cursor.toLocaleDateString('es-AR', {month:'short', year:'2-digit'})}</text>`;
+    svg += `<line x1="${x}" y1="${TOP-10}" x2="${x}" y2="${H-28}" stroke="var(--border)" stroke-width="0.45"/>`;
+    svg += `<text x="${x+3}" y="${TOP-23}" font-size="10" fill="var(--text3)" font-weight="600">${cursor.toLocaleDateString('es-AR', {month:'short', year:'2-digit'})}</text>`;
     cursor.setMonth(cursor.getMonth()+1);
   }
 
-  // Today line
+  // Hoy
   const tx = xPct(g2.today());
-  svg += `<line x1="${tx}" y1="${TOP-12}" x2="${tx}" y2="${H-30}" stroke="${GANTT_CLR.today}" stroke-width="2" stroke-dasharray="5 3"/>`;
-  svg += `<rect x="${tx-18}" y="${TOP-40}" width="36" height="18" rx="4" fill="${GANTT_CLR.today}"/>`;
-  svg += `<text x="${tx}" y="${TOP-27}" font-size="10" fill="white" text-anchor="middle" font-weight="700">HOY</text>`;
+  svg += `<line x1="${tx}" y1="${TOP-10}" x2="${tx}" y2="${H-28}" stroke="${GANTT_CLR.today}" stroke-width="1.6" stroke-dasharray="5 3"/>`;
+  svg += `<rect x="${tx-15}" y="${TOP-38}" width="30" height="16" rx="4" fill="${GANTT_CLR.today}"/>`;
+  svg += `<text x="${tx}" y="${TOP-26}" font-size="9.5" fill="white" text-anchor="middle" font-weight="700">HOY</text>`;
+  svg += `<line x1="${LEFT-7}" y1="${TOP-10}" x2="${LEFT-7}" y2="${H-28}" stroke="var(--border)" stroke-width="1"/>`;
 
-  // Header column separator
-  svg += `<line x1="${LEFT-6}" y1="${TOP-12}" x2="${LEFT-6}" y2="${H-30}" stroke="var(--border)" stroke-width="1"/>`;
+  const stageDef = [
+    {key:'bcRecibido', label:'BC', long:'BC recibido', cat:'prefact'},
+    {key:'primerFeedback', label:'1°FB', long:'1° Feedback', cat:'prefact'},
+    {key:'cotizBottler', label:'Cot.', long:'Cotiz. bottler', cat:'prefact'},
+    {key:'respBottler', label:'Rsp.', long:'Resp. bottler', cat:'prefact'},
+    {key:'feedbackFinal', label:'FF', long:'Feedback Final', cat:'prefact'},
+    {key:'gate1', label:'G1', long:'Gate 1', cat:'ipm'},
+    {key:'gate2', label:'G2', long:'Gate 2', cat:'ipm'},
+    {key:'gate3', label:'G3', long:'Gate 3', cat:'ipm'},
+    {key:'primeraProduccion', label:'1P', long:'1ª Producción', cat:'ipm'},
+    {key:'lanzReal', label:'LR', long:'Lanz. real', cat:'lanzReal'},
+  ];
 
-  // Rows
   all.forEach((p, i) => {
-    const f = p.fechas;
+    const f = p.fechas || {};
     const y = TOP + i * ROW_H;
-    const cy = y + ROW_H/2;
-
-    // Name column (más grande)
+    const cy = y + 41;
     const sm = g2.STATUS_META[p.status] || g2.STATUS_META['Closed'];
-    const _closedSt = ['Closed','Canceled'].includes(p.status);
-    const _lanzDays = p.lanzEstim ? g2.daysBetween(g2.today(), p.lanzEstim) : null;
-    const _deltaRealEstim = (p.fechas.lanzReal && p.lanzEstim) ? g2.daysBetween(p.lanzEstim, p.fechas.lanzReal) : null;
-    const _lanzLabel = _closedSt
-      ? (_deltaRealEstim !== null ? (_deltaRealEstim === 0 ? 'En fecha' : _deltaRealEstim > 0 ? '+'+_deltaRealEstim+'d vs estimado' : _deltaRealEstim+'d vs estimado') : (p.fechas.lanzReal ? 'Lanzado '+g2.fd(p.fechas.lanzReal) : ''))
-      : (_lanzDays === null ? '' : _lanzDays < 0 ? Math.abs(_lanzDays)+'d tarde' : _lanzDays === 0 ? 'hoy!' : 'faltan '+_lanzDays+'d');
-    const _lanzClr = _closedSt
-      ? (_deltaRealEstim !== null && _deltaRealEstim > 14 ? '#D04040' : _deltaRealEstim !== null && _deltaRealEstim < -7 ? '#3A7A20' : 'var(--text3)')
-      : (_lanzDays !== null && _lanzDays < 0 ? '#D04040' : _lanzDays !== null && _lanzDays < 30 ? '#B07020' : 'var(--text3)');
-    // ── Columna izquierda (info del proyecto) ──
-    // Layout vertical estricto para evitar superposiciones:
-    //   y+24 nombre · y+44 región·tipo · y+64 9LC · y+78 badge · y+108 lanz · y+128 próximo paso
-    const _name = p.nombre.length > 22 ? p.nombre.slice(0,22) + '…' : p.nombre;
-    svg += `<text x="12" y="${y+19}" font-size="15" font-weight="700" fill="var(--text)">${_name}</text>`;
-    svg += `<text x="12" y="${y+37}" font-size="11.5" fill="var(--text3)">${p.region} · ${p.tipo}</text>`;
-    if (p.c9l) {
-      svg += `<text x="12" y="${y+55}" font-size="11.5" fill="var(--text2)" font-family="JetBrains Mono, monospace" font-weight="700">${g2.fmtC9L(p.c9l)} 9LC</text>`;
-    }
-    // Status badge (no se pisa con nada porque está en su propia banda)
-    svg += `<rect x="12" y="${y+66}" width="${Math.min(158, p.status.length*7+24)}" height="18" rx="4" fill="${sm.color}" opacity="0.15"/>`;
-    svg += `<text x="22" y="${y+79}" font-size="10.5" font-weight="700" fill="${sm.color}">${sm.label}</text>`;
-    // Etiqueta de lanzamiento (faltan Xd / Xd tarde / delta vs estim)
-    if (_lanzLabel) {
-      svg += `<text x="12" y="${y+96}" font-size="10.5" fill="${_lanzClr}" font-weight="700">${_lanzLabel}</text>`;
-    }
-    // Próximo paso sugerido
-    const _ne = g2.evaluateProject(p);
-    if (_ne.nextAction && !['Closed','Canceled'].includes(p.status)) {
-      const _naShort = _ne.nextAction.length > 38 ? _ne.nextAction.slice(0,38) + '…' : _ne.nextAction;
-      svg += `<text x="12" y="${y+108}" font-size="10" fill="var(--accent)" font-style="italic">▶ ${_naShort}</text>`;
+    const e = g2.evaluateProject(p);
+    const launchDays = p.lanzEstim ? g2.daysBetween(g2.today(), p.lanzEstim) : null;
+    const launchLabel = launchDays === null ? 'Lanz. TBC' : (launchDays < 0 ? `${Math.abs(launchDays)}d tarde` : `faltan ${launchDays}d`);
+    const launchClr = launchDays !== null && launchDays < 0 ? GANTT_CLR.late : (launchDays !== null && launchDays < 30 ? '#B07020' : 'var(--text3)');
+    const manualNotes = (p.notes || []).filter(n => !n.auto);
+    const leftComment = (manualNotes[0]?.text || e.nextAction || '').replace(/\s+/g, ' ').trim();
+
+    // Columna izquierda: compacta y con altura controlada.
+    svg += `<text x="12" y="${y+17}" font-size="10.4" font-weight="700" fill="var(--text)">${esc(cut(p.nombre, 23))}</text>`;
+    svg += `<text x="12" y="${y+32}" font-size="8" fill="var(--text3)">${esc(cut((p.cliente||'—') + ' · ' + (p.region||'—'), 28))}</text>`;
+    svg += `<text x="12" y="${y+46}" font-size="8" fill="var(--text3)">${esc(cut(p.tipo||'—', 22))}</text>`;
+    svg += `<rect x="12" y="${y+54}" width="${Math.min(70, (sm.label||'').length*5+15)}" height="14" rx="4" fill="${sm.color}" opacity="0.15"/>`;
+    svg += `<text x="19" y="${y+64}" font-size="7.8" font-weight="700" fill="${sm.color}">${esc(cut(sm.label, 12))}</text>`;
+    svg += `<text x="88" y="${y+64}" font-size="7.8" fill="${launchClr}" font-weight="700">${esc(launchLabel)}</text>`;
+    if (leftComment) {
+      svg += `<text x="12" y="${y+79}" font-size="7.8" fill="var(--accent)" font-style="italic">➤ ${esc(cut(leftComment, 31))}</text>`;
     }
 
-    // ── milestones ──
-    const hasBC = (p.hasBC || 'Yes') !== 'No';
-    const processStages = [
-      {key:'bcRecibido', label: hasBC?GANTT_STAGE_LABEL.bcRecibido:GANTT_STAGE_LABEL.receptionDate},
-      {key:'primerFeedback', label: GANTT_STAGE_LABEL.primerFeedback},
-      {key:'cotizBottler',   label: GANTT_STAGE_LABEL.cotizBottler},
-      {key:'respBottler',    label: GANTT_STAGE_LABEL.respBottler},
-      {key:'feedbackFinal',  label: GANTT_STAGE_LABEL.feedbackFinal},
-      {key:'gate1',          label: GANTT_STAGE_LABEL.gate1},
-      {key:'gate2',          label: GANTT_STAGE_LABEL.gate2},
-      {key:'gate3',          label: GANTT_STAGE_LABEL.gate3},
-      {key:'primeraProduccion', label: GANTT_STAGE_LABEL.primeraProduccion},
-      {key:'lanzReal',       label: GANTT_STAGE_LABEL.lanzReal},
-    ];
+    const filled = stageDef.filter(s => f[s.key]).map(s => ({...s, date:f[s.key]}));
+    const todayStr = g2.today();
+    const lineStart = filled.length ? filled.reduce((a,b)=>a.date < b.date ? a : b) : null;
+    const pastFilled = filled.filter(s => s.date <= todayStr);
+    const lineEnd = pastFilled.length ? pastFilled.reduce((a,b)=>a.date > b.date ? a : b) : (filled.length ? filled.reduce((a,b)=>a.date > b.date ? a : b) : null);
 
-    const filled = processStages.filter(s => f[s.key]).map(s => ({...s, date: f[s.key]}));
-
-    // Línea base: del primero al último hito real OCURRIDO (fecha ≤ hoy).
-    // Si lanzReal está cargado con fecha futura, no cuenta como "último ocurrido" —
-    // el lineEnd debe ser el último hito que efectivamente sucedió. lanzReal se
-    // dibuja aparte como diamante con su propia etiqueta.
-    const _todayStr = g2.today();
-    const stageOrderKeys = processStages.map(s => s.key);
-    let lineStart = null, lineEnd = null;
-    if (filled.length) {
-      lineStart = filled.reduce((a,b) => a.date < b.date ? a : b);
-      const pastFilled = filled.filter(s => s.date <= _todayStr);
-      lineEnd = pastFilled.length
-        ? pastFilled.reduce((a,b) => a.date > b.date ? a : b)
-        : filled.reduce((a,b) => a.date > b.date ? a : b);
-    }
-    // La línea de base se extiende hasta el más lejano entre: último hito, lanz estim, lanz real
+    let extStart = lineStart ? lineStart.date : null;
     let extEnd = lineEnd ? lineEnd.date : null;
     if (p.lanzEstim && (!extEnd || p.lanzEstim > extEnd)) extEnd = p.lanzEstim;
     if (f.lanzReal && (!extEnd || f.lanzReal > extEnd)) extEnd = f.lanzReal;
-    const extStart = lineStart ? lineStart.date : null;
 
     if (extStart && extEnd && extStart !== extEnd) {
       svg += `<line x1="${xPct(extStart)}" y1="${cy}" x2="${xPct(extEnd)}" y2="${cy}" stroke="var(--border2)" stroke-width="2" stroke-linecap="round"/>`;
+    } else {
+      svg += `<line x1="${LEFT}" y1="${cy}" x2="${W-RIGHT_PAD}" y2="${cy}" stroke="var(--surface3)" stroke-width="1"/>`;
     }
 
-    // Hitos intermedios (los demás) como puntos chicos sin label
+    // Puntos intermedios sin texto.
     filled.forEach(s => {
-      if (lineStart && s.key === lineStart.key) return; // se etiqueta abajo
-      const isLast = lineEnd && s.key === lineEnd.key;
-      if (isLast) return; // se etiqueta arriba
+      if (lineStart && s.key === lineStart.key) return;
+      if (lineEnd && s.key === lineEnd.key) return;
       const x = xPct(s.date);
-      const cat = s.label.cat;
-      const clr = GANTT_CLR[cat] || GANTT_CLR.prefact;
-      svg += `<circle cx="${x}" cy="${cy}" r="3.5" fill="${clr}" stroke="white" stroke-width="1.2"><title>${s.label.long} · ${g2.fd(s.date)}</title></circle>`;
+      const clr = GANTT_CLR[s.cat] || GANTT_CLR.prefact;
+      svg += `<circle cx="${x}" cy="${cy}" r="3.2" fill="${clr}" stroke="white" stroke-width="1"><title>${esc(s.long)} · ${g2.fd(s.date)}</title></circle>`;
     });
 
-    // PRIMER hito (abajo): etiqueta con nombre + fecha
+    // Primer hito abajo: solo short + fecha, dentro de la fila.
     if (lineStart) {
       const x = xPct(lineStart.date);
-      svg += `<circle cx="${x}" cy="${cy}" r="6" fill="var(--text)" stroke="white" stroke-width="2"><title>${lineStart.label.long} · ${g2.fd(lineStart.date)}</title></circle>`;
-      svg += `<line x1="${x}" y1="${cy+6}" x2="${x}" y2="${cy+18}" stroke="var(--text3)" stroke-width="0.8"/>`;
-      svg += `<text x="${x}" y="${cy+32}" font-size="11" font-weight="700" fill="var(--text2)" text-anchor="middle">${lineStart.label.short}</text>`;
-      svg += `<text x="${x}" y="${cy+48}" font-size="10" fill="var(--text3)" text-anchor="middle" font-family="JetBrains Mono, monospace">${g2.fd(lineStart.date)}</text>`;
+      svg += `<circle cx="${x}" cy="${cy}" r="5.4" fill="var(--text)" stroke="white" stroke-width="1.8"><title>${esc(lineStart.long)} · ${g2.fd(lineStart.date)}</title></circle>`;
+      svg += `<text x="${x}" y="${cy+19}" font-size="8.8" font-weight="700" fill="var(--text2)" text-anchor="middle">${esc(lineStart.label)}</text>`;
+      svg += `<text x="${x}" y="${cy+31}" font-size="8" fill="var(--text3)" text-anchor="middle" font-family="JetBrains Mono, monospace">${g2.fd(lineStart.date)}</text>`;
     }
 
-    // ÚLTIMO hito de proceso (arriba): etiqueta con nombre + fecha, color por categoría
+    // Último hito arriba: short + fecha, dentro de la fila.
     if (lineEnd && (!lineStart || lineEnd.key !== lineStart.key)) {
       const x = xPct(lineEnd.date);
-      const cat = lineEnd.label.cat;
-      const clr = GANTT_CLR[cat] || GANTT_CLR.prefact;
-      svg += `<circle cx="${x}" cy="${cy}" r="7.5" fill="${clr}" stroke="white" stroke-width="2"><title>${lineEnd.label.long} · ${g2.fd(lineEnd.date)}</title></circle>`;
-      svg += `<line x1="${x}" y1="${cy-7.5}" x2="${x}" y2="${cy-18}" stroke="${clr}" stroke-width="1"/>`;
-      svg += `<text x="${x}" y="${cy-34}" font-size="11" font-weight="700" fill="${clr}" text-anchor="middle">${lineEnd.label.long}</text>`;
-      svg += `<text x="${x}" y="${cy-22}" font-size="10" fill="${clr}" text-anchor="middle" font-family="JetBrains Mono, monospace">${g2.fd(lineEnd.date)}</text>`;
+      const clr = GANTT_CLR[lineEnd.cat] || GANTT_CLR.prefact;
+      svg += `<circle cx="${x}" cy="${cy}" r="6.2" fill="${clr}" stroke="white" stroke-width="1.8"><title>${esc(lineEnd.long)} · ${g2.fd(lineEnd.date)}</title></circle>`;
+      svg += `<text x="${x}" y="${cy-22}" font-size="8.8" font-weight="700" fill="${clr}" text-anchor="middle">${esc(lineEnd.label)}</text>`;
+      svg += `<text x="${x}" y="${cy-10}" font-size="8" fill="${clr}" text-anchor="middle" font-family="JetBrains Mono, monospace">${g2.fd(lineEnd.date)}</text>`;
     }
 
-    // Triángulo lanzamiento estimado (verde si futuro, rojo si pasado)
+    // Lanzamiento estimado: triángulo, sin etiqueta grande para no pisar fechas.
     if (p.lanzEstim) {
       const x = xPct(p.lanzEstim);
       const past = new Date(p.lanzEstim) < new Date(g2.today());
       const clr = past && !f.lanzReal ? GANTT_CLR.late : GANTT_CLR.lanzEst;
-      svg += `<polygon points="${x},${cy+10} ${x+9},${cy+26} ${x-9},${cy+26}" fill="${clr}" stroke="white" stroke-width="1.5"><title>Lanzamiento estimado · ${g2.fd(p.lanzEstim)}</title></polygon>`;
-      svg += `<text x="${x}" y="${cy+44}" font-size="10" fill="${clr}" text-anchor="middle" font-weight="700" font-family="JetBrains Mono, monospace">${g2.fd(p.lanzEstim)}</text>`;
+      svg += `<polygon points="${x},${cy+7} ${x+7},${cy+20} ${x-7},${cy+20}" fill="${clr}" stroke="white" stroke-width="1.2"><title>Lanzamiento estimado · ${g2.fd(p.lanzEstim)}</title></polygon>`;
+      svg += `<text x="${x}" y="${cy+34}" font-size="8" fill="${clr}" text-anchor="middle" font-weight="700" font-family="JetBrains Mono, monospace">${g2.fd(p.lanzEstim)}</text>`;
     }
 
-    // Diamante lanzamiento real (si existe y no coincide con el "last process")
-    if (f.lanzReal && (!lineEnd || lineEnd.key !== 'lanzReal')) {
-      const x = xPct(f.lanzReal);
-      const past = new Date(f.lanzReal) <= new Date(_todayStr);
-      svg += `<polygon points="${x},${cy-9} ${x+9},${cy} ${x},${cy+9} ${x-9},${cy}" fill="${GANTT_CLR.lanzReal}" stroke="white" stroke-width="2"><title>Lanzamiento real · ${g2.fd(f.lanzReal)}${past?'':' (programado)'}</title></polygon>`;
-      // Etiqueta — arriba si está libre, abajo si choca con el lanz estim (que ya va abajo)
-      const labelAbove = !p.lanzEstim || Math.abs(xPct(p.lanzEstim) - x) > 80;
-      const ly = labelAbove ? cy - 22 : cy + 44;
-      const lyDate = labelAbove ? cy - 12 : cy + 56;
-      svg += `<text x="${x}" y="${ly}" font-size="11" font-weight="700" fill="${GANTT_CLR.lanzReal}" text-anchor="middle">Lanz. real</text>`;
-      svg += `<text x="${x}" y="${lyDate}" font-size="10" fill="${GANTT_CLR.lanzReal}" text-anchor="middle" font-family="JetBrains Mono, monospace">${g2.fd(f.lanzReal)}</text>`;
-    }
+    // Eventos manuales: puntito naranja sobre la línea.
+    (p.timelineEvents || []).filter(ev => ev.date).forEach(ev => {
+      const x = xPct(ev.date);
+      svg += `<circle cx="${x}" cy="${cy-9}" r="3.8" fill="var(--warn)" stroke="white" stroke-width="1"><title>Evento · ${esc(ev.title||'Sin título')} · ${g2.fd(ev.date)}</title></circle>`;
+    });
 
-    // Click overlay
-    svg += `<rect x="0" y="${y}" width="${W}" height="${ROW_H}" fill="transparent" style="cursor:pointer" onclick="App.openProject(${p.id})"><title>${p.nombre} — click para ver detalle</title></rect>`;
+    svg += `<rect x="0" y="${y}" width="${W}" height="${ROW_H}" fill="transparent" style="cursor:pointer" onclick="App.openProject(${p.id})"><title>${esc(p.nombre)} — click para ver detalle</title></rect>`;
   });
 
-  // Leyenda
-  const legY = H - 16;
+  // Leyenda compacta.
+  const legY = H - 15;
   const legends = [
-    {clr:GANTT_CLR.prefact, type:'circle', label:'Prefactibilidad (último hito)'},
-    {clr:GANTT_CLR.ipm,     type:'circle', label:'Gates IPM'},
-    {clr:'var(--text)',     type:'circle', label:'Primer hito (cronológico)'},
-    {clr:GANTT_CLR.lanzEst, type:'tri',    label:'Lanz. estimado'},
-    {clr:GANTT_CLR.late,    type:'tri',    label:'Lanz. estim. pasado'},
-    {clr:GANTT_CLR.lanzReal,type:'diam',   label:'Lanz. real'},
+    {clr:GANTT_CLR.prefact, label:'Prefact.'},
+    {clr:GANTT_CLR.ipm, label:'IPM'},
+    {clr:'var(--text)', label:'Primer hito'},
+    {clr:GANTT_CLR.lanzEst, label:'Lanz. estim.'},
+    {clr:'var(--warn)', label:'Evento'},
   ];
-  let lx = 14;
+  let lx = 12;
   legends.forEach(l => {
-    if (l.type === 'circle') svg += `<circle cx="${lx}" cy="${legY}" r="5" fill="${l.clr}"/>`;
-    else if (l.type === 'tri') svg += `<polygon points="${lx},${legY-5} ${lx+5},${legY+4} ${lx-5},${legY+4}" fill="${l.clr}"/>`;
-    else if (l.type === 'diam') svg += `<polygon points="${lx},${legY-5} ${lx+5},${legY} ${lx},${legY+5} ${lx-5},${legY}" fill="${l.clr}"/>`;
-    svg += `<text x="${lx+10}" y="${legY+4}" font-size="10" fill="var(--text2)">${l.label}</text>`;
-    lx += 10 + l.label.length * 5.8 + 18;
+    svg += `<circle cx="${lx}" cy="${legY}" r="4" fill="${l.clr}"/>`;
+    svg += `<text x="${lx+8}" y="${legY+3}" font-size="9" fill="var(--text2)">${l.label}</text>`;
+    lx += 8 + l.label.length*5.2 + 16;
   });
 
   svg += '</svg>';
   return svg;
 }
 
-/* ════════════════════════════════════════════════════════════════
-   VIEW · FLUJO (kept simple, link to v1 if needed)
-═══════════════════════════════════════════════════════════════════ */
+function benchmarkItems() {
+  const bf = gs.state.benchmarkFilters ||= {status:'', region:'', needed:'', search:''};
+  let items = [...gs.state.projects];
+  if (bf.status) items = items.filter(p => p.status === bf.status);
+  if (bf.region) items = items.filter(p => p.region === bf.region);
+  if (bf.needed) items = items.filter(p => (p.benchmarkNeeded || 'No') === bf.needed);
+  if (bf.search) {
+    const q = bf.search.toLowerCase();
+    items = items.filter(p => [p.nombre, p.cliente, p.bottler, p.pais, p.region, p.tipo, p.ipm].join(' ').toLowerCase().includes(q));
+  }
+  return items.sort((a,b) => {
+    const an = (a.benchmarkNeeded||'No') === 'Yes' ? 0 : 1;
+    const bn = (b.benchmarkNeeded||'No') === 'Yes' ? 0 : 1;
+    if (an !== bn) return an - bn;
+    return (a.lanzEstim||'9999').localeCompare(b.lanzEstim||'9999');
+  });
+}
+
+function benchmarkDuration(p) {
+  if ((p.benchmarkNeeded || 'No') !== 'Yes') return null;
+  if (!p.benchmarkStart || !p.benchmarkEnd) return null;
+  return gs.businessDays(p.benchmarkStart, p.benchmarkEnd);
+}
+
+function benchmarkDaysClass(days) {
+  if (days === null || isNaN(days)) return '';
+  if (days > 10) return 'benchmark-days-bad';
+  if (days >= 8) return 'benchmark-days-warn';
+  return 'benchmark-days-ok';
+}
+
+function renderBenchmark() {
+  const bf = gs.state.benchmarkFilters ||= {status:'', region:'', needed:'', search:''};
+  const items = benchmarkItems();
+  const total = gs.state.projects.length;
+  const needed = gs.state.projects.filter(p => (p.benchmarkNeeded||'No') === 'Yes');
+  const notNeeded = gs.state.projects.filter(p => (p.benchmarkNeeded||'No') !== 'Yes');
+  const closed = needed.filter(p => p.benchmarkStart && p.benchmarkEnd);
+  const pending = needed.filter(p => p.benchmarkStart && !p.benchmarkEnd);
+  const withoutStart = needed.filter(p => !p.benchmarkStart);
+  const closedDur = closed.map(p => benchmarkDuration(p)).filter(v => v !== null && !isNaN(v));
+  const avg = closedDur.length ? Math.round(closedDur.reduce((a,b)=>a+b,0)/closedDur.length) : null;
+  const overdue = pending.filter(p => benchmarkElapsed(p) > 10).length;
+
+  return `
+    <div class="page-h">
+      <div>
+        <h1>Benchmark</h1>
+        <p>Control simple de benchmark: cuántos proyectos lo requieren y contador de días hábiles desde bench entregado por Enología hasta feedback.</p>
+      </div>
+    </div>
+
+    <div class="kpi-row" style="grid-template-columns:repeat(6,minmax(0,1fr)) !important">
+      <div class="kpi"><div class="kpi-label">Proyectos totales</div><div class="kpi-val">${total}</div><div class="kpi-sub">portfolio completo</div></div>
+      <div class="kpi"><div class="kpi-label">Requieren bench</div><div class="kpi-val" style="color:var(--warn)">${needed.length}</div><div class="kpi-sub">marcados Sí</div></div>
+      <div class="kpi"><div class="kpi-label">No requieren</div><div class="kpi-val" style="color:var(--accent)">${notNeeded.length}</div><div class="kpi-sub">marcados No</div></div>
+      <div class="kpi"><div class="kpi-label">Pendientes feedback</div><div class="kpi-val" style="color:${pending.length?'var(--warn)':'var(--accent)'}">${pending.length}</div><div class="kpi-sub">${overdue} con +10d háb.</div></div>
+      <div class="kpi"><div class="kpi-label">Sin fecha entrega</div><div class="kpi-val" style="color:${withoutStart.length?'var(--warn)':'var(--accent)'}">${withoutStart.length}</div><div class="kpi-sub">requieren completar</div></div>
+      <div class="kpi"><div class="kpi-label">Prom. feedback</div><div class="kpi-val">${avg ?? '—'}</div><div class="kpi-sub">días hábiles · ${closedDur.length} cerrados</div></div>
+    </div>
+
+    <div class="spacer"></div>
+    <div class="card">
+      <div class="card-title"><span>Benchmark por proyecto</span><span class="ct-sub">contador entre fechas · ${items.length} visibles</span></div>
+      <div class="filter-bar" style="margin-bottom:10px">
+        <input type="text" class="input input-search" style="width:240px" placeholder="Buscar proyecto…" value="${escapeHTML(bf.search||'')}" id="benchmark-search-input" oninput="App.setBenchmarkSearch(this.value)">
+        <span class="filter-label">Benchmark</span>
+        <select class="input" onchange="App.setBenchmarkFilter('needed', this.value)" style="width:150px">
+          <option value="" ${bf.needed===''?'selected':''}>Todos</option>
+          <option value="Yes" ${bf.needed==='Yes'?'selected':''}>Requieren</option>
+          <option value="No" ${bf.needed==='No'?'selected':''}>No requieren</option>
+        </select>
+        <span class="filter-label">Estado</span>
+        <select class="input" onchange="App.setBenchmarkFilter('status', this.value)" style="width:140px">
+          <option value="">Todos</option>
+          ${gs.STATUSES.map(s => `<option value="${s}" ${bf.status===s?'selected':''}>${gs.STATUS_META[s].label}</option>`).join('')}
+        </select>
+        <span class="filter-label">Región</span>
+        <select class="input" onchange="App.setBenchmarkFilter('region', this.value)" style="width:120px">
+          <option value="">Todas</option>
+          ${gs.REGIONS.map(r => `<option value="${r}" ${bf.region===r?'selected':''}>${r}</option>`).join('')}
+        </select>
+        <button class="btn btn-ghost btn-sm" onclick="App.clearBenchmarkFilters()">✕ Limpiar</button>
+      </div>
+      ${benchmarkTableHTML(items)}
+    </div>
+  `;
+}
+
+function benchmarkTableHTML(items) {
+  if (!items.length) return '<div class="empty"><p>No hay proyectos para esos filtros</p></div>';
+  return `
+    <div class="tbl-wrap benchmark-table-v28" style="overflow-x:hidden">
+      <table class="tbl">
+        <thead><tr>
+          <th>Proyecto</th>
+          <th>Cliente</th>
+          <th>País / Región</th>
+          <th>Estado</th>
+          <th>Cajas</th>
+          <th>Bench</th>
+          <th>Bench entregado Enología</th>
+          <th>Feedback dado</th>
+          <th>Contador</th>
+        </tr></thead>
+        <tbody>
+          ${items.map(p => {
+            const needs = (p.benchmarkNeeded||'No') === 'Yes';
+            const closedDays = benchmarkDuration(p);
+            const elapsed = benchmarkElapsed(p);
+            const counter = benchmarkCounterHTML(p);
+            const missingStart = needs && !p.benchmarkStart;
+            const missingEnd = needs && p.benchmarkStart && !p.benchmarkEnd;
+            return `<tr onclick="App.openProject(${p.id})">
+              <td class="col-name"><div>${p.nombre}</div><div class="sub">${p.tipo||'—'} · ${p.bottler||'—'}</div></td>
+              <td><span class="tiny">${p.cliente||'—'}</span></td>
+              <td><span class="tiny">${p.pais||'—'} · ${p.region||'—'}</span></td>
+              <td>${statusBadge(p.status)}</td>
+              <td class="num tiny">${p.c9l ? gs.fmtC9L(p.c9l) : '—'}</td>
+              <td onclick="event.stopPropagation()"><select class="input" onchange="App.updateProj(${p.id}, 'benchmarkNeeded', this.value)"><option value="No" ${!needs?'selected':''}>No</option><option value="Yes" ${needs?'selected':''}>Sí</option></select></td>
+              <td onclick="event.stopPropagation()"><input type="date" class="input date ${missingStart?'date-missing':''}" value="${p.benchmarkStart||''}" onchange="App.updateProj(${p.id}, 'benchmarkStart', this.value)"></td>
+              <td onclick="event.stopPropagation()"><input type="date" class="input date ${missingEnd?'date-missing':''}" value="${p.benchmarkEnd||''}" onchange="App.updateProj(${p.id}, 'benchmarkEnd', this.value)"></td>
+              <td title="${needs && p.benchmarkStart ? (p.benchmarkEnd ? 'Cerrado en ' + closedDays + ' días hábiles' : 'En curso hace ' + elapsed + ' días hábiles') : ''}">${counter}</td>
+            </tr>`;
+          }).join('')}
+        </tbody>
+      </table>
+    </div>
+  `;
+}
+
+function benchmarkDuration(p) {
+  if ((p.benchmarkNeeded || 'No') !== 'Yes') return null;
+  if (!p.benchmarkStart || !p.benchmarkEnd) return null;
+  return gs.businessDays(p.benchmarkStart, p.benchmarkEnd);
+}
+
+function benchmarkElapsed(p) {
+  if ((p.benchmarkNeeded || 'No') !== 'Yes') return null;
+  if (!p.benchmarkStart) return null;
+  return gs.businessDays(p.benchmarkStart, p.benchmarkEnd || gs.today());
+}
+
+function benchmarkCounterHTML(p) {
+  const needs = (p.benchmarkNeeded || 'No') === 'Yes';
+  if (!needs) return '<span class="benchmark-counter neutral">No aplica</span>';
+  if (!p.benchmarkStart) return '<span class="benchmark-counter neutral">Sin inicio</span>';
+  const d = benchmarkElapsed(p);
+  const closed = !!p.benchmarkEnd;
+  const cls = d > 10 ? 'bad' : d >= 8 ? 'warn' : 'ok';
+  return `<span class="benchmark-counter ${cls}">${closed ? 'Cerrado' : 'En curso'} · ${d}d</span>`;
+}
+
+function benchmarkDaysClass(days) {
+  if (days === null || isNaN(days)) return '';
+  if (days > 10) return 'benchmark-days-bad';
+  if (days >= 8) return 'benchmark-days-warn';
+  return 'benchmark-days-ok';
+}
+
 function renderFlujo() {
   return `
     <div class="page-h">
@@ -5156,7 +5714,7 @@ function flujoSvgHTML() {
 
 /* expose */
 Object.assign(window.Views, {
-  renderHistorico, renderRiesgo, renderEjecutivo, renderGantt, renderFlujo,
+  renderHistorico, renderRiesgo, renderEjecutivo, renderGantt, renderBenchmark, renderFlujo,
   ganttSvgHTML, ganttDetailTableHTML, ganttFilter,
 });
 
@@ -5182,6 +5740,7 @@ const App = {
       riesgo:     Views.renderRiesgo,
       ejecutivo:  Views.renderEjecutivo,
       gantt:      Views.renderGantt,
+      benchmark:  Views.renderBenchmark,
       flujo:      Views.renderFlujo,
       datos:      Views.renderDatos,
     };
@@ -5287,6 +5846,88 @@ const App = {
     App.go('datos');
   },
 
+
+  copyGanttTable(ev) {
+    if (ev) ev.stopPropagation();
+    const items = g2.state.projects.filter(p => {
+      if (ganttFilter.regions.size && !ganttFilter.regions.has(p.region)) return false;
+      if (ganttFilter.statuses.size && !ganttFilter.statuses.has(p.status)) return false;
+      const q = (g2.state.ganttSearch||'').toLowerCase();
+      if (q && ![p.nombre,p.cliente,p.bottler,p.region,p.tipo,p.ipm].join(' ').toLowerCase().includes(q)) return false;
+      return true;
+    }).map(p => ({p, e:g2.evaluateProject(p)}))
+      .sort((a,b) => (a.p.lanzEstim||'9999').localeCompare(b.p.lanzEstim||'9999'));
+
+    const header = ['Proyecto','Estado','Región','País','Cliente','Tipo','Bottler','Lanz. estimado','Cajas 9LC','Etapa','Comentario','Alerta','Próximo paso'];
+    const rows = items.map(({p,e}) => {
+      const manualNotes = (p.notes||[]).filter(n => !n.auto);
+      const lastNote = (manualNotes[0]?.text || '').replace(/\s+/g,' ').trim();
+      const firstSignal = e.signals[0];
+      const nextStep = (p.nextSteps||[]).filter(s=>!s.done).sort((a,b)=>(a.dueDate||'9999').localeCompare(b.dueDate||'9999'))[0];
+      const nextStepText = nextStep ? `${nextStep.text}${nextStep.dueDate ? ' · '+g2.fd(nextStep.dueDate) : ''}` : (e.nextAction || '');
+      return [p.nombre, p.status, p.region||'', p.pais||'', p.cliente||'', p.tipo||'', p.bottler||'', p.lanzEstim ? g2.fd(p.lanzEstim) : 'TBC', p.c9l||0, e.currentStage.label, lastNote, firstSignal ? firstSignal.tag : 'OK', nextStepText];
+    });
+
+    const clean = v => String(v ?? '').replace(/\t/g,' ').replace(/\n/g,' ').trim();
+    const tsv = [header, ...rows].map(r => r.map(clean).join('\t')).join('\n');
+    const html = `
+      <table style="border-collapse:collapse;font-family:Arial,Helvetica,sans-serif;font-size:12px;color:#1E211B;width:100%;">
+        <thead>
+          <tr>${header.map(h => `<th style="background:#EFE9DD;border:1px solid #C6B89F;padding:6px 8px;text-align:left;font-weight:700;white-space:nowrap;">${escapeHTML(h)}</th>`).join('')}</tr>
+        </thead>
+        <tbody>
+          ${rows.map((r, i) => `<tr>${r.map((v, j) => `<td style="border:1px solid #DED4C3;padding:6px 8px;vertical-align:top;${i%2?'background:#FBF8F0;':''}${j===8?'text-align:right;font-family:Consolas,monospace;':''}">${escapeHTML(clean(v))}</td>`).join('')}</tr>`).join('')}
+        </tbody>
+      </table>`;
+
+    const showOk = () => {
+      const ok = document.getElementById('gantt-copy-ok');
+      if (ok) { ok.textContent = 'Copiada con formato'; ok.style.display = 'inline'; setTimeout(()=> ok.style.display='none', 1800); }
+    };
+
+    if (navigator.clipboard && window.ClipboardItem) {
+      const item = new ClipboardItem({
+        'text/html': new Blob([html], {type:'text/html'}),
+        'text/plain': new Blob([tsv], {type:'text/plain'})
+      });
+      navigator.clipboard.write([item]).then(showOk).catch(() => App.copyPlainTextFallback(tsv, showOk));
+    } else {
+      App.copyPlainTextFallback(tsv, showOk);
+    }
+  },
+
+  copyPlainTextFallback(text, onOk) {
+    const ta = document.createElement('textarea');
+    ta.value = text;
+    ta.style.position = 'fixed';
+    ta.style.left = '-9999px';
+    document.body.appendChild(ta);
+    ta.select();
+    document.execCommand('copy');
+    document.body.removeChild(ta);
+    if (onOk) onOk();
+  },
+
+  /* ── benchmark filters ── */
+  setBenchmarkSearch(val) {
+    gs.state.benchmarkFilters ||= {status:'', region:'', needed:'', search:''};
+    gs.state.benchmarkFilters.search = val || '';
+    App.go('benchmark');
+    requestAnimationFrame(() => {
+      const el = document.getElementById('benchmark-search-input');
+      if (el) { el.focus(); el.setSelectionRange(el.value.length, el.value.length); }
+    });
+  },
+  setBenchmarkFilter(key, value) {
+    gs.state.benchmarkFilters ||= {status:'', region:'', needed:'', search:''};
+    gs.state.benchmarkFilters[key] = value;
+    App.go('benchmark');
+  },
+  clearBenchmarkFilters() {
+    gs.state.benchmarkFilters = {status:'', region:'', needed:'', search:''};
+    App.go('benchmark');
+  },
+
   /* ── gantt filters ── */
   toggleGantt(key, val) {
     const set = Views.ganttFilter[key];
@@ -5385,6 +6026,51 @@ const App = {
   deleteNote(id, noteId) {
     gs.deleteNote(id, noteId);
     Views.renderDrawer(id);
+  },
+  addNextStep(id) {
+    const text = document.getElementById('nextstep-text')?.value || '';
+    const dueDate = document.getElementById('nextstep-date')?.value || '';
+    const comment = document.getElementById('nextstep-comment')?.value || '';
+    if (!text.trim()) { alert('Cargá el próximo paso'); return; }
+    gs.addNextStep(id, text, dueDate, comment);
+    Views.renderDrawer(id);
+    App.updateNavCounts();
+  },
+  toggleNextStep(id, stepId, done) {
+    gs.updateNextStep(id, stepId, {done});
+    Views.renderDrawer(id);
+    App.updateNavCounts();
+  },
+  updateNextStep(id, stepId, field, value) {
+    const patch = {};
+    patch[field] = value || (field === 'dueDate' ? null : '');
+    gs.updateNextStep(id, stepId, patch);
+    App.updateNavCounts();
+  },
+  deleteNextStep(id, stepId) {
+    gs.deleteNextStep(id, stepId);
+    Views.renderDrawer(id);
+    App.updateNavCounts();
+  },
+  addTimelineEvent(id) {
+    const date = document.getElementById('event-date')?.value || '';
+    const title = document.getElementById('event-title')?.value || '';
+    const comment = document.getElementById('event-comment')?.value || '';
+    if (!date || !title.trim()) { alert('Cargá fecha y evento'); return; }
+    gs.addTimelineEvent(id, date, title, comment);
+    Views.renderDrawer(id);
+    App.updateNavCounts();
+  },
+  updateTimelineEvent(id, eventId, field, value) {
+    const patch = {};
+    patch[field] = value || (field === 'date' ? null : '');
+    gs.updateTimelineEvent(id, eventId, patch);
+    App.updateNavCounts();
+  },
+  deleteTimelineEvent(id, eventId) {
+    gs.deleteTimelineEvent(id, eventId);
+    Views.renderDrawer(id);
+    App.updateNavCounts();
   },
   deleteProject(id) {
     const p = gs.getProject(id);
@@ -5670,6 +6356,7 @@ const App = {
         const rows = XLSX.utils.sheet_to_json(ws, {header:1, raw:true, defval:''});
         const headers = rows[1] ? rows[1].map(h => (h||'').toString().trim()) : [];
         const col = name => headers.indexOf(name);
+        const findCol = (...patterns) => headers.findIndex(h => patterns.every(p => h.toLowerCase().includes(p.toLowerCase())));
         const C = {
           status:col('STATUS'), region:col('Region'), pais:col("Customer's Country"),
           cliente:col('Client'), nombre:col('Project Name'), c9l:col('C9L'),
@@ -5683,6 +6370,10 @@ const App = {
           feedFinal:col('Feedback Final'),
           gate1:col('Gate 1'), gate2:col('Gate 2'), gate3:col('Gate 3'),
           primProd:col('Primera producción'), lanzReal:col('Lanzamiento Real'),
+          benchmarkNeeded: findCol('benchmark'),
+          benchmarkStart: (() => { const opts=[findCol('bench','entreg'), findCol('benchmark','entreg'), findCol('enolog','entreg'), findCol('benchmark','enolog'), findCol('pedido','enolog'), findCol('envio','enolog'), findCol('benchmark','inicio'), findCol('fecha','benchmark')]; return opts.find(x=>x>=0) ?? -1; })(),
+          benchmarkEnd: (() => { const opts=[findCol('feedback','bench'), findCol('feedback','enolog'), findCol('respuesta','enolog'), findCol('benchmark','feedback'), findCol('benchmark','cierre')]; return opts.find(x=>x>=0) ?? -1; })(),
+          benchmarkComments: (() => { const opts=[findCol('benchmark','coment'), findCol('enolog','coment'), findCol('benchmark','conclus')]; return opts.find(x=>x>=0) ?? -1; })(),
         };
         const imported = [];
         for (let i = 2; i < rows.length; i++) {
@@ -5700,11 +6391,17 @@ const App = {
             ipm: (r[C.ipm]||'').toString().trim(),
             c9l: parseFloat(r[C.c9l])||0,
             complejidad: parseInt(r[C.complexity])||null,
-            hasBC: (r[C.hasBC]||'Yes').toString().trim(),
+            hasBC: normalizeYesNo(r[C.hasBC], 'Yes'),
+            benchmarkNeeded: normalizeYesNo(C.benchmarkNeeded >= 0 ? r[C.benchmarkNeeded] : '', 'No'),
+            benchmarkStart: C.benchmarkStart >= 0 ? excelDateToISO(r[C.benchmarkStart]) : null,
+            benchmarkEnd: C.benchmarkEnd >= 0 ? excelDateToISO(r[C.benchmarkEnd]) : null,
+            benchmarkComments: C.benchmarkComments >= 0 ? (r[C.benchmarkComments]||'').toString().trim() : '',
             lanzEstim: excelDateToISO(r[C.lanzEstim]),
             prioridad: 'media',
             bloqueadoPor: null, bloqueadoDesde: null,
             notes: [],
+            nextSteps: [],
+            timelineEvents: [],
             createdAt: new Date().toISOString(),
             updatedAt: new Date().toISOString(),
             fechas: {
@@ -5744,12 +6441,16 @@ const App = {
   },
   confirmImport() {
     if (!App.pendingImport) return;
-    // preserve notes by id
+    // preserve notes, next steps and timeline events by id
     const oldNotes = {};
-    gs.state.projects.forEach(p => { oldNotes[p.id] = p.notes || []; });
+    const oldSteps = {};
+    const oldEvents = {};
+    gs.state.projects.forEach(p => { oldNotes[p.id] = p.notes || []; oldSteps[p.id] = p.nextSteps || []; oldEvents[p.id] = p.timelineEvents || []; });
     gs.state.projects = App.pendingImport.map(p => ({
       ...p,
       notes: oldNotes[p.id] || [],
+      nextSteps: oldSteps[p.id] || [],
+      timelineEvents: oldEvents[p.id] || [],
     }));
     gs.save();
     App.pendingImport = null;
@@ -5789,11 +6490,11 @@ const App = {
     reader.readAsText(file);
   },
   exportCSV() {
-    const headers = ['id','nombre','region','pais','cliente','tipo','bottler','status','prioridad','bloqueadoPor','lanzEstim','ipm','c9l','complejidad','hasBC','bcRecibido','primerFeedback','cotizBottler','respBottler','feedbackFinal','gate1','gate2','gate3','primeraProduccion','lanzReal','updatedAt'];
+    const headers = ['id','nombre','region','pais','cliente','tipo','bottler','status','prioridad','bloqueadoPor','lanzEstim','ipm','c9l','complejidad','hasBC','benchmarkNeeded','benchmarkStart','benchmarkEnd','benchmarkComments','bcRecibido','primerFeedback','cotizBottler','respBottler','feedbackFinal','gate1','gate2','gate3','primeraProduccion','lanzReal','updatedAt'];
     const rows = gs.state.projects.map(p => [
       p.id, p.nombre, p.region, p.pais||'', p.cliente||'', p.tipo, p.bottler||'',
       p.status, p.prioridad||'media', p.bloqueadoPor||'',
-      p.lanzEstim||'', p.ipm||'', p.c9l||0, p.complejidad||'', p.hasBC||'Yes',
+      p.lanzEstim||'', p.ipm||'', p.c9l||0, p.complejidad||'', p.hasBC||'Yes', p.benchmarkNeeded||'No', p.benchmarkStart||'', p.benchmarkEnd||'', p.benchmarkComments||'',
       p.fechas.bcRecibido||'', p.fechas.primerFeedback||'', p.fechas.cotizBottler||'',
       p.fechas.respBottler||'', p.fechas.feedbackFinal||'',
       p.fechas.gate1||'', p.fechas.gate2||'', p.fechas.gate3||'',
@@ -5809,6 +6510,14 @@ const App = {
 };
 
 /* Excel date helper */
+function normalizeYesNo(value, fallback='No') {
+  const v = (value ?? '').toString().trim().toLowerCase();
+  if (!v) return fallback;
+  if (['yes','si','sí','y','1','true','x'].includes(v)) return 'Yes';
+  if (['no','n','0','false'].includes(v)) return 'No';
+  return v.includes('yes') || v.includes('si') || v.includes('sí') ? 'Yes' : v.includes('no') ? 'No' : fallback;
+}
+
 function excelDateToISO(val) {
   if (!val && val !== 0) return null;
   if (typeof val === 'string') {
